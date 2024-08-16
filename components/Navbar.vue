@@ -11,7 +11,9 @@
 <div class="navbar-top">
     <nav>
       <ul>
-        <li><nuxt-link to="/"><div class="logo">UAA</div></nuxt-link></li>
+        <!-- <li><nuxt-link to="/"><div class="logo">U<span>AA</span></div></nuxt-link></li> -->
+        <li><nuxt-link to="/"><div class="logo"><span>U</span><span>A</span><span>A</span></div></nuxt-link></li>
+
         <li><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/about">About</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
@@ -85,10 +87,39 @@
     }
   }
   .logo {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 600;
-    img{
-      width: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 600px;
+    span{
+      // font-weight: 200;
+      // color: #fdfdfd;
+        width: 60px;
+        min-width: 60px;
+        height: 50px;
+        min-height: 50px;
+        background: #0ead69;
+        background: linear-gradient(90deg, rgba(14,173,105,1) 33%, rgba(2,134,77,1) 92%);
+        border-radius: 8px;
+        color: #FFF;
+        // opacity: 0.7;
+        transform: rotateY(45deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -5px;
+        transition-duration: 0.5s;
+        transform: perspective(135px) rotateY(39deg);
+    }
+    &:hover span{
+      transform:none;
+      width: 50px;
+      min-width: 50px;
+      height: 50px;
+      margin-right: 12px;
+
     }
   }
   nav ul li a {
@@ -98,7 +129,7 @@
   }
   .router-link-active {
     /* color: #00FF7F; */
-    color: #65a30d;
+    color: #0ead69;
 
 
   }
