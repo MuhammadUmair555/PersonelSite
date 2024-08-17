@@ -10,13 +10,56 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
 
         </div>
         <p class="my-bio">
-            Hello! I'm Umair, a passionate Software Engineer specializing in Frontend(UI/UX) Development with a strong focus on crafting immersive, user-friendly interfaces. With a deep understanding of modern web technologies and frameworks, including Vue.js, Nuxt.js, and React.js, I have dedicated my career to bringing creative ideas to life through elegant and efficient code.
+            I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> specializing in Web and Mobile UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
         </p>
+        <div class="umair-anwar-arain">
+            <div class="circle heartbeat"></div>
+            <img src="../assets/Images/umair.png" alt="">
+        </div>
+
+         <div class="contact-info">
+            <div class="info-row">
+                <div class="info-item">
+                <span class="label">Phone</span>
+                <span class="colon">:</span>
+                <span class="value">+92 312 3840 405</span>
+                </div>
+                <div class="info-item">
+                <span class="label">Skype</span>
+                <span class="colon">:</span>
+                <span class="value">umair.anwar.arain</span>
+                </div>
+                <div class="info-item">
+                <span class="label">Language</span>
+                <span class="colon">:</span>
+                <span class="value">English, Urdu</span>
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="info-item">
+                <span class="label">Email</span>
+                <span class="colon">:</span>
+                <span class="value">info@umairanwar.com</span>
+                </div>
+               
+                <div class="info-item">
+                <span class="label">Github</span>
+                <span class="colon">:</span>
+                <span class="value">github.com/MuhammadUmair555</span>
+                </div>
+                <div class="info-item">
+                <span class="label">Residence:</span>
+                <span class="colon">:</span>
+                <span class="value">Pakistan, Karchi</span>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 <style lang="scss" scoped>
 .home-section{
-    height: 100vh;
+    margin-bottom: 40px;
+    position: relative;
     .my-name{
         position: relative;
         width: fit-content;
@@ -33,10 +76,99 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
             color: #dddddddd;
         }
     }
-   
     .my-bio{
         margin-top: 20px;
         max-width: 65%;
+        line-height: 28px;
     }
+    .umair-anwar-arain{
+        position: absolute;
+        right: 0;
+        top: 0;
+        img{
+            width: 300px;
+        }
+       .circle{
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgb(59, 60, 70);
+            opacity: 0.529;
+            right: 25px;
+            // top: 45px;
+            width: 230px;
+            height: 230px;
+            z-index: -1;
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            animation: heartbeat-middle 5s infinite alternate;
+            -webkit-animation: heartbeat-middle 5s infinite alternate;
+            animation: heartbeat 5s ease-in-out infinite;
+        }
+    }
+    @keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.3);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.3);
+    }
+    70% {
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat-bg {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+    .contact-info {
+        margin-top: 50px;
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+        .info-row {
+        }
+
+        .info-item {
+        display: flex;
+        margin-bottom: 10px;
+
+        }
+
+        .label {
+        color: #606060;
+        width: 100px;
+        text-align: left;
+        font-size: 14px;
+
+        }
+        .colon{
+            width: 30px;
+        }
+        .value {
+        color: #dddd;
+        font-size: 14px;
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    .contact-info{
+        flex-direction: column;
+        gap:unset !important;
+    }
+    
 }
 </style>

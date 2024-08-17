@@ -18,7 +18,7 @@
       "Bloger, Social Activest",
   
     ],
-    typeSpeed: 50,
+    typeSpeed: 90,
     startDelay: 500,
     backSpeed: 30,
     backDelay: 2000,
@@ -39,6 +39,7 @@
     font-family: "Caveat", cursive;
     line-height: 1;
     color: #0ead69;
+    margin-bottom: 10px;
     
   }
  

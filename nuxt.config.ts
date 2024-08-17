@@ -5,7 +5,11 @@ export default defineNuxtConfig({
   components: true,
   pages: true,
   css: [
-    '~/assets/styles/style.scss'
+    '~/assets/styles/style.scss',
+    '@splidejs/vue-splide/css'
+  ],
+  plugins: [
+    { src: '~/plugins/vue-splide', mode: 'client' }
   ],
   router: {
     options: {
