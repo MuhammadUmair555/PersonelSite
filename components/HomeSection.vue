@@ -1,5 +1,9 @@
 <script setup>
 import AnimatedDesignation from './AnimatedDesignation.vue'
+import textslider from '../components/feature/textslider.vue'
+import MySkill from '../components/feature/MySkill.vue'
+
+
 </script>
 <template>
     <section class="home-section">
@@ -14,9 +18,8 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         </p>
         <div class="umair-anwar-arain">
             <div class="circle heartbeat"></div>
-            <img src="../assets/Images/umair.png" alt="">
+            <img src="../assets/Images/umair-logo.png" alt="">
         </div>
-
          <div class="contact-info">
             <div class="info-row">
                 <div class="info-item">
@@ -53,7 +56,11 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 <span class="value">Pakistan, Karchi</span>
                 </div>
             </div>
+           
+                <textslider />
+            
         </div>
+        <MySkill />
     </section>
 </template>
 <style lang="scss" scoped>
@@ -79,7 +86,6 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     .my-bio{
         margin-top: 20px;
         max-width: 65%;
-        line-height: 28px;
     }
     .umair-anwar-arain{
         position: absolute;
@@ -91,12 +97,11 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
        .circle{
             position: absolute;
             border-radius: 50%;
-            background-color: rgb(59, 60, 70);
-            opacity: 0.529;
-            right: 25px;
-            // top: 45px;
-            width: 230px;
-            height: 230px;
+            background-color:#181818;
+            right: 51px;
+            width: 210px;
+            top: 36px;
+            height: 210px;
             z-index: -1;
             transform: scale(1);
             -webkit-transform: scale(1);
@@ -124,24 +129,22 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     70% {
         transform: scale(1);
     }
-}
+    }
 
-@keyframes heartbeat-bg {
-    0% {
-        transform: scale(1);
+    @keyframes heartbeat-bg {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.2);
+        }
     }
-    100% {
-        transform: scale(1.2);
-    }
-}
     .contact-info {
         margin-top: 50px;
         display: flex;
         align-items: flex-start;
-        gap: 40px;
-        .info-row {
-        }
-
+        gap: 30px;
+        overflow: hidden;
         .info-item {
         display: flex;
         margin-bottom: 10px;
@@ -171,4 +174,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     }
     
 }
+</style>
+<style lang="scss">
+
 </style>

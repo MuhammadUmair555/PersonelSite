@@ -1,5 +1,4 @@
 <script setup>
-import textslider from '../components/feature/textslider.vue'
 </script>
 
 <template>
@@ -41,13 +40,7 @@ import textslider from '../components/feature/textslider.vue'
                 </div>
             </div>
         </div>
-    <textslider />
-    <div class="symbol-wrapper">
-            <img src="../assets/Images/intro-ft-icon1.png" alt="">
-                <img src="../assets/Images/intro-ft-icon2.png" alt="">
-                <img src="../assets/Images/intro-ft-icon3.png" alt="">
-                <img src="../assets/Images/intro-ft-icon4.png" alt="">
-        </div>
+
     </section>
   
 </template>
@@ -56,11 +49,7 @@ import textslider from '../components/feature/textslider.vue'
     height: 100vh;
    
 }
-.symbol-wrapper{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
+
 .about-wrapper{
     display: flex;
     gap: 10px;
