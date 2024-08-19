@@ -3,39 +3,40 @@
 
 <template>
     <section class="about-section" >
-        
-        <div class="about-wrapper">
-            <div class="work-experience">
-                <p class="main-heading">Work <span>Experience</span></p>
-                <div class="education">
-                    <div class="small-circle"></div>
-                    <div>
-                        <p class="education-name">SOFTWARE ENGINEER (Frontend)</p>
-                        <p class="education-from">Officefield, Gulshan e Iqbal, Karachi  <span>( 2022 - Present )</span></p>
+        <div class="gradient-border">
+            <div class="about-wrapper">
+                <div class="work-experience">
+                    <p class="main-heading">Work <span>Experience</span></p>
+                    <div class="education">
+                        <div class="small-circle"></div>
+                        <div>
+                            <p class="education-name">SOFTWARE ENGINEER (Frontend)</p>
+                            <p class="education-from">Officefield, Gulshan e Iqbal, Karachi  <span>( 2022 - Present )</span></p>
+                        </div>
                     </div>
-                </div>
-                <div class="education">
-                    <div class="small-circle"></div>
-                    <div>
-                        <p class="education-name">WEB DEVELOPER</p>
-                        <p class="education-from">BCI New Media, Karachi<span>( 2019 - 2021 )</span></p>
+                    <div class="education">
+                        <div class="small-circle"></div>
+                        <div>
+                            <p class="education-name">WEB DEVELOPER</p>
+                            <p class="education-from">BCI New Media, Karachi<span>( 2019 - 2021 )</span></p>
+                        </div>
                     </div>
-                </div>
-           </div>
-            <div class="my-education">
-            <p class="main-heading">My <span>Education</span></p>
-            <div class="education">
-                    <div class="small-circle"></div>
-                    <div>
-                        <p class="education-name">Bachelor in Computer Science</p>
-                        <p class="education-from">Federal Urdu University, Karchi <span>( 2015 - 2019 )</span></p>
-                    </div>
-                </div>
+            </div>
+                <div class="my-education">
+                <p class="main-heading">My <span>Education</span></p>
                 <div class="education">
-                    <div class="small-circle"></div>
-                    <div>
-                        <p class="education-name">Diploma in Web Development</p>
-                        <p class="education-from">Infra Professional<span>( 2018 - 2018 )</span></p>
+                        <div class="small-circle"></div>
+                        <div>
+                            <p class="education-name">Bachelor in Computer Science</p>
+                            <p class="education-from">Federal Urdu University, Karchi <span>( 2015 - 2019 )</span></p>
+                        </div>
+                    </div>
+                    <div class="education">
+                        <div class="small-circle"></div>
+                        <div>
+                            <p class="education-name">Diploma in Web Development</p>
+                            <p class="education-from">Infra Professional<span>( 2018 - 2018 )</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,7 +50,35 @@
     height: 100vh;
    
 }
+.gradient-border{
+    position: relative;
+    z-index: 9;
+    padding: 2px;
+    overflow: hidden;
+    border-radius: 15px;
 
+}
+@keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -168px;
+    right: -191px;
+    width: 1057px;
+    height: 1050px;
+    bottom: -100px;
+    margin: auto;
+    z-index: -1;
+    border-radius: 15px;
+    background-image: conic-gradient(from 324deg, #181818 50%, #0ead69 60%, #181818, #181818);
+    animation: spin-2adedd72 3s linear infinite;
+
+}
 .about-wrapper{
     display: flex;
     gap: 10px;

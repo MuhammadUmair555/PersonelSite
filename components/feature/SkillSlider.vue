@@ -29,14 +29,10 @@
                     <img src="../../assets/Images/skill/vue-9-logo-svgrepo-com.svg" alt="Vue.js" title="Vue.js">
                 </div>
             </SplideSlide>
+           
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/sass-svgrepo-com" alt="scss" >
-                </div>
-            </SplideSlide>
-            <SplideSlide>
-                <div class="skill-logo">
-                    <img src="../../assets/Images/skill/sass-svgrepo-com.svg" alt="nuxt.js" title="Nuxt.js">
+                    <img src="../../assets/Images/skill/sass-svgrepo-com.svg" alt="nuxt.js" title="Sass">
                 </div>
             </SplideSlide>
             <SplideSlide>
@@ -103,7 +99,7 @@
   
   <style lang="scss" >
   .skill-slider {
-    margin-top: 30px;
+    margin-top: 40px;
     position: relative;
     .splide{
         .splide__slide{
