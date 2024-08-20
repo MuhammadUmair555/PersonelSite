@@ -30,10 +30,10 @@ import SkillSlider from '../feature/SkillSlider.vue'
 </template>
 <style lang="scss" scoped>
 .skill-wrapper{
-    margin-top: 30px;
+    margin-top: 40px;
 }
 .skill-info{
-    margin-top: 20px;
+    margin-top: 30px;
 }
 .work-experience{
     margin-top: 30px;

@@ -16,47 +16,53 @@
         <!-- Slides -->
         <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/javascript-svgrepo-com (1).svg" alt="">
+                    <img src="../../assets/Images/skill/javascript-svgrepo-com (1).svg" alt="javaScript" title="javaScript">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/reactjs-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/reactjs-svgrepo-com.svg" alt="react.js" title="React.js">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/vue-9-logo-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/vue-9-logo-svgrepo-com.svg" alt="Vue.js" title="Vue.js">
+                </div>
+            </SplideSlide>
+           
+            <SplideSlide>
+                <div class="skill-logo">
+                    <img src="../../assets/Images/skill/sass-svgrepo-com.svg" alt="nuxt.js" title="Sass">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/scss2-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/nuxt-dot-js-svgrepo-com.svg" alt="nuxt.js" title="Nuxt.js">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/nuxt-dot-js-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/jquery-fill-svgrepo-com.svg" alt="jQuery" title="jQuery">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/jquery-fill-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/git-svgrepo-com.svg" alt="git" title="git">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/photoshop-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/photoshop-svgrepo-com.svg" alt="Photoshop" title="Photoshop">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/html5-01-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/html5-01-svgrepo-com.svg" alt="Html5" title="Html5">
                 </div>
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/css3-01-svgrepo-com.svg" alt="">
+                    <img src="../../assets/Images/skill/css3-01-svgrepo-com.svg" alt="css3" title="css3">
                 </div>
             </SplideSlide>
         <!-- Add more SplideSlide elements here -->
@@ -93,7 +99,7 @@
   
   <style lang="scss" >
   .skill-slider {
-    margin-top: 30px;
+    margin-top: 40px;
     position: relative;
     .splide{
         .splide__slide{
