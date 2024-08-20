@@ -41,19 +41,19 @@
                 </div>
             </div>
         </div>
+       
 
     </section>
   
 </template>
 <style lang="scss" scoped>
 .about-section{
-    height: 100vh;
-   
+    margin-bottom: 50px;
 }
 .gradient-border{
     position: relative;
     z-index: 9;
-    padding: 2px;
+    padding: 1px;
     overflow: hidden;
     border-radius: 15px;
 
@@ -67,8 +67,8 @@
     content: "";
     position: absolute;
     top: -100px;
-    left: -168px;
-    right: -191px;
+    left: -190px;
+    right: -190px;
     width: 1057px;
     height: 1050px;
     bottom: -100px;
@@ -76,7 +76,7 @@
     z-index: -1;
     border-radius: 15px;
     background-image: conic-gradient(from 324deg, #181818 50%, #0ead69 60%, #181818, #181818);
-    animation: spin-2adedd72 3s linear infinite;
+    animation: spin-2adedd72 8s linear infinite;
 
 }
 .about-wrapper{

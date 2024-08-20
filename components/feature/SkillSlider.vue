@@ -2,7 +2,7 @@
     <div class="skill-slider">
       <Splide :options="options" :extensions="{ AutoScroll }">
         <!-- Custom Arrows within Splide -->
-        <template #arrows>
+        <!-- <template #arrows>
           <div class="splide__arrows">
             <button class="splide__arrow splide__arrow--prev" type="button">
               <p>Prev</p>
@@ -11,7 +11,7 @@
               <p>Next</p>
             </button>
           </div>
-        </template>
+        </template> -->
         
         <!-- Slides -->
         <SplideSlide>
@@ -112,7 +112,7 @@
     width: 50px;
   }
   
-  .splide  .splide__arrows{
+  .skill-slider .splide  .splide__arrows{
     display: flex;
     justify-content: end !important;
     position: relative;
