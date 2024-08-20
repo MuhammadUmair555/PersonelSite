@@ -7,9 +7,9 @@ import SkillSlider from '../feature/SkillSlider.vue'
         
         <div class="work-experience">
                 <div class="service">
-                    <SPan>
+                    <span>
                         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="#0ead69" viewBox="0 0 512 512"><path d="M508.434 17.784c-29.932-29.932-221.952 135.598-320.098 231.702l88.383 88.383c96.105-98.144 261.647-290.153 231.715-320.085zM166.239 274.614c-9.594 12.837-23.847 32.658-33.329 49.239l69.454 69.454c16.579-9.484 36.396-23.739 49.231-33.337l-85.356-85.356zM106.101 344.264c-14.395 1.825-28.317 8.255-39.372 19.31C28.196 402.108 48.364 431.764 0 497.783c0 0 127.405-3.055 162.643-38.294 11.055-11.055 17.485-24.976 19.31-39.371l-75.852-75.854z"/></svg>
-                    </SPan>
+                    </span>
                      <p class="education-name">Design</p>
                     <!-- <p class="education-from">Officefield, Gulshan e Iqbal, Karachi  <span>( 2022 - Present )</span></p> -->
                 </div>
