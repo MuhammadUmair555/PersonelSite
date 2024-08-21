@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-skill">
+  <div class="social-slider">
     <Splide :options="options" :extensions="{ AutoScroll }">
       <SplideSlide>
         <img src="../../assets/Images/intro-ft-icon1.png" alt="">
@@ -54,10 +54,10 @@ const options = ref({
 </script>
 
 <style lang="scss">
-.slider-skill {
+.social-slider{
   max-width: 300px ;
   align-self: end;
-  .Splide {
+  .splide {
     padding: 0;
     justify-content: center;
   }
