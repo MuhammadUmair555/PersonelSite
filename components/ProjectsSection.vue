@@ -2,22 +2,33 @@
   import { ref } from 'vue';
   import { Splide, SplideSlide } from '@splidejs/vue-splide';
   import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-  
+  // or other themes
+// import '@splidejs/vue-splide/css/skyblue';
+import '@splidejs/vue-splide/css/sea-green';
+
+// or only core styles
+import '@splidejs/vue-splide/css/core';
+// Define the component
+defineComponent( {
+  components: {
+    Splide,
+    SplideSlide,
+    
+  },
+} );
   const options = ref({
 
-    gap: '1rem',
-    rewind: true,
-    type: 'loop',
-    perPage: 10,
-    width: '100%',
-    perMove: 1,
-    arrows: true,
-    // pauseOnHover: false,
-    pagination: false,
-    arrow: true,
-    // autoScroll: {
-    //   speed: 0.5,
-    // },
+  perPage: 5,
+  perMove: 1,
+  snap   : true,
+  focus  : 0,
+  omitEnd: true,
+  drag   : 'free',
+  gap: '1rem',
+  arrows: true,
+  wheel  : true,
+  pagination: false,
+
   });
   </script>
 
@@ -27,7 +38,7 @@
         <div class="project-wrapper ">
             <div class="project-description">
                 <p>
-                My Latest Work: Explore the projects where my creativity meets technical expertise, showcasing innovative solutions and design excellence.
+               Explore the projects where my creativity meets technical expertise, showcasing innovative solutions and design excellence.
             </p>
             <button class="view-all">All Projects</button>
             </div>
@@ -36,6 +47,48 @@
                     
                     <SplideSlide>
                         <div class="project">
+                            <div class="project-inside">
+                                <div class="project-image">
+                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                </div>
+                                <div class="project-name">
+                                    Analytics Dashboard
+                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                </div>
+                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div class="project">
+                            <div class="project-inside">
+                                <div class="project-image">
+                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                </div>
+                                <div class="project-name">
+                                    Analytics Dashboard
+                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                </div>
+                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div class="project">
+                            <div class="project-inside">
+                                <div class="project-image">
+                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                </div>
+                                <div class="project-name">
+                                    Analytics Dashboard
+                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                </div>
+                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
                                     <img src="../assets/Images/project/project-umair-1.jpg" alt="">
@@ -58,28 +111,54 @@
   
 <style lang="scss" >
 .projects {
-  margin-top: 40px;
+//   margin-top: 40px;
   position: relative;
   .splide{
+    padding: 0;
       .splide__slide{
         min-width: 300px;
         max-width: 300px;
       }
-      .splide__arrow--prev {
-        right: 4em !important;
-    }
   }
 
-}
+
 
 .splide__arrows{
-  display: flex;
-  justify-content: end !important;
-  position: relative;
-  top: -50px; /* Adjust based on your design */
+    position: absolute;
+    bottom: 26px;
+    left: -139px;
+}
+.splide__arrow svg{
+    fill: #fff !important;
+    width: 1.5em !important;
+}
+.splide__arrow {
+    align-items: center;
+    background: #0ead69;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    width: 3.5em;
+    height: 3.5em;
+    z-index: 1;
+}
+.splide__arrow:disabled {
+    opacity: .2;
+    // background-color: #181818;
 }
 .splide__arrow--prev {
-    right: 4em !important;
+    right: 10em !important;
+}
+.splide__arrow--next {
+    right: -9em !important;
+}
 }
 </style>
 <style lang="scss" scoped>
@@ -93,6 +172,7 @@
     margin-top: 25px;
     .project-description{
         width: 30%;
+        min-width: 30%;
         .view-all{
             margin-top: 30px;
             position: relative;
@@ -143,7 +223,7 @@
             flex: 1;
             background: linear-gradient(180deg, #0e0e0e 48%, #0ead69);
             box-sizing: border-box;
-            transition-duration: 1s;
+            transition-duration: 0.5s;
             transition-delay: 0s;
             // &:hover{
             //     box-shadow: 0px 4px 14px #0ead6854;

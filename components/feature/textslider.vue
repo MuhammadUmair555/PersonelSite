@@ -58,6 +58,7 @@ const options = ref({
   max-width: 300px ;
   align-self: end;
   .Splide {
+    padding: 0;
     justify-content: center;
   }
   .splide__slide {

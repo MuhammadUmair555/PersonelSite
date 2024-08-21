@@ -102,6 +102,7 @@
     margin-top: 40px;
     position: relative;
     .splide{
+      padding: 0;
         .splide__slide{
             min-width: 50px;
         }
