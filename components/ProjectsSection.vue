@@ -163,7 +163,8 @@ defineComponent( {
 </style>
 <style lang="scss" scoped>
 .project-section{
-    height: 100vh;
+    // height: 100vh;
+    margin-bottom: 65px;
 }
 .project-wrapper{
     display: flex;
