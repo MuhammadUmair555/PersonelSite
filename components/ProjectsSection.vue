@@ -38,7 +38,10 @@ defineComponent( {
         <div class="project-wrapper ">
             <div class="project-description">
                 <p>
-               Explore the projects where my creativity meets technical expertise, showcasing innovative solutions and design excellence.
+               Explore the projects where my creativity in UI meets technical expertise, <br> showcasing innovative solutions and design excellence across various domains.
+            </p>
+            <p>
+                Designing elegant and engaging UI of <span style="color:#0ead69;font-weight:500;">Dashboards</span>, <span style="color:#0ead69;font-weight:500;">AI Chatbots</span>, <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps Screens</span>.
             </p>
             <button class="view-all">All Projects</button>
             </div>
@@ -63,7 +66,7 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                    <img src="../assets/Images/project/project-2.png" alt="">
                                 </div>
                                 <div class="project-name">
                                     Analytics Dashboard
@@ -104,7 +107,16 @@ defineComponent( {
                 </Splide>
 
             </div>
-            
+
+            <div class="feature-section">
+                <ul>
+                    <li><img src="../assets/Images/intro-ft-icon1.png" alt="Dedication" title="Dedication" width="50" >Dedication</li>
+                    <li><img src="../assets/Images/intro-ft-icon2.png" alt="Smart Work" title="Smart Work" width="50">Smart Work</li>
+                    <li><img src="../assets/Images/intro-ft-icon3.png" alt="Collaboration" title="Collaboration" width="30">Collaboration</li>
+                    <li><img src="../assets/Images/intro-ft-icon4.png" alt="Technology" title="Technology" width="40">Technology</li>
+
+                </ul>
+            </div>
         </div>
     </section>
 </template>
@@ -116,21 +128,19 @@ defineComponent( {
   .splide{
     padding: 0;
       .splide__slide{
-        min-width: 300px;
-        max-width: 300px;
+        min-width: 400px;
+        max-width: 400px;
       }
   }
 
-
-
 .splide__arrows{
     position: absolute;
-    bottom: 26px;
-    left: -139px;
+    top: -50px;
+    left: 160px;
 }
 .splide__arrow svg{
     fill: #fff !important;
-    width: 1.5em !important;
+    width: 1em !important;
 }
 .splide__arrow {
     align-items: center;
@@ -143,7 +153,7 @@ defineComponent( {
     padding: 0;
     position: absolute;
     top: 50%;
-    border-radius: 5px;
+    border-radius: 10px;
     transform: translateY(-50%);
     width: 3.5em;
     height: 3.5em;
@@ -163,19 +173,13 @@ defineComponent( {
 </style>
 <style lang="scss" scoped>
 .project-section{
-    // height: 100vh;
-    margin-bottom: 65px;
+   padding: 100px 0;
 }
 .project-wrapper{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 25px;
     .project-description{
-        width: 30%;
-        min-width: 30%;
+        margin-bottom: 25px;
         .view-all{
-            margin-top: 30px;
+            margin-top: 25px;
             position: relative;
             border-radius: 10px;
             overflow: hidden;
@@ -212,9 +216,8 @@ defineComponent( {
         }
     }
     .projects{
-        width: 70%;
+        margin-right: 5px;
         .project{
-           
             z-index: 5;
             position: relative;
             overflow: hidden;
@@ -226,13 +229,23 @@ defineComponent( {
             box-sizing: border-box;
             transition-duration: 0.5s;
             transition-delay: 0s;
-            // &:hover{
-            //     box-shadow: 0px 4px 14px #0ead6854;
-            // }
+            &:hover .project-image:before{
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                box-sizing: border-box;
+                transition: background 1s ease;
+                transition-duration: 0.5s;
+                z-index: 0;
+                // background: linear-gradient(0deg, #0e0e0e 6%, #0e0e0e1c 90%);
+                background: #0ead69c4;
+            }
             &:hover .Project-link{
                 opacity: 1;
-                top: 20px;
-                right: 20px;
+               transform: scale(1.5);
             }
             &.project-image{
                     transform: scale(1.1);
@@ -249,35 +262,26 @@ defineComponent( {
                 transition: opacity .5s;
                 z-index: -1;
             }
-            // &:hover:before{
-            //     content: "";
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     right: 0;
-            //     opacity: 1;
-            //     bottom: 0;
-            //     background: linear-gradient(360deg, #0e0e0e00 , #0ead69);
-            //     transition: opacity .5s;
-            //     z-index: -1;
-            // }
             .project-inside{
-                // background-color: #0e0e0e;
                 overflow: hidden;
-            border-radius: 13px;
-            position: relative;
+                border-radius: 15px;
+                position: relative;
              
             }
             .Project-link{
                 position: absolute;
-                top: 30px;
-                right: 30px;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
                 width: 30px;
+                height: 30px;
                 opacity: 0;
                 transition-duration: 0.5s;
             }
             .project-image{
-                height: 190px;
+                height: 250px;
                 position: relative;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -294,10 +298,11 @@ defineComponent( {
                     bottom: 0;
                     box-sizing: border-box;
                     transition: background 1s ease;
-                    transition-duration: 1s;
+                    transition-duration: 0.5s;
                     z-index: 0;
-                    background: linear-gradient(0deg, #0e0e0e 6%, #0e0e0e1c 90%);
+                    background: linear-gradient(0deg, #000000 3%, rgb(0 0 0 / 0%) 40%);
                 }
+            
             }
 
             .project-name{
@@ -309,6 +314,7 @@ defineComponent( {
                 padding: 10px 20px;
                 position: absolute;
                 bottom: 0;
+               transition-duration: 0.5s;
                 p{
                     display: flex;
                     align-items: center;
@@ -322,5 +328,66 @@ defineComponent( {
             }
         }
     }
+    .feature-section{
+        ul{
+            padding: 30px 0 0;
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 10px 0 0;
+        }
+        li{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color:#bcbcbc;
+            font-size: 20px;
+            background-color: #181818;
+            padding: 20px 25px;
+            border-radius: 15px;
+            
+            img{
+                transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            animation: heartbeat-middle 5s infinite alternate;
+            -webkit-animation: heartbeat-middle 5s infinite alternate;
+            animation: heartbeat 5s ease-in-out infinite;
+            }
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+
+            /* Ensuring smooth transitions */
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+            &:hover {
+                /* Transform on hover */
+                transform: perspective(1000px) rotateX(15deg) rotateY(15deg) scale3d(1.1, 1.1, 1.1);
+            }
+        }
+    }
+    @keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    14% {
+        transform: scale(1.2);
+    }
+    28% {
+        transform: scale(1);
+    }
+    42% {
+        transform: scale(1.2);
+    }
+    70% {
+        transform: scale(1);
+    }
+    }
+
+  
+    
 }
 </style>

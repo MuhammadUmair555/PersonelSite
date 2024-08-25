@@ -19,10 +19,8 @@
         </div></nuxt-link></li> -->
 
         <li><nuxt-link to="/">Home</nuxt-link></li>
-        <li><nuxt-link to="/about">About</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
         <li><nuxt-link to="/blog">Blog</nuxt-link></li>
-        <li><nuxt-link to="/contact">Contact</nuxt-link></li>
       </ul>
     </nav> 
   </div>
@@ -78,7 +76,7 @@
   nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
     margin: 40px 0 20px;
     padding: 0;
     align-items: center;

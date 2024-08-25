@@ -48,7 +48,7 @@
 </template>
 <style lang="scss" scoped>
 .about-section{
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
 }
 .gradient-border{
     position: relative;

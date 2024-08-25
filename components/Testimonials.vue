@@ -1,8 +1,7 @@
 <script setup>
   import { ref } from 'vue';
   import { Splide, SplideSlide } from '@splidejs/vue-splide';
-  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-  // or other themes
+
 // import '@splidejs/vue-splide/css/skyblue';
 import '@splidejs/vue-splide/css/sea-green';
 
@@ -17,17 +16,18 @@ defineComponent( {
   },
 } );
   const options = ref({
-
+  type  : 'loop',
+  autoplay: true, 
+  interval: 3000,
   perPage: 5,
   perMove: 1,
   snap   : true,
   focus  : 0,
   omitEnd: true,
-  drag   : 'free',
   gap: '1rem',
-  arrows: true,
+  arrows: false,
   wheel  : true,
-  pagination: false,
+  pagination: true,
 
   });
   </script>
@@ -35,28 +35,35 @@ defineComponent( {
 <template>
     <section class="testimonial-section">
         <p class="main-heading">What <span>People Say</span></p>
-        <p> See what our clients say about the exceptional service <br> and expertise we've delivered in their projects.</p>
+        <p> See Testimonial what our clients say about the exceptional service  and expertise <br> we've delivered in their projects.</p>
         <div class="testimonial-wrapper ">
-            
-            <div class="testimonials">
-                <Splide :options="options" >
+            <div class="my-image">
+                <img src="../assets/Images/umairgif.gif" alt="">
+             </div>
+            <div class="testimonials" >
+                <Splide :options="options"  >
                     
                     <SplideSlide>
                         <div class="testimonial">
+                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+
                             <div class="testimonial-inside">
 
                                 <div class="testimonial-content">
-                                <img class="qoutes" src="../assets/Images/icon/quote-svgrepo-com.svg" alt="Qoute" title="Qoute">
 
-                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs
+                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
                                    
                                    </p>
                                 </div>
                                 <div class="testimonial-name">
-                                    <img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live">
+                                    <div class="client-profile-img">
+                                    <img src="../assets/Images/faiz.jpg" alt="faiz" title="Faiz">
+
+                                    </div>
                                     <div>
-                                        <span>Analytics Dashboard</span>
-                                    <p> Live</p>
+                                        <span>Faiz Ahmed</span>
+                                    <p>
+                                       Software Engineering Fundamentals</p>
                                     </div>
                                 </div>
                             </div>
@@ -64,53 +71,87 @@ defineComponent( {
                     </SplideSlide>
                     <SplideSlide>
                         <div class="testimonial">
+                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+
                             <div class="testimonial-inside">
-                                <div class="testimonial-image">
-                                    <img src="../assets/Images/testimonial/testimonial-umair-1.jpg" alt="">
+
+                                <div class="testimonial-content">
+
+                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
+                                   
+                                   </p>
                                 </div>
                                 <div class="testimonial-name">
-                                    Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                    <div class="client-profile-img">
+                                    <img src="../assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
+
+                                    </div>
+                                    <div>
+                                        <span>JAWWAD QADRI</span>
+                                    <p>
+                                       Technical Software Engineering</p>
+                                    </div>
                                 </div>
-                                <img class="testimonial-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open testimonial" title="Open testimonial">
                             </div>
                         </div>
                     </SplideSlide>
                     <SplideSlide>
                         <div class="testimonial">
+                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+
                             <div class="testimonial-inside">
-                                <div class="testimonial-image">
-                                    <img src="../assets/Images/testimonial/testimonial-umair-1.jpg" alt="">
+
+                                <div class="testimonial-content">
+
+                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
+                                   
+                                   </p>
                                 </div>
                                 <div class="testimonial-name">
-                                    Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                    <div class="client-profile-img">
+                                    <img src="../assets/Images/faiz.jpg" alt="faiz" title="Faiz">
+
+                                    </div>
+                                    <div>
+                                        <span>Faiz Ahmed</span>
+                                    <p>
+                                       Software Engineering Fundamentals</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </SplideSlide>
                     <SplideSlide>
-                         <div class="testimonial">
+                        <div class="testimonial">
+                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+
                             <div class="testimonial-inside">
-                                <div class="testimonial-image">
-                                    <img src="../assets/Images/testimonial/testimonial-umair-1.jpg" alt="">
+
+                                <div class="testimonial-content">
+
+                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
+                                   
+                                   </p>
                                 </div>
                                 <div class="testimonial-name">
-                                    Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                    <div class="client-profile-img">
+                                    <img src="../assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
+
+                                    </div>
+                                    <div>
+                                        <span>JAWWAD QADRI</span>
+                                    <p>
+                                       Technical Software Engineering</p>
+                                    </div>
                                 </div>
-                                <img class="testimonial-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open testimonial" title="Open testimonial">
                             </div>
                         </div>
                     </SplideSlide>
+                    
                 </Splide>
 
             </div>
-            <div class="my-image">
-                <p>
-                Explore the testimonials where my creativity meets technical expertise, showcasing innovative solutions and design excellence.
-                </p>
-             </div>
+            
         </div>
     </section>
 </template>
@@ -122,71 +163,85 @@ defineComponent( {
   .splide{
     padding: 0;
       .splide__slide{
-        min-width: 300px;
-        max-width: 300px;
+        min-width: 450px;
+        max-width: 500px;
       }
   }
 
 
-
-.splide__arrows{
-    position: absolute;
-    bottom: 26px;
-    right: -139px;
-}
-.splide__arrow svg{
-    fill: #fff !important;
-    width: 1.5em !important;
-}
-.splide__arrow {
-    align-items: center;
-    background: #0ead69;
-    border: 0;
-    border-radius: 0;
-    cursor: pointer;
+.splide__pagination{
+    align-items: start;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin: 0;
+    pointer-events: none;
+    height: 100%;
+    padding-bottom: 20px;
+    padding-right: 0;
+}
+
+.splide__pagination__page{
+    border: 0;
+    border-radius: 8.5px;
+    display: inline-block;
+    height: 10px;
+    margin: 5px;
     padding: 0;
-    position: absolute;
-    top: 50%;
-    border-radius: 5px;
-    transform: translateY(-50%);
-    width: 3.5em;
-    height: 3.5em;
+    position: relative;
+    transition: background-color .2s linear;
+    width: 10px;
+}
+.splide__pagination__page.is-active {
+    background: #0ead69;
     z-index: 1;
 }
-.splide__arrow:disabled {
-    opacity: .2;
-    // background-color: #181818;
-}
-.splide__arrow--prev {
-    right: 10em !important;
-}
-.splide__arrow--next {
-    right: -9em !important;
+.splide__pagination__page:hover{
+    background: #12d17e;
+    z-index: 1;
 }
 }
 </style>
 <style lang="scss" scoped>
 .testimonial-section{
-    height: 100vh;
+    // height: 100vh;
 }
 .testimonial-wrapper{
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 15px;
     margin-top: 25px;
+    .qoutes{
+    width: 50px;
+    
+    }
     .my-image{
         width: 30%;
         min-width: 30%;
+        max-height: 293px;
+        overflow: hidden;
+        border-radius: 15px;
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+
+        /* Ensuring smooth transitions */
+        transition: transform 0.5s ease-in-out;
+        will-change: transform;
+        &:hover {
+            /* Transform on hover */
+            transform: perspective(1000px) rotateX(15deg) rotateY(15deg) scale3d(1.1, 1.1, 1.1);
+        }
+        img{
+            width: 100%;
+        }
     }
     .testimonials{
-        width: 70%;
+        width: 68%;
         .testimonial{
             // z-index: 5;
             position: relative;
-            overflow: hidden;
-            padding: 2px;
+            background-color: #181818;
+            border-radius: 15px;
+            padding: 20px;
             cursor: pointer;
             flex: 1;
             box-sizing: border-box;
@@ -221,18 +276,18 @@ defineComponent( {
                 // background-color: #0e0e0e;
                 // overflow: hidden;
             position: relative;
-             .qoutes{
-                width: 50px;
-                
-             }
+             
             }
           
             .testimonial-content{
                 // height: 190px;
                 position: relative;
-               
                 overflow: hidden;
-                
+                p{
+                    font-size: 14px;
+                    margin-top: 5px;
+                    min-height: 140px;
+                }
             }
 
             .testimonial-name{
@@ -243,7 +298,7 @@ defineComponent( {
                 display: flex;
                 align-items: center;
                 gap: 15px;
-                margin-top: 30px;
+                margin-top: 10px;
                 position: relative;
                 bottom: 0;
                 p{
@@ -251,11 +306,18 @@ defineComponent( {
                     align-items: center;
                     font-size: 12px;
                     gap: 5px;
-                    color: #fdfdfd;
+                    color: #0ead69;
+                    line-height: 1.5;
                 }
-                img{
-                    width: 50px;
-                    height: 50px;
+                .client-profile-img{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 100px;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }
