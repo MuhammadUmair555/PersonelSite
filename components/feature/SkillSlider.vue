@@ -16,14 +16,15 @@
         <!-- Slides -->
         <SplideSlide>
                 <div class="skill-logo">
-                    <img src="../../assets/Images/skill/javascript-svgrepo-com (1).svg" alt="javaScript" title="javaScript">
-                </div>
-            </SplideSlide>
-            <SplideSlide>
-                <div class="skill-logo">
                     <img src="../../assets/Images/skill/reactjs-svgrepo-com.svg" alt="react.js" title="React.js">
                 </div>
             </SplideSlide>
+        <SplideSlide>
+                <div class="skill-logo">
+                    <img src="../../assets/Images/skill/javascript-svgrepo-com.svg" alt="javaScript" title="javaScript">
+                </div>
+            </SplideSlide>
+           
             <SplideSlide>
                 <div class="skill-logo">
                     <img src="../../assets/Images/skill/vue-9-logo-svgrepo-com.svg" alt="Vue.js" title="Vue.js">
