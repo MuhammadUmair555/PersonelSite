@@ -256,7 +256,7 @@ defineComponent( {
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    height: 20px;
+                    height: 23px;
                     img{
                     width: 18px;
                     transition-duration: 0.5s;
