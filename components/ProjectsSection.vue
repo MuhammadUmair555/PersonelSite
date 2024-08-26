@@ -38,12 +38,12 @@ defineComponent( {
         <div class="project-wrapper ">
             <div class="project-description">
                 <p>
-               Explore the projects where my creativity in UI meets technical expertise, <br> showcasing innovative solutions and design excellence across various domains.
+                    Explore projects where my creativity in UI merges with technical expertise and design excellence across diverse domains.
+                 From <span style="color:#0ead69;font-weight:500;">Dashboards</span> and <span style="color:#0ead69;font-weight:500;">AI Chatbots</span> to <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
             </p>
-            <p>
-                Designing elegant and engaging UI of <span style="color:#0ead69;font-weight:500;">Dashboards</span>, <span style="color:#0ead69;font-weight:500;">AI Chatbots</span>, <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
-            </p>
-            <button class="view-all">All Projects</button>
+            <nuxt-link style="text-decoration: none;" to="/projects">
+                <button  class="view-all">All Projects</button>
+            </nuxt-link >
             </div>
             <div class="projects">
                 <Splide :options="options" >
@@ -131,7 +131,6 @@ defineComponent( {
   
 <style lang="scss" >
 .projects {
-//   margin-top: 40px;
   position: relative;
   .splide{
     padding: 0;
@@ -181,7 +180,7 @@ defineComponent( {
 </style>
 <style lang="scss" scoped>
 .project-section{
-   padding: 100px 0;
+    margin: 100px 0;
 }
 .project-wrapper{
     .project-description{
@@ -359,7 +358,7 @@ defineComponent( {
         ul{
             padding: 30px 0 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             gap: 15px;
             flex-wrap: wrap;
             margin: 10px 0 0;

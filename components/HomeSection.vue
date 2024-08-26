@@ -1,6 +1,5 @@
 <script setup>
 import AnimatedDesignation from './AnimatedDesignation.vue'
-import MySkill from '../components/feature/MySkill.vue'
 
 
 </script>
@@ -13,7 +12,7 @@ import MySkill from '../components/feature/MySkill.vue'
             <h1 >Umair <span> Anwar Arain </span></h1>
         </div>
         <p class="my-bio">
-            I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> specializing in Web and Mobile UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
+            I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
         </p>
         <div class="umair-anwar-arain">
             <div class="circle heartbeat"></div>
@@ -66,7 +65,6 @@ import MySkill from '../components/feature/MySkill.vue'
             </div>
             
         </div>
-        <MySkill />
     </section>
 </template>
 <style lang="scss" scoped>

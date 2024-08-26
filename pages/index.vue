@@ -3,11 +3,11 @@
       <div id="home">
         <HomeSection />
       </div>
-      <div id="aboutSection">
-        <AboutSection />
-      </div>
       <div id="projects">
         <ProjectsSection />
+      </div>
+      <div id="aboutSection">
+        <AboutSection />
       </div>
       <div>
         <Testimonials />

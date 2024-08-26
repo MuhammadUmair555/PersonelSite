@@ -87,7 +87,7 @@ defineComponent( {
 
                                     </div>
                                     <div>
-                                        <span>JAWWAD QADRI</span>
+                                        <span>Jawwad Qadri</span>
                                     <p>
                                        Technical Software Engineering</p>
                                     </div>
@@ -139,7 +139,7 @@ defineComponent( {
 
                                     </div>
                                     <div>
-                                        <span>JAWWAD QADRI</span>
+                                        <span>Jawwad Qadri</span>
                                     <p>
                                        Technical Software Engineering</p>
                                     </div>
@@ -204,7 +204,7 @@ defineComponent( {
 </style>
 <style lang="scss" scoped>
 .testimonial-section{
-    // height: 100vh;
+    margin: 100px 0;
 }
 .testimonial-wrapper{
     display: flex;
