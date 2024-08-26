@@ -41,7 +41,7 @@ defineComponent( {
                Explore the projects where my creativity in UI meets technical expertise, <br> showcasing innovative solutions and design excellence across various domains.
             </p>
             <p>
-                Designing elegant and engaging UI of <span style="color:#0ead69;font-weight:500;">Dashboards</span>, <span style="color:#0ead69;font-weight:500;">AI Chatbots</span>, <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps Screens</span>.
+                Designing elegant and engaging UI of <span style="color:#0ead69;font-weight:500;">Dashboards</span>, <span style="color:#0ead69;font-weight:500;">AI Chatbots</span>, <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
             </p>
             <button class="view-all">All Projects</button>
             </div>
@@ -52,11 +52,29 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                    <img src="../assets/Images/project/project-2.png" alt="">
                                 </div>
+                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
                                 <div class="project-name">
                                     Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
+                                </div>
+                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div class="project">
+                            <div class="project-inside">
+                                <div class="project-image">
+                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                </div>
+                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
+                                <div class="project-name">
+                                    Analytics Dashboard
+                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
                                 <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
@@ -68,9 +86,11 @@ defineComponent( {
                                 <div class="project-image">
                                     <img src="../assets/Images/project/project-2.png" alt="">
                                 </div>
+                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
                                 <div class="project-name">
                                     Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
                                 <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
@@ -80,25 +100,13 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
+                                    <img src="../assets/Images/project/project-2.png" alt="">
                                 </div>
+                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
                                 <div class="project-name">
                                     Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-                                </div>
-                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                         <div class="project">
-                            <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="../assets/Images/project/project-umair-1.jpg" alt="">
-                                </div>
-                                <div class="project-name">
-                                    Analytics Dashboard
-                                    <p><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
                                 <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
@@ -224,6 +232,7 @@ defineComponent( {
             border-radius: 15px;
             padding: 2px;
             cursor: pointer;
+            border-radius: 15px;
             flex: 1;
             background: linear-gradient(180deg, #0e0e0e 48%, #0ead69);
             box-sizing: border-box;
@@ -264,7 +273,7 @@ defineComponent( {
             }
             .project-inside{
                 overflow: hidden;
-                border-radius: 15px;
+                border-radius: 13px;
                 position: relative;
              
             }
@@ -281,7 +290,7 @@ defineComponent( {
                 transition-duration: 0.5s;
             }
             .project-image{
-                height: 250px;
+                height: 285px;
                 position: relative;
                 border-top-left-radius: 13px;
                 border-top-right-radius: 13px;
@@ -300,7 +309,7 @@ defineComponent( {
                     transition: background 1s ease;
                     transition-duration: 0.5s;
                     z-index: 0;
-                    background: linear-gradient(0deg, #000000 3%, rgb(0 0 0 / 0%) 40%);
+                    background: linear-gradient(0deg, #000000 5%, rgb(0 0 0 / 0%) 50%);
                 }
             
             }
@@ -315,16 +324,31 @@ defineComponent( {
                 position: absolute;
                 bottom: 0;
                transition-duration: 0.5s;
-                p{
-                    display: flex;
-                    align-items: center;
-                    font-size: 12px;
-                    gap: 5px;
-                    color: #fdfdfd;
-                }
+                
+                
+            }
+            .project-status{
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                gap: 5px;
+                color: #fdfdfd;
                 img{
                     width: 18px;
                 }
+                }
+            .short-info{
+            font-size: 14px;
+            color: #fdfdfd;
+            line-height: normal;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;  
+            -webkit-line-clamp: 3; 
             }
         }
     }

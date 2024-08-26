@@ -53,7 +53,7 @@ defineComponent( {
                                 </div>
                                 <div class="project-name">
                                     <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
-                                    Accessibility in Web Design..!
+                                    <p class="blog-name">Accessibility in Web Design..!</p>
                                     <p class="Project-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project"></p>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ defineComponent( {
                                 </div>
                                 <div class="project-name">
                                     <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span></a></div>
-                                    Become a Frontend Developer in 5 Simple Steps..!
+                                    <p class="blog-name">Become a Frontend Developer in 5 Simple Steps..!</p>
                                     <p class="Project-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project"></p>
                                 </div>
                             </div>
@@ -77,30 +77,17 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/blogs/blobumair.jpg" alt="">
+                                    <img src="../assets/Images/blogs/blog-post 4.jpg" alt="">
                                 </div>
                                 <div class="project-name">
                                     <div class="author"><a href="/">By : Umair Anwar Arain </a></div>
-                                    Become a Frontend Developer in 5 Simple Steps!
+                                   <p class="blog-name">Coming Soon..!</p>
                                     <p class="Project-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project"></p>
                                 </div>
                             </div>
                         </div>
                     </SplideSlide>
-                    <SplideSlide>
-                        <div class="project">
-                            <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="../assets/Images/blogs/blobumair.jpg" alt="">
-                                </div>
-                                <div class="project-name">
-                                    <div class="author"><a href="/">By : Umair Anwar Arain </a></div>
-                                    Become a Frontend Developer in 5 Simple Steps!
-                                    <p class="Project-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </SplideSlide>
+                  
                 </Splide>
 
             </div>
@@ -246,7 +233,7 @@ defineComponent( {
             
             }
             .author{
-               
+                
                 a{
                     display: flex;
                     align-items: center;
@@ -258,15 +245,10 @@ defineComponent( {
               
             }
             .project-name{
-                color: #fdfdfd;
-                font-size: 20px;
-                font-weight: 500;
                 z-index: 9;
                 position: relative;
-                padding: 10px 0;
-                bottom: 0;
-                transition-duration: 0.5s;
-               
+                padding-top: 10px ;
+              
                .Project-link{
                     color: #0ead69;
                     padding-top: 10px;
@@ -282,6 +264,17 @@ defineComponent( {
                 }
                 }
                
+            }
+            .blog-name{
+                color: #fdfdfd;
+                font-size: 20px;
+                font-weight: 500;
+                transition-duration: 0.5s;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;  
+                -webkit-line-clamp: 1; 
             }
         }
     }

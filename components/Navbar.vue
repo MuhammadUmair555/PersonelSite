@@ -63,11 +63,11 @@
     left: 0;
     right: 0;
     z-index: 1100;
-    -webkit-backdrop-filter: blur(8px);
-    // backdrop-filter: blur(8px);
-    // background-color:#0e0e0e4b;
-    background-color:#0e0e0e;
-    // border-bottom: 1px solid #3f3f46;
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(8px);
+    background-color:#0e0e0e84;
+    // background-color:#0e0e0e;
+    border-bottom: 1px solid #3f3f46;
     nav{
       max-width: 1000px;
       margin: auto;
