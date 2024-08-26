@@ -252,6 +252,9 @@ defineComponent( {
                 // background: linear-gradient(0deg, #0e0e0e 6%, #0e0e0e1c 90%);
                 background: #0ead69c4;
             }
+            &:hover .short-info{
+                color: #fdfdfd;
+                }
             &:hover .Project-link{
                 opacity: 1;
                transform: scale(1.5);
@@ -309,7 +312,7 @@ defineComponent( {
                     transition: background 1s ease;
                     transition-duration: 0.5s;
                     z-index: 0;
-                    background: linear-gradient(0deg, #000000 5%, rgb(0 0 0 / 0%) 50%);
+                    background: linear-gradient(0deg, #090909 15%, rgba(0, 0, 0, 0) 60%);
                 }
             
             }
@@ -342,7 +345,7 @@ defineComponent( {
                 }
             .short-info{
             font-size: 14px;
-            color: #fdfdfd;
+            color: #bcbcbc;
             line-height: normal;
             display: -webkit-box;
             -webkit-box-orient: vertical;
