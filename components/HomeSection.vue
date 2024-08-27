@@ -5,21 +5,24 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
 </script>
 <template>
     <section class="home-section">
-        <div class="my-name">
-            <div class="AnimatedDesignation">
-                <AnimatedDesignation  />
+        <div class="Im-Umair">
+            <div class="my-name">
+                <div class="AnimatedDesignation">
+                    <AnimatedDesignation  />
+                </div>
+                <h1 >Umair <span> Anwar Arain </span></h1>
+                <p class="my-bio">
+                    I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
+                </p>
             </div>
-            <h1 >Umair <span> Anwar Arain </span></h1>
-        </div>
-        <p class="my-bio">
-            I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
-        </p>
-        <div class="umair-anwar-arain">
-            <div class="circle heartbeat"></div>
-            <img src="../assets/Images/umair-logo.png" alt="">
-            <div class="social-border">
-            <img src="../assets/Images/social.png" alt="">
+            
+            <div class="umair-anwar-arain">
+                <div class="circle heartbeat"></div>
+                <img src="../assets/Images/umair-logo.png" alt="">
+                <div class="social-border">
+                <img src="../assets/Images/social.png" alt="">
 
+                </div>
             </div>
         </div>
          <div class="contact-info">
@@ -71,9 +74,15 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
 .home-section{
     margin-bottom: 80px;
     position: relative;
+    .Im-Umair{
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
     .my-name{
         position: relative;
         width: fit-content;
+        max-width: 65%;
        h1{
         font-size: 55px;
         font-weight: 600;
@@ -87,13 +96,12 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
             color: #dddddddd;
         }
     }
-.AnimatedDesignation{
-    height: 50px;
-    overflow: hidden;
-}
+    .AnimatedDesignation{
+        height: 50px;
+        overflow: hidden;
+    }
     .my-bio{
         margin-top: 20px;
-        max-width: 65%;
     }
     .social-follwing{
         width: 100%;
@@ -225,6 +233,22 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     }
 }
 @media screen and (max-width: 991px) {
+  .home-section{
+    .Im-Umair{
+        position: relative;
+        flex-direction: column-reverse;
+    }
+    .my-name{
+        max-width: 100%;
+    }
+    .umair-anwar-arain{
+        position: relative;
+        right: 15px;
+        top: 0;
+        height: 355px;
+        width: 300px;
+    }
+  }
     .contact-info{
         flex-direction: column;
         gap:unset !important;

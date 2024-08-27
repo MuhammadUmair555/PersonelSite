@@ -8,7 +8,7 @@
       <li><a href="#contact">Contact</a></li>
       </ul>
     </nav> -->
-<div class="navbar-top">
+<div :class="{ 'scrolled': isScrolled }" class="navbar-top">
     <nav>
       <ul>
         <li><nuxt-link to="/"><div class="logo">U<span>AA</span></div></nuxt-link></li>
@@ -52,6 +52,21 @@
 //     element.scrollIntoView({ behavior: 'smooth' });
 //   }
 // };
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50; // Adjust the scroll threshold as needed
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
   
   <style scoped lang="scss">
@@ -59,20 +74,23 @@
     position: fixed;
     padding: 0 25px;
     top: 0;
-    transition: background-color .5s, border-color .5s;
+    // transition: background-color .5s, border-color .5s;
     left: 0;
     right: 0;
     z-index: 1100;
     -webkit-backdrop-filter: blur(50px);
     backdrop-filter: blur(8px);
     background-color:#0e0e0e84;
-    // background-color:#0e0e0e;
-    border-bottom: 1px solid #3f3f46;
+    transition: transform 1s ease;
+    border-bottom: 1px solid #3f3f469c;
     nav{
       max-width: 1000px;
       margin: auto;
     }
   }
+  .navbar-top.scrolled {
+  transform: translateY(-20px); /* Adjust this value to control the upward movement */
+}
   nav ul {
     display: flex;
     list-style: none;
