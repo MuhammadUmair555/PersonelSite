@@ -189,13 +189,15 @@
             transition-duration: 0.5s;
         }
         .project-image{
-            height: 285px;
+            height: auto;
+            max-height: 320px;
             position: relative;
             border-top-left-radius: 13px;
             border-top-right-radius: 13px;
             overflow: hidden;
             img{
                 width: 100%;
+                margin-bottom: -10px;
             }
             &:before{
                 content: "";
@@ -252,4 +254,12 @@
     } 
 }
 
+@media screen and (max-width: 850px) {
+  .project-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 575px) {
+
+}
 </style>

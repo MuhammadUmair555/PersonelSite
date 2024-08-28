@@ -28,8 +28,15 @@ defineComponent( {
   arrows: true,
   wheel  : true,
   pagination: false,
+  breakpoints: {
+    575: {
+      perPage: 1,
+    perMove: 1,
 
+    },
+},
   });
+
   </script>
 
 <template>
@@ -135,7 +142,7 @@ defineComponent( {
   .splide{
     padding: 0;
       .splide__slide{
-        min-width: 400px;
+        // min-width: 400px;
         max-width: 400px;
       }
   }
