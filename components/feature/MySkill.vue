@@ -90,4 +90,20 @@ import SkillSlider from '../feature/SkillSlider.vue'
         color: #606060;
     }
 }
+
+@media screen and (max-width: 575px) {
+    .work-experience{
+        gap: 15px;
+    }
+    .service{
+        min-width: unset;
+        padding: 10px 25px;
+        svg{
+        width: 25px;
+    }
+    .education-name{
+        font-size: 14px;
+    }
+    }
+}
 </style>

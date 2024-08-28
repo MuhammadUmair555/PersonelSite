@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     host: '0.0.0.0', 
     port: 3000,
   },
-  modules: ['@nuxtjs/strapi'],
+  // modules: ['@nuxtjs/strapi'],
   css: [
     '~/assets/styles/style.scss',
     '@splidejs/vue-splide/css'
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-  strapi: {
-    url: 'http://localhost:1337'
-  }
+  // strapi: {
+  //   url: 'http://localhost:1337'
+  // }
 })

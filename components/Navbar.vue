@@ -18,7 +18,7 @@
           <div class="animated-perspective">A</div>
         </div></nuxt-link></li> -->
 
-        <li><nuxt-link to="/">Home</nuxt-link></li>
+        <li class="on-mobile"><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
         <li><nuxt-link to="/blog">Blog</nuxt-link></li>
       </ul>
@@ -175,7 +175,32 @@ onUnmounted(() => {
     /* color: #00FF7F; */
     color: #0ead69;
 
-
   }
+
+
+@media screen and (max-width: 575px) {
+  .logo {
+    font-size: 28px;
+  }
+  nav ul li a {
+
+    font-size: 16px;
+  }
+  .navbar-top{
+    border: unset;
+    padding: 0 15px;
+  }
+  .on-mobile{
+    display: none;
+  }
+  .navbar-top.scrolled {
+    transform: unset; 
+    border-bottom: 1px solid #3f3f469c;
+  }
+  nav ul{
+    margin: 15px 0 10px;
+    align-items: baseline;
+  }
+}
   </style>
   
