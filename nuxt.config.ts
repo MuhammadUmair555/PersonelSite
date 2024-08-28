@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   pages: true,
   server: {
     host: '0.0.0.0', 
+    port: 3000,
   },
   modules: ['@nuxtjs/strapi'],
   css: [
