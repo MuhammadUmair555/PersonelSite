@@ -4,6 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
   pages: true,
+  server: {
+    host: '0.0.0.0', 
+  },
+  modules: ['@nuxtjs/strapi'],
   css: [
     '~/assets/styles/style.scss',
     '@splidejs/vue-splide/css'
@@ -37,5 +41,8 @@ export default defineNuxtConfig({
       
       ]
     }
+  },
+  strapi: {
+    url: 'http://localhost:1337'
   }
 })
