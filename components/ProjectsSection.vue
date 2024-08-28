@@ -30,9 +30,9 @@ defineComponent( {
   pagination: false,
   breakpoints: {
     575: {
-      perPage: 1,
+    perPage: 1.3,
     perMove: 1,
-
+    gap: '0.7rem',
     },
 },
   });
@@ -142,7 +142,7 @@ defineComponent( {
   .splide{
     padding: 0;
       .splide__slide{
-        // min-width: 400px;
+        min-width: 400px;
         max-width: 400px;
       }
   }
@@ -183,6 +183,14 @@ defineComponent( {
 .splide__arrow--next {
     right: -9em !important;
 }
+}
+@media screen and (max-width: 575px) {
+    .splide{
+      .splide__slide{
+        min-width: unset !important;
+        max-width: 400px;
+      }
+  }
 }
 </style>
 <style lang="scss" scoped>
@@ -230,7 +238,7 @@ defineComponent( {
         }
     }
     .projects{
-        margin-right: 5px;
+     
         .project{
             z-index: 5;
             position: relative;
@@ -422,5 +430,14 @@ defineComponent( {
 
   
     
+}
+
+@media screen and (max-width: 575px) {
+    .projects{
+        // margin: 30px -25px;
+        // .project:first-child {
+        //     margin-left: 25px;
+        // }
+    }
 }
 </style>
