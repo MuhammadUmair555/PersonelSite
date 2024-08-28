@@ -1,8 +1,12 @@
 <script setup>
+import MySkill from '../components/feature/MySkill.vue'
+
 </script>
 
 <template>
     <section class="about-section" >
+        <MySkill />
+
         <div class="gradient-border">
             <div class="about-wrapper">
                 <div class="work-experience">
@@ -41,16 +45,15 @@
                 </div>
             </div>
         </div>
-       
-
     </section>
   
 </template>
 <style lang="scss" scoped>
 .about-section{
-    // margin-bottom: 50px;
+    margin: 100px 0;
 }
 .gradient-border{
+    margin-top: 30px;
     position: relative;
     z-index: 9;
     padding: 1px;

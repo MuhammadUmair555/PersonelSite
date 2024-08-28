@@ -38,12 +38,12 @@ defineComponent( {
         <div class="project-wrapper ">
             <div class="project-description">
                 <p>
-               Explore the projects where my creativity in UI meets technical expertise, <br> showcasing innovative solutions and design excellence across various domains.
+                    Explore projects where my creativity in UI merges with technical expertise and design excellence across diverse domains.
+                 From <span style="color:#0ead69;font-weight:500;">Dashboards</span> and <span style="color:#0ead69;font-weight:500;">AI Chatbots</span> to <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
             </p>
-            <p>
-                Designing elegant and engaging UI of <span style="color:#0ead69;font-weight:500;">Dashboards</span>, <span style="color:#0ead69;font-weight:500;">AI Chatbots</span>, <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
-            </p>
-            <button class="view-all">All Projects</button>
+            <nuxt-link style="text-decoration: none;" to="/projects">
+                <button  class="view-all">All Projects</button>
+            </nuxt-link >
             </div>
             <div class="projects">
                 <Splide :options="options" >
@@ -131,7 +131,6 @@ defineComponent( {
   
 <style lang="scss" >
 .projects {
-//   margin-top: 40px;
   position: relative;
   .splide{
     padding: 0;
@@ -181,7 +180,7 @@ defineComponent( {
 </style>
 <style lang="scss" scoped>
 .project-section{
-   padding: 100px 0;
+    margin: 100px 0;
 }
 .project-wrapper{
     .project-description{
@@ -252,6 +251,9 @@ defineComponent( {
                 // background: linear-gradient(0deg, #0e0e0e 6%, #0e0e0e1c 90%);
                 background: #0ead69c4;
             }
+            &:hover .short-info{
+                color: #fdfdfd;
+                }
             &:hover .Project-link{
                 opacity: 1;
                transform: scale(1.5);
@@ -309,7 +311,7 @@ defineComponent( {
                     transition: background 1s ease;
                     transition-duration: 0.5s;
                     z-index: 0;
-                    background: linear-gradient(0deg, #000000 5%, rgb(0 0 0 / 0%) 50%);
+                    background: linear-gradient(0deg, #090909 15%, rgba(0, 0, 0, 0) 60%);
                 }
             
             }
@@ -342,7 +344,7 @@ defineComponent( {
                 }
             .short-info{
             font-size: 14px;
-            color: #fdfdfd;
+            color: #bcbcbc;
             line-height: normal;
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -356,7 +358,7 @@ defineComponent( {
         ul{
             padding: 30px 0 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             gap: 15px;
             flex-wrap: wrap;
             margin: 10px 0 0;

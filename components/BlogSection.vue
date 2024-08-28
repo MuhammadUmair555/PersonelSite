@@ -40,7 +40,9 @@ defineComponent( {
                 <p>
                     Welcome to my blog, where I share my journey as a frontend software engineer. <br> Here, you'll find articles on the latest trends in web development, tips and tricks for crafting beautiful and efficient UIs, and insights into the creative process behind my projects.
             </p>
+            <nuxt-link style="text-decoration: none;" to="/blog">
             <button class="view-all">All Posts</button>
+        </nuxt-link>
             </div>
             <div class="projects">
                 <Splide :options="options" >
@@ -256,7 +258,7 @@ defineComponent( {
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    height: 20px;
+                    height: 23px;
                     img{
                     width: 18px;
                     transition-duration: 0.5s;
