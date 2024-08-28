@@ -201,6 +201,11 @@
     
     }
 }
+@media screen and (max-width: 850px) {
+  .blog-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
 </style>
   
   
