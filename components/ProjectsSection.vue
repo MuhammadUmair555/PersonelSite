@@ -30,7 +30,7 @@ defineComponent( {
   pagination: false,
   breakpoints: {
     575: {
-    perPage: 1.3,
+    perPage: 1.2,
     perMove: 1,
     gap: '0.7rem',
     },
