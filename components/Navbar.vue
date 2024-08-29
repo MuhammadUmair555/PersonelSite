@@ -46,28 +46,25 @@
   </template>
   
   <script setup>
-// const scrollToSection = (section) => {
-//   const element = document.getElementById(section);
-//   if (element) {
-//     element.scrollIntoView({ behavior: 'smooth' });
-//   }
-// };
-import { ref, onMounted, onUnmounted } from 'vue';
-
-const isScrolled = ref(false);
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50; // Adjust the scroll threshold as needed
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-</script>
+  import { ref, onMounted, onUnmounted } from 'vue';
+  
+  const isScrolled = ref(false);
+  
+  const handleScroll = () => {
+    isScrolled.value = window.scrollY > 50;
+  };
+  
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+  });
+  
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+  });
+  
+  // If you have async setup, ensure onMounted is called before await
+  // const data = await fetchSomeData(); 
+  </script>
   
   <style scoped lang="scss">
   .navbar-top{

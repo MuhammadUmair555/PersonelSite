@@ -85,10 +85,10 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         width: fit-content;
         max-width: 65%;
         .hey-there{
-            font-family: "Caveat", cursive;
+            font-family: "Caveat";
             color: #0ead69;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 200;
             display: none;
         }
        h1{
@@ -215,7 +215,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     .contact-info {
         margin-top: 50px;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         gap: 30px;
         overflow: hidden;
         .info-item {
@@ -260,12 +260,14 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     .social-border{
         display: none;
     }
-  }
-    .contact-info{
+     .contact-info {
         flex-direction: column;
         gap:unset !important;
-    }
+        align-items: flex-start;
     
+  }
+   
+}  
 }
 @media screen and (max-width: 575px) {
     .home-section{
@@ -278,7 +280,8 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
             }
             .hey-there{
                 display: block;
-                letter-spacing: 1px;
+                font-size: 15px;
+                font-family: "Sriracha", cursive;
             }
             .letter-case{
                 font-size: 20px;
@@ -309,7 +312,8 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         }
       
     }
-}
+    }
+
 </style>
 <style lang="scss">
 

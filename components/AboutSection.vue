@@ -125,11 +125,50 @@ import MySkill from '../components/feature/MySkill.vue'
     height: 10px;
     z-index: 1;
     width: 10px;
+    min-width: 10px;
 }
 @media screen and (max-width: 900px) {
     .about-wrapper{
         gap: 40px;
         flex-direction: column;
+        padding: 40px 20px;
+    }
+    .education:before {
+        content: "";
+        top: 10px;
+        left: 5px;
+    
+    }
+    .small-circle {
+
+        margin-top: 7px;
+    }
+  
+}
+@media screen and (max-width: 575px) {
+    .about-wrapper{
+        gap: 20px;
+    }
+    .work-experience,
+    .my-education{
+        .main-heading{
+            font-size: 32px;
+            margin: 0 0 20px;
+        }
+    }
+    .education{
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .education-name{
+        font-size: 16px;
+    }
+    .education-from{
+        font-size: 14px; 
+        line-height: 24px;
+        span{
+            display: block;
+        }
     }
 }
 </style>

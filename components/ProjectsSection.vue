@@ -389,7 +389,10 @@ defineComponent( {
             background-color: #181818;
             padding: 20px 25px;
             border-radius: 15px;
-            
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+            /* Ensuring smooth transitions */
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
             img{
                 transform: scale(1);
             -webkit-transform: scale(1);
@@ -400,11 +403,7 @@ defineComponent( {
             -webkit-animation: heartbeat-middle 5s infinite alternate;
             animation: heartbeat 5s ease-in-out infinite;
             }
-            transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
-
-            /* Ensuring smooth transitions */
-            transition: transform 0.5s ease-in-out;
-            will-change: transform;
+            
             &:hover {
                 /* Transform on hover */
                 transform: perspective(1000px) rotateX(15deg) rotateY(15deg) scale3d(1.1, 1.1, 1.1);
@@ -442,12 +441,14 @@ defineComponent( {
                 // flex-direction: column;
                 flex: 1;
                 gap: 15px;
-                font-size: 12px;
+                font-size: 13px;
                 padding: 10px 15px;
                 border-radius: 10px;
                 img{
-                    // width: 40px !important;
-                    // height: 30px !important
+                    width: 26px;
+                    overflow: hidden;
+                    height: 26px;
+                    object-fit: contain;
                 }
             }   
         }

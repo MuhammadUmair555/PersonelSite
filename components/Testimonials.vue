@@ -42,7 +42,7 @@ defineComponent( {
 <template>
     <section class="testimonial-section">
         <p class="main-heading">What <span>People Say</span></p>
-        <p> See Testimonial what our clients say about the exceptional service  and expertise <br class="br-on-mobile"> we've delivered in their projects.</p>
+        <p> See Testimonial what our clients say about the exceptional service  and expertise <span class="br-mobile"> we've delivered in their projects.</span></p>
         <div class="testimonial-wrapper ">
             <div class="my-image">
                 <img src="../assets/Images/umairgif.gif" alt="">
@@ -222,15 +222,18 @@ defineComponent( {
         }
     }
   
-    .br-on-mobile{
-            display: none !important;
-        }
+    
     }
 }
 </style>
 <style lang="scss" scoped>
 .testimonial-section{
     margin: 100px 0;
+    p {
+        .br-mobile{
+            display: block ;
+        }
+    }
 }
 .testimonial-wrapper{
     display: flex;
@@ -298,6 +301,7 @@ defineComponent( {
             //     transition: opacity .5s;
             //     z-index: -1;
             // }
+         
             .testimonial-inside{
                 // background-color: #0e0e0e;
                 // overflow: hidden;
@@ -360,5 +364,13 @@ defineComponent( {
         }
        
     }
+    .testimonial-section{
+    margin: 100px 0;
+    p {
+        .br-mobile{
+            display: inline ;
+        }
+    }
+}
 }
 </style>
