@@ -10,9 +10,10 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 <div class="AnimatedDesignation">
                     <AnimatedDesignation  />
                 </div>
-                <h1 >Umair <span> Anwar Arain </span></h1>
+                <span class="hey-there">Hey there! I'm</span>
+                <h1 >Umair <span class="letter-case"> Anwar Arain </span></h1>
                 <p class="my-bio">
-                    I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
+                    I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
                 </p>
             </div>
             
@@ -83,6 +84,12 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         position: relative;
         width: fit-content;
         max-width: 65%;
+        .hey-there{
+            font-family: "Caveat", cursive;
+            color: #0ead69;
+            font-size: 20px;
+            font-weight: 700;
+        }
        h1{
         font-size: 55px;
         font-weight: 600;
@@ -91,9 +98,9 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         text-transform: uppercase;
         margin: 0;
        }
-        span{
+       .letter-case{
             font-weight: 200;
-            color: #dddddddd;
+            color: #bcbcbc;
         }
     }
     .AnimatedDesignation{
@@ -243,17 +250,57 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     }
     .umair-anwar-arain{
         position: relative;
-        right: 15px;
-        top: 0;
+        right: 0;
+        top: -25px;
         height: 355px;
-        width: 300px;
+        // width: 300px;
     }
+    
   }
     .contact-info{
         flex-direction: column;
         gap:unset !important;
     }
     
+}
+@media screen and (max-width: 575px) {
+    .home-section{
+        .social-border{
+            display: none;
+        }
+        .my-name{
+            h1{
+                font-size: 55px;
+            }
+            .letter-case{
+                font-size: 20px;
+                // letter-spacing: -1px;
+                // display: block;
+                display: none
+            }
+            .my-bio{
+                margin-top: 10px
+            }
+        }
+        .AnimatedDesignation{
+            height: 25px;
+            display: none;
+        }
+        .umair-anwar-arain{
+            height: 210px;
+            // background-color: #0ead69;
+            img{
+                width: 220px;
+            }
+            .circle{
+                right: 40px;
+                width: 150px;
+                top: 30px;
+                height: 150px;
+            }
+        }
+      
+    }
 }
 </style>
 <style lang="scss">

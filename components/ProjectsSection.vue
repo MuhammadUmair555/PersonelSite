@@ -28,8 +28,16 @@ defineComponent( {
   arrows: true,
   wheel  : true,
   pagination: false,
-
+  speed: 1000,
+  breakpoints: {
+    575: {
+    perPage: 1,
+    perMove: 1,
+    gap: '0.7rem',
+    },
+},
   });
+
   </script>
 
 <template>
@@ -176,6 +184,22 @@ defineComponent( {
 .splide__arrow--next {
     right: -9em !important;
 }
+
+@media screen and (max-width: 575px) {
+    .splide{
+      .splide__slide{
+        min-width: unset !important;
+        max-width: 400px;
+      }
+  }
+  
+    .splide__arrows{
+        position: absolute;
+        top: -50px;
+        right: 125px;
+        left: unset;
+        }
+    }
 }
 </style>
 <style lang="scss" scoped>
@@ -223,7 +247,7 @@ defineComponent( {
         }
     }
     .projects{
-        margin-right: 5px;
+     
         .project{
             z-index: 5;
             position: relative;
@@ -412,8 +436,29 @@ defineComponent( {
         transform: scale(1);
     }
     }
-
-  
     
+}
+
+@media screen and (max-width: 575px) {
+    .project-wrapper{
+        .feature-section{
+            ul{
+                gap: 10px;
+                flex-wrap: wrap;
+            } 
+            li{
+                // flex-direction: column;
+                flex: 1;
+                gap: 15px;
+                font-size: 12px;
+                padding: 10px 15px;
+                border-radius: 10px;
+                img{
+                    // width: 40px !important;
+                    // height: 30px !important
+                }
+            }   
+        }
+    }
 }
 </style>

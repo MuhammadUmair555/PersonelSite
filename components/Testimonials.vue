@@ -28,7 +28,7 @@ defineComponent( {
   arrows: false,
   wheel  : true,
   pagination: true,
-
+  speed: 1000,
   });
   </script>
 

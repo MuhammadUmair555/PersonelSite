@@ -54,7 +54,15 @@
       opacity: 1;
     }
   }
- 
+ @media screen and (max-width: 575px) {
+  .typing{
+    font-size: 18px;
+  }
+  .type-wrap{
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+ }
   </style>
   <style>
  .typed-cursor {

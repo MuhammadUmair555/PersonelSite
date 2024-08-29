@@ -9,7 +9,7 @@
         <p class="main-heading">My Blog <span>Posts </span></p>
         <div class="blog-description">
               <p>
-                Welcome to my blog, where I share my journey as a frontend software engineer. <br> Here, you'll find articles on the latest trends in web development, tips and tricks for crafting beautiful and efficient UIs, and insights into the creative process behind my projects.
+                Welcome to my blog, where I share my journey as a frontend software engineer. Here, you'll find articles on the latest trends in web development, tips and tricks for crafting beautiful and efficient UIs, and insights into the creative process behind my projects.
             </p>
           
           </div>
@@ -20,7 +20,7 @@
                       <div class="blog-image">
                           <img src="../assets/Images/blogs/blog-post 3.jpg" alt="">
                       </div>
-                      <div class="blog-name">
+                      <div class="blog-name-area">
                           <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
                           <p class="blog-name">Accessibility in Web Design..!</p>
                           <p class="blog-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
@@ -32,7 +32,7 @@
                       <div class="blog-image">
                           <img src="../assets/Images/blogs/blog-post 3.jpg" alt="">
                       </div>
-                      <div class="blog-name">
+                      <div class="blog-name-area">
                           <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
                           <p class="blog-name">Accessibility in Web Design..!</p>
                           <p class="blog-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
@@ -44,7 +44,7 @@
                       <div class="blog-image">
                           <img src="../assets/Images/blogs/blog-post 3.jpg" alt="">
                       </div>
-                      <div class="blog-name">
+                      <div class="blog-name-area">
                           <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
                           <p class="blog-name">Accessibility in Web Design..!</p>
                           <p class="blog-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
@@ -82,6 +82,7 @@
     gap: 30px;
   //  gap: 20px;
   //  flex-wrap: wrap;
+}
     .blog{
         z-index: 5;
         position: relative;
@@ -109,12 +110,13 @@
         }
         
         .blog-image{
-            height: 250px;
+            height: auto;
             position: relative;
             border-radius: 15px;
             overflow: hidden;
             img{
                 width: 100%;
+                margin-bottom: -10px;
             }
             
         
@@ -131,7 +133,7 @@
             }
           
         }
-        .blog-name{
+        .blog-name-area{
             z-index: 9;
             position: relative;
             padding-top: 10px ;
@@ -164,7 +166,7 @@
             -webkit-line-clamp: 1; 
         }
     }
-}
+
 .view-all{
     margin: 25px auto 0;
     position: relative;
@@ -200,6 +202,29 @@
         background-image: linear-gradient(90deg, #202020 21%, #0e5d3b9c 54%, #202020 90%);
     
     }
+}
+@media screen and (max-width: 850px) {
+  .blog-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 575px) {
+  .blog-wrapper{
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+  .blog {
+    .blog-name-area{
+      .blog-name{
+      padding-top: 0 ;
+    }
+      .blog-link{
+        padding-top: 0;
+      }
+    }
+   
+  }
 }
 </style>
   

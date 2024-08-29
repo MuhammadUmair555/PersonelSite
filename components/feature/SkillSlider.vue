@@ -92,6 +92,7 @@
     arrows: false,
     pauseOnHover: false,
     pagination: false,
+    speed: 3000,
     autoScroll: {
       speed: 0.5,
     },
