@@ -29,6 +29,13 @@ defineComponent( {
   wheel  : true,
   pagination: false,
   speed: 1000,
+  breakpoints: {
+    575: {
+    perPage: 1,
+    perMove: 1,
+    gap: '0.7rem',
+    },
+},
   });
   </script>
 
@@ -105,7 +112,7 @@ defineComponent( {
   .splide{
     padding: 0;
       .splide__slide{
-        // min-width: 400px;
+        min-width: 400px;
         max-width: 400px;
       }
   }
@@ -121,16 +128,18 @@ defineComponent( {
 }
 .splide__arrow {
     align-items: center;
-    background: #0ead69;
+    background: transparent;
+    outline-color: #0ead69;
+    outline-width: 1px;
+    outline-style: solid;
     border: 0;
-    border-radius: 0;
+    border-radius: 30px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     padding: 0;
     position: absolute;
     top: 50%;
-    border-radius: 10px;
     transform: translateY(-50%);
     width: 3.5em;
     height: 3.5em;
@@ -145,6 +154,23 @@ defineComponent( {
 }
 .splide__arrow--next {
     right: -9em !important;
+}
+
+@media screen and (max-width: 575px) {
+    .splide{
+      .splide__slide{
+        min-width: unset !important;
+        max-width: 400px;
+      }
+  }
+  
+    // .splide__arrows{
+    //     position: absolute;
+    //     top: -50px;
+    //     right: 125px;
+    //     left: unset;
+    //     }
+    // }
 }
 }
 </style>
@@ -281,5 +307,10 @@ defineComponent( {
         }
     }
     
+}
+@media screen and (max-width: 575px) {
+    .blog-section{
+        margin: 100px -25px;
+    }
 }
 </style>

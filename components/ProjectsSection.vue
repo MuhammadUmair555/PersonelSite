@@ -159,16 +159,18 @@ defineComponent( {
 }
 .splide__arrow {
     align-items: center;
-    background: #0ead69;
+    background: transparent;
+    outline-color: #0ead69;
+    outline-width: 1px;
+    outline-style: solid;
     border: 0;
-    border-radius: 0;
+    border-radius: 30px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     padding: 0;
     position: absolute;
     top: 50%;
-    border-radius: 10px;
     transform: translateY(-50%);
     width: 3.5em;
     height: 3.5em;
@@ -222,24 +224,14 @@ defineComponent( {
             color: #fdfdfd;
             font-size: 18px;
             font-weight: 500;
-            background-color: #0e0e0e;
-            transition: all 1s ease; 
+            background-color: #181818;
+            // transition: all 1s ease; 
             border: none;
             z-index: 2;
             cursor: pointer;
-            &:after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                height: 100%;
-                z-index: -1;
-                width: 100%;
-                background-image: linear-gradient(90deg, #181818 21%, #181818 54%, #181818 90%);
-                transition: opacity 0.5s ease, background-color 1s ease; 
-            }
+         
 
-            &:hover:after {
+            &:hover {
                 background-color: #0e0e0e;
                 background-image: linear-gradient(90deg, #181818 21%, #0e5d3b9c 54%, #181818 90%);
             
