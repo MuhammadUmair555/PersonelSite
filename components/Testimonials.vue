@@ -18,7 +18,7 @@ defineComponent( {
   const options = ref({
   type  : 'loop',
   autoplay: true, 
-  interval: 3000,
+  interval: 3500,
   perPage: 5,
   perMove: 1,
   snap   : true,
@@ -29,13 +29,20 @@ defineComponent( {
   wheel  : true,
   pagination: true,
   speed: 1000,
+  breakpoints: {
+    575: {
+    perPage: 1,
+    perMove: 1,
+    gap: '0.7rem',
+    },
+},
   });
   </script>
 
 <template>
     <section class="testimonial-section">
         <p class="main-heading">What <span>People Say</span></p>
-        <p> See Testimonial what our clients say about the exceptional service  and expertise <br> we've delivered in their projects.</p>
+        <p> See Testimonial what our clients say about the exceptional service  and expertise <br class="br-on-mobile"> we've delivered in their projects.</p>
         <div class="testimonial-wrapper ">
             <div class="my-image">
                 <img src="../assets/Images/umairgif.gif" alt="">
@@ -200,6 +207,25 @@ defineComponent( {
     background: #12d17e;
     z-index: 1;
 }
+    @media screen and (max-width: 575px) {
+        .splide{
+        .splide__slide{
+            min-width: unset !important;
+            max-width: 400px;
+        }
+        .splide__pagination{
+            align-items: end;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            bottom: -35px;
+        }
+    }
+  
+    .br-on-mobile{
+            display: none !important;
+        }
+    }
 }
 </style>
 <style lang="scss" scoped>
@@ -321,6 +347,18 @@ defineComponent( {
                 }
             }
         }
+    }
+}
+@media screen and (max-width: 575px) {
+    .testimonial-wrapper{
+        flex-direction: column-reverse;
+        .testimonials{
+            width: 100%;
+        }
+        .my-image{
+            display: none;
+        }
+       
     }
 }
 </style>

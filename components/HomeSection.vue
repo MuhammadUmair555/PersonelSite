@@ -89,6 +89,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
             color: #0ead69;
             font-size: 20px;
             font-weight: 700;
+            display: none;
         }
        h1{
         font-size: 55px;
@@ -245,6 +246,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         position: relative;
         flex-direction: column-reverse;
     }
+    
     .my-name{
         max-width: 100%;
     }
@@ -255,7 +257,9 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         height: 355px;
         // width: 300px;
     }
-    
+    .social-border{
+        display: none;
+    }
   }
     .contact-info{
         flex-direction: column;
@@ -270,16 +274,20 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         }
         .my-name{
             h1{
-                font-size: 55px;
+                font-size: 35px;
+            }
+            .hey-there{
+                display: block;
+                letter-spacing: 1px;
             }
             .letter-case{
                 font-size: 20px;
                 // letter-spacing: -1px;
                 // display: block;
-                display: none
+                // display: none
             }
             .my-bio{
-                margin-top: 10px
+                margin-top: 15px
             }
         }
         .AnimatedDesignation{
