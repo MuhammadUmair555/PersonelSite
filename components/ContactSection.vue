@@ -6,7 +6,7 @@
 <template>
     <section class="contact-section">
         <p class="main-heading">Contact <span>Me</span></p>
-        <p>I’m always open to new projects and collaborations.<span class="br-mobile">If you have something in mind or just want to connect, feel free to reach out. </span></p>
+        <p>I’m always open to new projects and collaborations.<span class="br-mobile"> If you have something in mind or just want to connect, feel free to reach out. </span></p>
         <div class="contact-wrapper ">
             <div class="my-image">
                 <img src="../assets/Images/umair-anwar-logo.jpeg" alt="">

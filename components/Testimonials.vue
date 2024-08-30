@@ -16,7 +16,7 @@ defineComponent( {
   },
 } );
   const options = ref({
-  type  : 'false',
+  type  : 'loop',
   autoplay: true, 
   interval: 3500,
   perPage: 5,

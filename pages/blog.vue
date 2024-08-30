@@ -30,7 +30,7 @@
               <div class="blog">
                   <div class="blog-inside">
                       <div class="blog-image">
-                          <img src="../assets/Images/blogs/blog-post 3.jpg" alt="">
+                          <img src="../assets/Images/blogs/blog-post 2.jpg" alt="">
                       </div>
                       <div class="blog-name-area">
                           <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
@@ -42,7 +42,7 @@
               <div class="blog">
                   <div class="blog-inside">
                       <div class="blog-image">
-                          <img src="../assets/Images/blogs/blog-post 3.jpg" alt="">
+                          <img src="../assets/Images/blogs/blog-post 4.jpg" alt="">
                       </div>
                       <div class="blog-name-area">
                           <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
@@ -68,11 +68,8 @@
 }
 .blog-description{
       margin-bottom: 25px;
-      text-align: center;
   }
-.blog-section .main-heading{
-  text-align: center;
-}
+
 .blog-wrapper{
   background-color: #181818;
     border-radius: 18px;

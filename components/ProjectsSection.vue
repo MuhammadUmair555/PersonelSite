@@ -55,7 +55,38 @@ defineComponent( {
             </div>
             <div class="projects">
                 <Splide :options="options" >
-                    
+                    <SplideSlide>
+                        <div class="project">
+                            <div class="project-inside">
+                                <div class="project-image">
+                                    <img src="../assets/Images/project/project-2.png" alt="">
+                                </div>
+                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
+                                <div class="project-name">
+                                    Analytics Dashboard
+                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
+                                </div>
+                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            </div>
+                        </div>
+                    </SplideSlide>
+                    <SplideSlide>
+                        <div class="project">
+                            <div class="project-inside">
+                                <div class="project-image">
+                                    <img src="../assets/Images/project/project-umair-1s.jpg" alt="">
+                                </div>
+                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
+                                <div class="project-name">
+                                    Analytics Dashboard
+                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
+                                </div>
+                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            </div>
+                        </div>
+                    </SplideSlide>
                     <SplideSlide>
                         <div class="project">
                             <div class="project-inside">

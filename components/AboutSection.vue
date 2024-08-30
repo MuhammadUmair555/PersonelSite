@@ -22,7 +22,7 @@ import MySkill from '../components/feature/MySkill.vue'
                         <div class="small-circle"></div>
                         <div>
                             <p class="education-name">WEB DEVELOPER</p>
-                            <p class="education-from">BCI New Media, Karachi<span>( 2019 - 2021 )</span></p>
+                            <p class="education-from">BCI New Media, Karachi<span> ( 2019 - 2021 )</span></p>
                         </div>
                     </div>
             </div>
@@ -39,7 +39,7 @@ import MySkill from '../components/feature/MySkill.vue'
                         <div class="small-circle"></div>
                         <div>
                             <p class="education-name">Diploma in Web Development</p>
-                            <p class="education-from">Infra Professional<span>( 2018 - 2018 )</span></p>
+                            <p class="education-from">Infra Professional<span> ( 2018 - 2018 )</span></p>
                         </div>
                     </div>
                 </div>

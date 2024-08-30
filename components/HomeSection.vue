@@ -48,7 +48,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 <div class="info-item">
                 <span class="label">Email</span>
                 <span class="colon">:</span>
-                <span class="value">info@umairanwar.com</span>
+                <span class="value">eng.umairanwar@gmail.com</span>
                 </div>
                 <div class="info-item">
                 <span class="label">Github</span>

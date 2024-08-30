@@ -32,7 +32,7 @@
               <div class="project">
                   <div class="project-inside">
                       <div class="project-image">
-                          <img src="../assets/Images/project/project-2.png" alt="">
+                          <img src="../assets/Images/project/project-POST.jpg" alt="">
                       </div>
                       <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
@@ -46,7 +46,7 @@
               <div class="project">
                   <div class="project-inside">
                       <div class="project-image">
-                          <img src="../assets/Images/project/project-2.png" alt="">
+                          <img src="../assets/Images/project/project-umair-1s.jpg" alt="">
                       </div>
                       <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
@@ -73,7 +73,7 @@
     padding-bottom: 100px;
     .project-description{
         margin-bottom: 25px;
-        text-align: center;
+        text-align: left;
     }
     .view-all{
         margin: 25px auto 0;
@@ -112,9 +112,7 @@
         }
     }
 }
-.project-section  .main-heading{
-  text-align: center;
-}
+
 .project-wrapper{
     border-radius: 18px;
     // padding: 30px;
