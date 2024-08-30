@@ -231,8 +231,8 @@ defineComponent( {
             }
             &:hover .blog-link {
                 img{
-                width: 30px !important;
-                height: 30px !important;
+                width: 20px !important;
+                height: 20px !important;
             }
             }
           

@@ -11,7 +11,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                     <AnimatedDesignation  />
                 </div>
                 <span class="hey-there">Hey there! I'm</span>
-                <h1 >Umair <span class="letter-case"> Anwar Arain </span></h1>
+                <h1 >Umair <span class="letter-case"> Anwar  </span></h1>
                 <p class="my-bio">
                     I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
                 </p>
@@ -284,7 +284,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 font-family: "Sriracha", cursive;
             }
             .letter-case{
-                font-size: 20px;
+                // font-size: 20px;
                 // letter-spacing: -1px;
                 // display: block;
                 // display: none
