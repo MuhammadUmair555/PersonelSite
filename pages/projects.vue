@@ -78,7 +78,7 @@
     }
     .view-all{
         position: relative;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
         padding: 20px 25px;
         min-width: 150px;
@@ -92,7 +92,7 @@
         border: none;
         z-index: 2;
         cursor: pointer;
-        background-color: #202020;
+        background-color: #191919;
      
         &:hover{
             background-image: linear-gradient(90deg, #181818 21%, #0e5d3b9c 54%, #181818 90%);

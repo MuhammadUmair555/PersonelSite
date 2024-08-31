@@ -458,7 +458,7 @@ defineComponent( {
                 flex: 1;
                 gap: 15px;
                 font-size: 13px;
-                padding: 10px 15px;
+                padding: 15px 15px;
                 border-radius: 10px;
                 img{
                     width: 26px;

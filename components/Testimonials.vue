@@ -58,9 +58,9 @@ defineComponent( {
 
                                 <div class="testimonial-content">
 
-                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
-                                   
-                                   </p>
+                                <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, deleniti voluptates. Saepe, dignissimos nemo. Soluta incidunt magnam neque cum laudantium, culpa facilis! Atque, dicta? Error laboriosam accusantium.
+                                </p>
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
@@ -89,9 +89,9 @@ defineComponent( {
 
                                 <div class="testimonial-content">
 
-                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
-                                   
-                                   </p>
+                                <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, deleniti voluptates. Saepe, dignissimos nemo. Soluta incidunt magnam neque cum laudantium, culpa facilis! Atque, dicta? Error laboriosam accusantium.
+                                </p>
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
@@ -120,9 +120,9 @@ defineComponent( {
 
                                 <div class="testimonial-content">
 
-                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
-                                   
-                                   </p>
+                                <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, deleniti voluptates. Saepe, dignissimos nemo. Soluta incidunt magnam neque cum laudantium, culpa facilis! Atque, dicta? Error laboriosam accusantium.
+                                </p>
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
@@ -151,9 +151,9 @@ defineComponent( {
 
                                 <div class="testimonial-content">
 
-                                 <p>  Working with [Umair Anwar Arain] has been a game-changer. Their expertise in frontend development is unparalleled, bringing creativity and precision to every project. Highly recommend them for any web development needs.
-                                   
-                                   </p>
+                                 <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, deleniti voluptates. Saepe, dignissimos nemo. Soluta incidunt magnam neque cum laudantium, culpa facilis! Atque, dicta? Error laboriosam accusantium.
+                                </p>
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
@@ -227,11 +227,18 @@ defineComponent( {
     background: #12d17e;
     z-index: 1;
 }
-    @media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
         .splide{
         .splide__slide{
             min-width: unset !important;
-            max-width: 400px;
+            max-width: unset !important;
+        }
+    }
+}
+    @media screen and (max-width: 575px) {
+        .splide{
+            .splide__slide{
+            min-width: unset !important;
         }
         .splide__pagination{
             align-items: end;
@@ -297,110 +304,82 @@ defineComponent( {
             transition-duration: 0.5s;
             transition-delay: 0s;
            
-            // &:before{
-            //     content: "";
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     right: 0;
-            //     bottom: 0;
-            //     opacity: 0;
-            //     background: linear-gradient(180deg, #0e0e0e00 28%, #0ead69);
-            //     transition: opacity .5s;
-            //     z-index: -1;
-            // }
-            // &:hover:before{
-            //     content: "";
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     right: 0;
-            //     opacity: 1;
-            //     bottom: 0;
-            //     background: linear-gradient(360deg, #0e0e0e00 , #0ead69);
-            //     transition: opacity .5s;
-            //     z-index: -1;
-            // }
-         
-            .testimonial-inside{
-                // background-color: #0e0e0e;
-                // overflow: hidden;
+        }
+        .testimonial-inside{
             position: relative;
-             
-            }
-          
-            .testimonial-content{
-                // height: 190px;
-                position: relative;
-                overflow: hidden;
-                p{
-                    font-size: 14px;
-                    margin-top: 5px;
-                    min-height: 140px;
-                }
-            }
-
-            .testimonial-name{
-                color: #fdfdfd;
-                font-size: 20px;
-                font-weight: 500;
-                z-index: 9;
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                margin-top: 10px;
-                position: relative;
-                bottom: 0;
-                p{
-                    display: flex;
-                    align-items: center;
-                    font-size: 12px;
-                    gap: 5px;
-                    color: #0ead69;
-                    line-height: 1.5;
-                }
-                .client-profile-img{
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 100px;
-                    overflow: hidden;
-                    min-width: 60px;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-            }
-            .social-follwing{
-                text-align: end;
-                transition-duration: 0.5s;
-                margin-left: auto;
-        a{
-            text-decoration: none;
-            position: relative;
-            background-color: #d4d4d4;
-            margin: 1px;
-            padding: 10px;
-            border-radius: 50px;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition-duration: 0.5s;
-            
-            &:hover {
-            background-color: #0ead69;
-            transition-duration: 0.5s;
-
-            }
         }
         
-    }
+        .testimonial-content{
+            position: relative;
+            overflow: hidden;
+            p{
+                font-size: 14px;
+                margin-top: 5px;
+                min-height: 140px;
+            }
+        }
+
+        .testimonial-name{
+            color: #fdfdfd;
+            font-size: 20px;
+            font-weight: 500;
+            z-index: 9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            position: relative;
+            bottom: 0;
+            p{
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                gap: 5px;
+                color: #0ead69;
+                line-height: 1.5;
+            }
+          
+        }
+        .client-profile-img{
+                width: 60px;
+                height: 60px;
+                border-radius: 100px;
+                overflow: hidden;
+                min-width: 60px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        .social-follwing{
+            text-align: end;
+            transition-duration: 0.5s;
+            margin-left: auto;
+            a{
+                text-decoration: none;
+                position: relative;
+                background-color: #d4d4d4;
+                margin: 1px;
+                padding: 10px;
+                border-radius: 50px;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition-duration: 0.5s;
+                
+                &:hover {
+                background-color: #0ead69;
+                transition-duration: 0.5s;
+
+                }
+            }
+    
         }
     }
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
     .testimonial-wrapper{
         flex-direction: column-reverse;
         .testimonials{
@@ -411,13 +390,32 @@ defineComponent( {
         }
        
     }
+}
+@media screen and (max-width: 575px) {
+  
     .testimonial-section{
-    margin: 100px 0;
-    p {
-        .br-mobile{
-            display: inline ;
+        p {
+            .br-mobile{
+                display: inline ;
+            }
+        }
+        .testimonials{
+            .client-profile-img{
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+               
+            }
+            .testimonial-name{
+            color: #fdfdfd;
+            font-size: 16px;
+          
+            p{
+                font-size: 10px;
+            }
+          
+        }
         }
     }
-}
 }
 </style>
