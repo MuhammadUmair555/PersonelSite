@@ -54,7 +54,9 @@
 
         </div>
         <nuxt-link style="text-decoration: none;" to="/blog">
+            <div class="gradient-border">
               <button class="view-all">Load More Posts</button>
+            </div>
           </nuxt-link>
     </section>
 </template>
@@ -164,42 +166,62 @@
         }
     }
 
-.view-all{
+    .view-all{
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 20px 25px;
+        min-width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fdfdfd;
+        font-size: 18px;
+        font-weight: 500;
+        background-color: #0e0e0e;
+        border: none;
+        z-index: 2;
+        cursor: pointer;
+        background-color: #202020;
+     
+        &:hover{
+            background-image: linear-gradient(90deg, #181818 21%, #0e5d3b9c 54%, #181818 90%);
+            
+        }
+    }
+    .gradient-border{
     margin: 25px auto 0;
     position: relative;
-    border-radius: 10px;
+    z-index: 9;
+    padding: 1px;
     overflow: hidden;
-    padding: 15px 25px;
+    margin: 25px auto 0;
+    border-radius: 12px;
     min-width: 150px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fdfdfd;
-    font-size: 18px;
-    font-weight: 500;
-    background-color: #303030;
-    border: none;
-    z-index: 2;
-    transition-duration: 1s;
-    cursor: pointer;
-    &:after {
+    width: fit-content;
+    }
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+        }
+    .gradient-border::before {
         content: "";
         position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 100%;
+        top: -100px;
+        left: -190px;
+        right: -190px;
+        width: 230px;
+        height: 250px;
+        bottom: -100px;
+        margin: auto;
         z-index: -1;
-        width: 100%;
-        background-color: #202020;
-      
-    }
+        // border-radius: 15px;
+        background-image: conic-gradient(from 324deg, #202020 50%, #0ead69 60%, #202020, #202020);
+        animation: spin-2adedd72 8s linear infinite;
 
-    &:hover:after {
-        background-color: #303030;
-        background-image: linear-gradient(90deg, #202020 21%, #0e5d3b9c 54%, #202020 90%);
-    
     }
-}
 @media screen and (max-width: 850px) {
   .blog-wrapper{
     grid-template-columns: 1fr;
