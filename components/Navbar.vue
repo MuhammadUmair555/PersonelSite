@@ -21,50 +21,53 @@
         <li class="on-mobile"><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
         <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+        <li class="mode-toggle">
+          <nuxt-link @click="toggleDarkMode">
+            <span :class="{ 'animate-toggle': isAnimating }">
+              <svg v-if="isDarkMode" width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.34323 0.906284C8.18434 0.927335 8.02513 0.952691 7.86572 0.982437C2.96934 1.89614 -0.259268 6.60615 0.654436 11.5025C1.56814 16.3989 6.27815 19.6275 11.1745 18.7138C12.8551 18.4002 14.3391 17.6394 15.5267 16.5774C10.8051 17.203 6.36803 14.0269 5.48408 9.28995C4.88397 6.07409 6.07071 2.93862 8.34323 0.906284Z" fill="#0e0e0e"/>
+              </svg>
+              <svg v-else width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="4" fill="#FDC200"/>
+                <path d="M12 5V3" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 21V19" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M16.9498 7.04996L18.364 5.63574" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5.63608 18.3644L7.05029 16.9502" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M19 12L21 12" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 12L5 12" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M16.9498 16.95L18.364 18.3643" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5.63608 5.63559L7.05029 7.0498" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </nuxt-link>
+        </li>
+
       </ul>
     </nav> 
   </div>
-<!-- 
-    <nav>
-  <ul>
-    <li><a @click="scrollToSection('home')">Home</a></li>
-    <li><a @click="scrollToSection('about')">About</a></li>
-    <li><a @click="scrollToSection('projects')">Projects</a></li>
-    <li><a @click="scrollToSection('blog')">Blog</a></li>
-    <li><a @click="scrollToSection('contact')">Contact</a></li>
-  </ul>
-</nav> -->
-<!-- <nav>
-  <ul>
-    <li><a @click="navigateTo('home')">Home</a></li>
-    <li><a @click="navigateTo('about')">About</a></li>
-    <li><a @click="navigateTo('projects')">Projects</a></li>
-    <li><a @click="navigateTo('blog')">Blog</a></li>
-    <li><a @click="navigateTo('contact')">Contact</a></li>
-  </ul>
-</nav>  -->
+
   </template>
   
   <script setup>
   import { ref, onMounted, onUnmounted } from 'vue';
-  
-  const isScrolled = ref(false);
-  
-  const handleScroll = () => {
-    isScrolled.value = window.scrollY > 50;
-  };
-  
-  onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-  });
-  
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll);
-  });
-  
-  // If you have async setup, ensure onMounted is called before await
-  // const data = await fetchSomeData(); 
-  </script>
+import { useDarkMode } from '../components/feature/useDarkMode'; // Ensure this path is correct
+
+const { isDarkMode, toggleDarkMode, isAnimating } = useDarkMode(); // Ensure isAnimating is destructured here
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+</script>
+ 
   
   <style scoped lang="scss">
   .navbar-top{
@@ -87,6 +90,25 @@
   }
   .navbar-top.scrolled {
   transform: translateY(-20px); /* Adjust this value to control the upward movement */
+}
+.mode-toggle {
+  cursor: pointer;
+}
+
+.mode-toggle span {
+  display: inline-block;
+  transition: transform 1s ease-in-out;
+  width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode-toggle span.animate-toggle {
+  transform: rotate(360deg);
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out;
 }
   nav ul {
     display: flex;
@@ -173,8 +195,19 @@
     color: #0ead69;
 
   }
+.dark-mode nav ul li a {
+    
+    color: #181818;
+ 
+  }
+  .dark-mode  .router-link-active {
+    /* color: #00FF7F; */
+    color: #0ead69;
 
-
+  }
+.dark-mode .navbar-top {
+  background-color: rgb(255 255 255 / 52%);
+}
 @media screen and (max-width: 575px) {
   .logo {
     font-size: 28px;
@@ -196,7 +229,8 @@
   }
   nav ul{
     margin: 15px 0 10px;
-    align-items: baseline;
+    // align-items: baseline;
+    gap: 20px;
   }
 }
   </style>

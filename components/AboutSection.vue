@@ -1,10 +1,10 @@
 <script setup>
 import MySkill from '../components/feature/MySkill.vue'
-
+// const isDarkMode = ref(localStorage.getItem('darkMode') === 'true');
 </script>
 
 <template>
-    <section class="about-section" >
+    <section class="about-section" :class="{ 'dark-mode': isDarkMode }">
         <MySkill />
 
         <div class="gradient-border">
@@ -32,7 +32,7 @@ import MySkill from '../components/feature/MySkill.vue'
                         <div class="small-circle"></div>
                         <div>
                             <p class="education-name">Bachelor in Computer Science</p>
-                            <p class="education-from">Federal Urdu University, Karchi <span>( 2015 - 2019 )</span></p>
+                            <p class="education-from">Federal Urdu University, Karachi <span>( 2015 - 2019 )</span></p>
                         </div>
                     </div>
                     <div class="education">
@@ -82,6 +82,10 @@ import MySkill from '../components/feature/MySkill.vue'
     animation: spin-2adedd72 8s linear infinite;
 
 }
+.dark-mode .gradient-border::before {
+    content: "";
+    background-image: conic-gradient(from 324deg, #e0e0e0 50%, #0ead69 60%, #e0e0e0, #e0e0e0);
+}
 .about-wrapper{
     display: flex;
     gap: 10px;
@@ -91,7 +95,9 @@ import MySkill from '../components/feature/MySkill.vue'
     border-radius: 15px;
     padding: 40px 25px;
 }
-
+.dark-mode .about-wrapper{
+    background-color: #e0e0e0;
+}
 .education{
     position: relative;
     display: flex;
@@ -103,6 +109,9 @@ import MySkill from '../components/feature/MySkill.vue'
     color: #fdfdfd;
     font-size: 20px;
     font-weight: 500;
+}
+.dark-mode .education-name{
+    color: #181818;
 }
 .education-from{
     span{
