@@ -264,7 +264,7 @@ defineComponent( {
         cursor: pointer;
         border-radius: 15px;
         flex: 1;
-        background: linear-gradient(180deg, #0e0e0e 48%, #0ead69);
+        background: linear-gradient(180deg, transparent 48%, #0ead69);
         box-sizing: border-box;
         transition-duration: 0.5s;
         transition-delay: 0s;

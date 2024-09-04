@@ -103,9 +103,7 @@ input{
     background: transparent;
     color: #fdfdfd;
     padding: 20px;
-    // -webkit-transition: all .4s;
-    // -o-transition: all .4s;
-    // transition: all .4s;
+    font-family: "Poppins", sans-serif;
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #0e0e0e inset;
@@ -115,7 +113,7 @@ input:-webkit-autofill {
 textarea{
     // width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.334);
-
+    font-family: "Poppins", sans-serif;
     border-radius: 10px;
     background: transparent;
     color: #fff;
@@ -189,6 +187,7 @@ textarea{
     .message,
     .textarea
     {
+    font-family: "Poppins", sans-serif;
     display: block;
     margin-bottom: 20px;
     position: relative;
@@ -206,5 +205,25 @@ textarea{
         font-size: 12px
     }
     }
+}
+.dark-mode input{
+    border: 1px solid #181818;
+    color: #181818;
+}
+.dark-mode textarea{
+    color: #181818;
+    border: 1px solid #181818;
+}
+.dark-mode .contact-form{ 
+
+    label{
+        background-color: #fdfdfd;
+      
+    }
+}
+.dark-mode input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fdfdfd inset;
+    box-shadow: 0 0 0 1000px #fdfdfd inset;
+    -webkit-text-fill-color: #181818;
 }
 </style>

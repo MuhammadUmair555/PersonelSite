@@ -252,6 +252,12 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         color: #181818;
 }
 }
+.dark-mode    .umair-anwar-arain{    
+    .circle{
+    background-color: #d4d4d4;
+}
+}
+
 @media screen and (max-width: 991px) {
   .home-section{
     .Im-Umair{
