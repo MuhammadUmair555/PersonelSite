@@ -425,6 +425,7 @@ defineComponent( {
             }
         }
     }
+  
     @keyframes heartbeat {
     0% {
         transform: scale(1);
@@ -444,7 +445,12 @@ defineComponent( {
     }
     
 }
-
+.dark-mode{
+    .feature-section li{
+        background-color: #e0e0e0;
+        color: #181818;
+    }
+}
 @media screen and (max-width: 575px) {
     .project-wrapper{
         .project {

@@ -1,6 +1,7 @@
 <template>
     
-    <div class="Container">
+    <div :class="{ 'dark-mode': isDarkMode }" class="Container">
+       
         <Navbar />
 
         <NuxtLayout>
@@ -25,3 +26,8 @@
     }
 }
 </style>
+<script setup>
+import { ref } from 'vue';
+import { useDarkMode } from '../components/feature/useDarkMode';
+const { isDarkMode } = useDarkMode();
+</script>

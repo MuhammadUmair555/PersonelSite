@@ -38,7 +38,7 @@
   
 <script setup>
     import { reactive, computed } from 'vue'
-  
+    import emailjs from 'emailjs-com';
   const form = reactive({
     name: '',
     email: '',
@@ -62,14 +62,37 @@
     return Object.values(errors).every(error => error === '')
   }
   
-  const submitForm = () => {
+//   const submitForm = () => {
+//     if (validateForm()) {
+//       console.log('Form submitted:', form)
+//       // Add your form submission logic here
+//     } else {
+//       console.log('Form has errors')
+//     }
+//   }
+
+const submitForm = () => {
     if (validateForm()) {
-      console.log('Form submitted:', form)
-      // Add your form submission logic here
+        emailjs.send('service_47rrc29', 'template_xnuxqfq', {
+            from_name: form.name,
+            to_name: 'Umair',
+            subject: form.subject,
+            message: form.message,
+            reply_to: form.email
+        }, 'nJpzbX2_NqoOtAWdW')  // Ensure this is your correct EmailJS User ID
+        .then((response) => {
+            console.log('Email successfully sent!', response.status, response.text);
+            console.log('Form submitted:', subject)
+            alert('Message sent successfully!');
+        }, (error) => {
+            console.error('Failed to send email.', error);
+            alert('An error occurred. Please try again later.');
+        });
     } else {
-      console.log('Form has errors')
+        console.log('Form has errors');
     }
-  }
+}
+
 </script>
 <style lang="scss" scoped>
 

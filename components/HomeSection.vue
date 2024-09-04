@@ -104,6 +104,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
             color: #bcbcbc;
         }
     }
+    
     .AnimatedDesignation{
         height: 50px;
         overflow: hidden;
@@ -239,6 +240,17 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
         font-size: 14px;
         }
     }
+    
+}
+.dark-mode .my-name{
+        h1{
+            color: #181818;
+        }
+    }
+.dark-mode .contact-info{
+    .value {
+        color: #181818;
+}
 }
 @media screen and (max-width: 991px) {
   .home-section{

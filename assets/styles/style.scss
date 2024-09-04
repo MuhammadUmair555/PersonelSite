@@ -13,11 +13,19 @@ body {
     padding: 0;
     font-family: "Poppins", sans-serif;
   }
+.dark-mode body {
+  background-color: #fdfdfd;
+}
+
+
   p{
     margin: 0;
     color: #bcbcbc;
     font-size: 16px;
     line-height: 28px;
+  }
+  .dark-mode p {
+    color: #181818;
   }
   .main-heading{
     font-size: 40px;
@@ -32,6 +40,12 @@ body {
         // color: #bcbcbc;
         color: #0ead69;
         
+    }
+  }
+  .dark-mode .main-heading {
+    color: #181818;
+      span{
+        color: #0ead69; 
     }
   }
   .gradient-text {

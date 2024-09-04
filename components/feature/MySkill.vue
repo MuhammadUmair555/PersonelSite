@@ -50,40 +50,37 @@ import SkillSlider from '../feature/SkillSlider.vue'
     justify-content: center;
     gap: 10px;
     overflow: hidden;
-    // outline-width: 1px;
-    // outline-style: solid;
-    // outline-color: #0ead69;
-    transition: all 1s ease; /* Transition for all properties */
-    // background-color: #181818;
+    background-color: #181818 ;
     svg{
         width: 30px;
     }
-    &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 100%;
-        z-index: -1;
-        width: 100%;
-        background-image: linear-gradient(90deg, #181818 21%, #181818 54%, #181818 90%);
-        transition: opacity 0.5s ease, background-color 1s ease; 
-    }
+    
 
-    &:hover:after {
-        background-color: #0e0e0e;
+    &:hover {
+        // background-color: #0e0e0e;
         background-image: linear-gradient(90deg, #181818 21%, #0e5d3b9c 54%, #181818 90%);
        
 
     }
 }
 
+.dark-mode .service {
+    background-color: #e0e0e0;
+    &:hover {
+        // background-color: #0e0e0e;
+        background-image: linear-gradient(90deg, #e0e0e0 21%, #0e5d3b9c 54%, #e0e0e0 90%);
+       
 
+    }
+}
 
 .education-name{
     color: #fdfdfd;
     font-size: 18px;
     font-weight: 500;
+}
+.dark-mode .education-name{
+    color: #181818;
 }
 .education-from{
     span{
