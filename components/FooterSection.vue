@@ -3,6 +3,7 @@
 <div class="navbar-top">
  <div class="footer-content">
       <ul>
+        <li class="designDevelopment">Designed and Developed by Umair Anwar.</li>
         <li >Copyright © 2024 <nuxt-link to="/">Umair Anwar</nuxt-link> All rights reserved.</li>
       </ul>
     </div>
@@ -35,25 +36,31 @@
   .footer-content ul {
     display: flex;
     list-style: none;
-    gap: 25px;
-    margin: 20px 0 10px;
+    gap: 10px;
+    margin:0px 0 10px;
     padding: 0;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
   
   .footer-content ul li {
-    margin: 0;
+    font-size: 14px;
   }
   
 
-
+.designDevelopment{
+  color: #f5f5f5;
+    margin-top: -11px;
+    padding: 0 10px;
+    background-color: #0e0e0e;
+}
 
 
 .footer-content ul li a {
     text-decoration: none;
     color: #f5f5f5;
-    font-size: 18px;
+    font-size: 14px;
     // margin: 0 5;
 
   }
