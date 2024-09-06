@@ -9,6 +9,25 @@ import '@splidejs/vue-splide/css/sea-green';
 // or only core styles
 import '@splidejs/vue-splide/css/core';
 // Define the component
+
+import { useScrollAnimation } from './composables/useScrollAnimation';
+// Refs for the sections to observe
+const fadeSection = ref(null);
+const slideSection = ref(null);
+
+// Use the composable
+const { observeElement } = useScrollAnimation();
+
+onMounted(() => {
+  if (fadeSection.value) {
+    observeElement(fadeSection.value); // Apply observer to the first section
+  }
+  if (slideSection.value) {
+    observeElement(slideSection.value); // Apply observer to the second section
+  }
+});
+
+
 defineComponent( {
   components: {
     Splide,
@@ -38,13 +57,13 @@ defineComponent( {
 },
   });
 
-  </script>
+</script>
 
 <template>
     <section class="project-section">
         <p class="main-heading">My <span>Latest Work</span></p>
-        <div class="project-wrapper ">
-            <div class="project-description">
+        <div class="project-wrapper " >
+            <div class="project-description" ref="fadeSection">
                 <p>
                     Explore projects where my creativity in UI merges with technical expertise and design excellence across diverse domains.
                  From <span style="color:#0ead69;font-weight:500;">Dashboards</span> and <span style="color:#0ead69;font-weight:500;">AI Chatbots</span> to <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
@@ -53,7 +72,7 @@ defineComponent( {
                 <button  class="view-all">All Projects</button>
             </nuxt-link >
             </div>
-            <div class="projects">
+            <div class="projects" ref="fadeSection">
                 <Splide :options="options" >
                     <SplideSlide>
                         <div class="project">
@@ -140,7 +159,7 @@ defineComponent( {
 
             </div>
 
-            <div class="feature-section">
+            <div class="feature-section" ref="fadeSection">
                 <ul>
                     <li><img src="../assets/Images/intro-ft-icon1.png" alt="Dedication" title="Dedication" width="50" >Dedication</li>
                     <li><img src="../assets/Images/intro-ft-icon2.png" alt="Smart Work" title="Smart Work" width="50">Smart Work</li>
@@ -226,6 +245,9 @@ defineComponent( {
 }
 .project-wrapper{
     .project-description{
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.5s ease-in-out;
         margin-bottom: 25px;
         .view-all{
             margin-top: 25px;
