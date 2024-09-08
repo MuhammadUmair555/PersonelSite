@@ -1,5 +1,5 @@
 <template>
-    <div class="skill-slider">
+    <div data-aos="fade-left" class="skill-slider">
       <Splide :options="options" :extensions="{ AutoScroll }">
         <!-- Custom Arrows within Splide -->
         <!-- <template #arrows>

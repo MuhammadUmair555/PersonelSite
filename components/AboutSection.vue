@@ -7,9 +7,9 @@ import MySkill from '../components/feature/MySkill.vue'
     <section class="about-section" :class="{ 'dark-mode': isDarkMode }">
         <MySkill />
 
-        <div class="gradient-border">
+        <div data-aos="fade-up" class="gradient-border">
             <div class="about-wrapper">
-                <div class="work-experience">
+                <div data-aos="fade-right" class="work-experience">
                     <p class="main-heading">Work <span>Experience</span></p>
                     <div class="education">
                         <div class="small-circle"></div>
@@ -25,8 +25,8 @@ import MySkill from '../components/feature/MySkill.vue'
                             <p class="education-from">BCI New Media, Karachi<span> ( 2019 - 2021 )</span></p>
                         </div>
                     </div>
-            </div>
-                <div class="my-education">
+                </div>
+                <div data-aos="fade-left" class="my-education">
                 <p class="main-heading">My <span>Education</span></p>
                 <div class="education">
                         <div class="small-circle"></div>
@@ -96,7 +96,7 @@ import MySkill from '../components/feature/MySkill.vue'
     padding: 40px 25px;
 }
 .dark-mode .about-wrapper{
-    background-color: #e0e0e0;
+    background-color: #e9e9e9;
 }
 .education{
     position: relative;

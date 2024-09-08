@@ -7,17 +7,17 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
     <section class="home-section">
         <div class="Im-Umair">
             <div class="my-name">
-                <div class="AnimatedDesignation">
+                <div data-aos="fade-down" class="AnimatedDesignation">
                     <AnimatedDesignation  />
                 </div>
-                <span class="hey-there">Hey there! I'm</span>
-                <h1 >Umair <span class="letter-case"> Anwar. </span></h1>
-                <p class="my-bio">
+                <span data-aos="fade-down" class="hey-there">Hey there! I'm</span>
+                <h1 data-aos="fade-up" >Umair <span class="letter-case"> Anwar. </span></h1>
+                <p data-aos="fade-up" data-aos-delay="300" class="my-bio">
                     I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
                 </p>
             </div>
             
-            <div class="umair-anwar-arain">
+            <div data-aos="zoom-in" class="umair-anwar-arain">
                 <div class="circle heartbeat"></div>
                 <img src="../assets/Images/umair-logo.png" alt="">
                 <div class="social-border">
@@ -26,8 +26,8 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 </div>
             </div>
         </div>
-         <div class="contact-info">
-            <div class="info-row">
+         <div  class="contact-info">
+            <div data-aos="fade-up" data-aos-delay="400" class="info-row">
                 <div class="info-item">
                 <span class="label">Phone</span>
                 <span class="colon">:</span>
@@ -44,7 +44,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 <span class="value">English, Urdu</span>
                 </div>
             </div>
-            <div class="info-row">
+            <div data-aos="fade-up" data-aos-delay="500" class="info-row">
                 <div class="info-item">
                 <span class="label">Email</span>
                 <span class="colon">:</span>
@@ -61,7 +61,7 @@ import AnimatedDesignation from './AnimatedDesignation.vue'
                 <span class="value">Pakistan, Karchi</span>
                 </div>
             </div>
-           <div class="social-follwing">
+           <div data-aos="zoom-in" data-aos-delay="1500" class="social-follwing">
                 <a href="https://www.linkedin.com/in/umair-anwar-arain/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="#181818" viewBox="0 0 512 512"><path d="M116.504 500.219V170.654H6.975v329.564h109.529v.001zM61.751 125.674c38.183 0 61.968-25.328 61.968-56.953-.722-32.328-23.785-56.941-61.252-56.941C24.994 11.781.5 36.394.5 68.722c0 31.625 23.772 56.953 60.53 56.953h.721v-.001zm115.373 374.545s1.437-298.643 0-329.564H286.67v47.794h-.727c14.404-22.49 40.354-55.533 99.44-55.533 72.085 0 126.116 47.103 126.116 148.333V500.22H401.971V323.912c0-44.301-15.848-74.531-55.497-74.531-30.254 0-48.284 20.38-56.202 40.08-2.897 7.012-3.602 16.861-3.602 26.711v184.047H177.124z" style="display:inline;fill-rule:evenodd;clip-rule:evenodd"/></svg>
                 </a>

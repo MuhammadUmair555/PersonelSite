@@ -8,14 +8,26 @@ export default defineNuxtConfig({
     host: '0.0.0.0', 
     port: 3000,
   },
+
   // modules: ['@nuxtjs/strapi'],
+  modules: ['@nuxtjs/aos'],
+
+  aos: {
+    // Add AOS global options here
+    duration: 1000, // Animation duration in ms
+    once: true, // Animation happens only once
+    easing: 'ease-in-out', // Default easing for animations
+  },
+
   css: [
     '~/assets/styles/style.scss',
     '@splidejs/vue-splide/css'
   ],
+
   plugins: [
-    { src: '~/plugins/vue-splide', mode: 'client' }
+    { src: '~/plugins/vue-splide', mode: 'client' },
   ],
+
   router: {
     options: {
       scrollBehavior(to, from, savedPosition) {
@@ -32,6 +44,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  // strapi: {
+  //   url: 'http://localhost:1337'
+  // }
   app: {
     head: {
       link: [
@@ -43,7 +59,6 @@ export default defineNuxtConfig({
       ]
     }
   },
-  // strapi: {
-  //   url: 'http://localhost:1337'
-  // }
+
+  modules: ['nuxt-aos']
 })

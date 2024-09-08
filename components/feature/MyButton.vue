@@ -1,15 +1,38 @@
+
+<template>
+    <div class="gradient-border" :style="{ margin: buttonMargin }">
+        <button :type="buttonType" class="view-all">{{ buttonText }}</button>
+    </div>
+</template>
+<script setup>
+const props = defineProps({
+  buttonText: {
+    type: String,
+    required: true
+  },
+  buttonType: {
+    type: String,
+    default: 'button' 
+  },
+  buttonMargin: {
+    type: String,
+    default: '25px 0 0'  // Default margin, but can be passed from parent
+  }
+})
+</script>
+
 <style lang="scss" scoped>
   .view-all{
         position: relative;
         border-radius: 12px;
         overflow: hidden;
-        padding: 20px 25px;
+        padding: 16px 25px;
         min-width: 150px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fdfdfd;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         background-color: #0e0e0e;
         border: none;
@@ -23,12 +46,11 @@
         }
     }
     .gradient-border{
-    margin: 25px auto 0;
     position: relative;
     z-index: 9;
     padding: 1px;
     overflow: hidden;
-    margin: 25px auto 0;
+    
     border-radius: 12px;
     min-width: 150px;
     display: flex;
@@ -53,6 +75,22 @@
         // border-radius: 15px;
         background-image: conic-gradient(from 324deg, #202020 50%, #0ead69 60%, #202020, #202020);
         animation: spin-2adedd72 8s linear infinite;
+
+    }
+
+    .dark-mode .view-all{
+        background-color: #0ead69;
+        color: #ffffff;
+        transition-duration: 0.5s;
+        &:hover{
+            background-image: none ;
+        transform: scale(1.1);
+            
+        }
+    }
+    .dark-mode .gradient-border::before {
+        content: "";
+        background-image: conic-gradient(from 324deg, #0ead69 50%, #202020 60%, #0ead69, #0ead69);
 
     }
 </style>

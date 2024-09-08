@@ -8,6 +8,8 @@ import '@splidejs/vue-splide/css/sea-green';
 
 // or only core styles
 import '@splidejs/vue-splide/css/core';
+import MyButton from './feature/MyButton.vue';
+
 // Define the component
 defineComponent( {
   components: {
@@ -41,17 +43,17 @@ defineComponent( {
 
 <template>
     <section class="blog-section">
-        <p class="main-heading">My Blog <span>Posts </span></p>
+        <p data-aos="fade-up" class="main-heading">My Blog <span>Posts </span></p>
         <div class="blog-wrapper ">
-            <div class="blog-description">
+            <div data-aos="fade-up" class="blog-description">
                 <p>
                     Welcome to my blog, where I share my journey as a frontend software engineer. <br> Here, you'll find articles on the latest trends in web development, tips and tricks for crafting beautiful and efficient UIs, and insights into the creative process behind my projects.
             </p>
             <nuxt-link style="text-decoration: none;" to="/blog">
-            <button class="view-all">All Posts</button>
-        </nuxt-link>
+                <MyButton buttonText="All Posts" />
+            </nuxt-link>
             </div>
-            <div class="blogs">
+            <div data-aos="fade-left" class="blogs">
                 <Splide :options="options" >
                     
                     <SplideSlide>
@@ -123,8 +125,11 @@ defineComponent( {
     right: 125px;
 }
 .splide__arrow svg{
-    fill: #fff !important;
+    fill: #fff ;
     width: 1em !important;
+}
+.dark-mode .splide__arrow svg{
+    fill: #181818 !important;
 }
 .splide__arrow {
     align-items: center;
@@ -166,6 +171,12 @@ defineComponent( {
   
 }
 }
+.dark-mode .blogs{
+    .splide__arrow {
+    background: #0ead69 !important;
+    outline-color: #0ead69;
+}
+}
 </style>
 <style lang="scss" scoped>
 .blog-section{
@@ -177,42 +188,7 @@ defineComponent( {
 .blog-wrapper{
     .blog-description{
         margin-bottom: 25px;
-        .view-all{
-            margin-top: 25px;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            padding: 15px 25px;
-            min-width: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fdfdfd;
-            font-size: 18px;
-            font-weight: 500;
-            background-color: #303030;
-            border: none;
-            z-index: 2;
-            transition-duration: 1s;
-            cursor: pointer;
-            &:after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                height: 100%;
-                z-index: -1;
-                width: 100%;
-                background-color: #202020;
-             
-            }
-
-            &:hover:after {
-                background-color: #303030;
-                background-image: linear-gradient(90deg, #202020 21%, #0e5d3b9c 54%, #202020 90%);
-            
-            }
-        }
+        
     }
     .blogs{
         margin-right: 5px;
@@ -297,6 +273,12 @@ defineComponent( {
         }
     }
     
+}
+.dark-mode .blog-section {
+    background-color: #00000014 ;
+}
+.dark-mode .blog-name{
+    color: #181818 !important;
 }
 @media screen and (max-width: 575px) {
     .blog-section{

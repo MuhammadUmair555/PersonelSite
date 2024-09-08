@@ -16,6 +16,7 @@
     "@splidejs/vue-splide": "^0.6.12",
     "emailjs-com": "^3.2.0",
     "nuxt": "^3.12.4",
+    "nuxt-aos": "^1.2.5",
     "vue": "latest"
   },
   "devDependencies": {

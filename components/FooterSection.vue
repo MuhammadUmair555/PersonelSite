@@ -55,7 +55,14 @@
     padding: 0 10px;
     background-color: #0e0e0e;
 }
-
+.dark-mode .navbar-top{
+  background-color: #fdfdfd;
+  color: #181818;
+}
+.dark-mode .designDevelopment{
+  background-color: #fdfdfd;
+  color: #181818;
+}
 
 .footer-content ul li a {
     text-decoration: none;
@@ -69,7 +76,11 @@
     color: #0ead69;
 
   }
+.dark-mode .router-link-active {
+    /* color: #00FF7F; */
+    color: #0ead69;
 
+  }
 
 @media screen and (max-width: 575px) {
   

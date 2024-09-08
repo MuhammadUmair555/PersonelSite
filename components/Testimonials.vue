@@ -41,13 +41,13 @@ defineComponent( {
 
 <template>
     <section class="testimonial-section">
-        <p class="main-heading">What <span>People Say</span></p>
-        <p> See Testimonial what our clients say about the exceptional service  and expertise <span class="br-mobile"> we've delivered in their projects.</span></p>
+        <p data-aos="fade-up" class="main-heading">What <span>People Say</span></p>
+        <p data-aos="fade-up"> See Testimonial what our clients say about the exceptional service  and expertise <span class="br-mobile"> we've delivered in their projects.</span></p>
         <div class="testimonial-wrapper ">
-            <div class="my-image">
+            <div data-aos="fade-right" class="my-image">
                 <img src="../assets/Images/umairgif.gif" alt="">
              </div>
-            <div class="testimonials" >
+            <div data-aos="fade-left" class="testimonials" >
                 <Splide :options="options"  >
                     
                     <SplideSlide>
@@ -230,7 +230,7 @@ defineComponent( {
 @media screen and (max-width: 767px) {
         .splide{
         .splide__slide{
-            min-width: unset !important;
+            // min-width: unset !important;
             max-width: unset !important;
         }
     }
@@ -277,11 +277,11 @@ defineComponent( {
         max-height: 293px;
         overflow: hidden;
         border-radius: 15px;
-        transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+        // transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
 
         /* Ensuring smooth transitions */
-        transition: transform 0.5s ease-in-out;
-        will-change: transform;
+        // transition: transform 0.5s ease-in-out;
+        // will-change: transform;
         &:hover {
             /* Transform on hover */
             transform: perspective(1000px) rotateX(15deg) rotateY(15deg) scale3d(1.1, 1.1, 1.1);
@@ -378,6 +378,19 @@ defineComponent( {
     
         }
     }
+}
+.dark-mode .testimonial{
+    background-color: #00000014 !important;
+    color: #181818;
+}
+.dark-mode .testimonial-name{
+    color: #181818 !important;
+}
+.dark-mode .social-follwing a {
+   background-color: #FFF !important;
+}
+.dark-mode .social-follwing a SVG{
+   fill: #0ead69 !important;
 }
 @media screen and (max-width: 767px) {
     .testimonial-wrapper{
