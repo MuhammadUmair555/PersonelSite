@@ -50,7 +50,7 @@ defineComponent( {
                     Welcome to my blog, where I share my journey as a frontend software engineer. <br> Here, you'll find articles on the latest trends in web development, tips and tricks for crafting beautiful and efficient UIs, and insights into the creative process behind my projects.
             </p>
             <nuxt-link style="text-decoration: none;" to="/blog">
-                <MyButton buttonText="All Posts" />
+                <MyButton buttonMargin="25px 0 0" buttonText="All Posts" />
             </nuxt-link>
             </div>
             <div data-aos="fade-left" class="blogs">

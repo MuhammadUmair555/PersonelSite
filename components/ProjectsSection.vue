@@ -53,7 +53,7 @@ defineComponent( {
                  From <span style="color:#0ead69;font-weight:500;">Dashboards</span> and <span style="color:#0ead69;font-weight:500;">AI Chatbots</span> to <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
             </p>
             <nuxt-link style="text-decoration: none;" to="/projects">
-                <MyButton buttonText="All Projects" />
+                <MyButton buttonMargin="25px 0 0" buttonText="All Projects" />
             </nuxt-link >
             </div>
             <div data-aos="fade-left" class="projects "  >

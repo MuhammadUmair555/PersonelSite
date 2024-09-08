@@ -16,7 +16,7 @@ const props = defineProps({
   },
   buttonMargin: {
     type: String,
-    default: '25px 0 0'  // Default margin, but can be passed from parent
+    default: '25px auto 0'  // Default margin, but can be passed from parent
   }
 })
 </script>
@@ -50,7 +50,7 @@ const props = defineProps({
     z-index: 9;
     padding: 1px;
     overflow: hidden;
-    
+    margin: 25px auto 0;
     border-radius: 12px;
     min-width: 150px;
     display: flex;
