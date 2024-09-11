@@ -1,11 +1,29 @@
 <script setup>
   import { ref } from 'vue';
-  import MyButton from '../components/feature/MyButton.vue'
- 
+  import MyButton from '../../components/feature/MyButton.vue'
+  import { projects } from '../../data/projects.js';
+//   const projects = [
+//   { slug: 'mobile-application-design', title: 'Mobile Application Design' },
+//   { slug: 'web-development', title: 'Web Development' },
+//   { slug: 'ui-ux-design', title: 'UI/UX Design' }
+// ];
+
 </script>
 
 <template>
-    <section class="project-section">
+<div>
+
+
+<div>
+    <h1>My Projects</h1>
+    <ul>
+      <li v-for="project in projects" :key="project.slug">
+        <nuxt-link :to="`/projects/${project.slug}`">{{ project.title }}</nuxt-link>
+      </li>
+    </ul>
+  </div>
+  </div>
+    <!-- <section class="project-section">
         <p class="main-heading">My Latest<span> Work</span></p>
         <div class="project-description">
               <p>
@@ -66,7 +84,7 @@
            
               </nuxt-link >
           
-    </section>
+    </section> -->
 </template>
   
 
