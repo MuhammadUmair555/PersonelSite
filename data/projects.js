@@ -1,8 +1,8 @@
 export const projects = [
   {
-    slug: 'mobile-application-design',
-    title: 'Mobile Application Design',
-    info: 'information',
+    slug: 'analytics-dashboard',
+    title: 'Powerfull Analytics Dashboard',
+    info: 'This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.',
     skills: ['UX/UI Design', 'Figma', 'Prototyping', 'Adobe XD'],
     image: '/assets/Images/project/project-2.png'
   },
