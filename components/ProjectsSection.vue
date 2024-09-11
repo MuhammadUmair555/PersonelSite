@@ -62,15 +62,15 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-2.png" alt="">
+                                    <img src="~/public/assets/Images/project/project-2.png" alt="">
                                 </div>
-                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
                                 <div class="project-name">
                                     Analytics Dashboard
                                     <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
-                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
                     </SplideSlide>
@@ -78,15 +78,15 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-umair-1s.jpg" alt="">
+                                    <img src="~/public/assets/Images/project/project-umair-1s.jpg" alt="">
                                 </div>
-                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
                                 <div class="project-name">
                                     Analytics Dashboard
                                     <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
-                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
                     </SplideSlide>
@@ -94,15 +94,15 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-2.png" alt="">
+                                    <img src="~/public/assets/Images/project/project-2.png" alt="">
                                 </div>
-                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
                                 <div class="project-name">
                                     Analytics Dashboard
                                     <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
-                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
                     </SplideSlide>
@@ -111,15 +111,15 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-umair-1s.jpg" alt="">
+                                    <img src="~/public/assets/Images/project/project-umair-1s.jpg" alt="">
                                 </div>
-                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
                                 <div class="project-name">
                                     Analytics Dashboard 2
                                     <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
-                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
                     </SplideSlide>
@@ -127,15 +127,15 @@ defineComponent( {
                         <div class="project">
                             <div class="project-inside">
                                 <div class="project-image">
-                                    <img src="../assets/Images/project/project-POST.jpg" alt="">
+                                    <img src="~/public/assets/Images/project/project-POST.jpg" alt="">
                                 </div>
-                                <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
                                 <div class="project-name">
                                     Mobile App Design
                                     <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
                                 </div>
-                                <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
                     </SplideSlide>
@@ -144,10 +144,10 @@ defineComponent( {
             </div>
             <div  class="feature-section " >
                 <ul>
-                    <li data-aos="flip-left"><img src="../assets/Images/intro-ft-icon1.png" alt="Dedication" title="Dedication" width="50" >Dedication</li>
-                    <li data-aos="flip-left"><img src="../assets/Images/intro-ft-icon2.png" alt="Smart Work" title="Smart Work" width="50">Smart Work</li>
-                    <li data-aos="flip-left"><img src="../assets/Images/intro-ft-icon3.png" alt="Collaboration" title="Collaboration" width="30">Collaboration</li>
-                    <li data-aos="flip-left"><img src="../assets/Images/intro-ft-icon4.png" alt="Technology" title="Technology" width="40">Technology</li>
+                    <li data-aos="flip-left"><img src="~/public/assets/Images/intro-ft-icon1.png" alt="Dedication" title="Dedication" width="50" >Dedication</li>
+                    <li data-aos="flip-left"><img src="~/public/assets/Images/intro-ft-icon2.png" alt="Smart Work" title="Smart Work" width="50">Smart Work</li>
+                    <li data-aos="flip-left"><img src="~/public/assets/Images/intro-ft-icon3.png" alt="Collaboration" title="Collaboration" width="30">Collaboration</li>
+                    <li data-aos="flip-left"><img src="~/public/assets/Images/intro-ft-icon4.png" alt="Technology" title="Technology" width="40">Technology</li>
 
                 </ul>
             </div>

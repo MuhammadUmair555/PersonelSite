@@ -19,9 +19,9 @@ import MyButton from './feature/MyButton.vue';
             
             <div data-aos="zoom-in" class="umair-anwar-arain">
                 <div class="circle heartbeat"></div>
-                <img src="../assets/Images/umair-logo.png" alt="">
+                <img src="~/public/assets/Images/umair-logo.png" alt="">
                 <div class="social-border">
-                <img src="../assets/Images/social.png" alt="">
+                <img src="~/public/assets/Images/social.png" alt="">
 
                 </div>
             </div>

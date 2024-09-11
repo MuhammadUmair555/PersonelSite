@@ -45,14 +45,14 @@ defineComponent( {
         <p data-aos="fade-up"> See Testimonial what our clients say about the exceptional service  and expertise <span class="br-mobile"> we've delivered in their projects.</span></p>
         <div class="testimonial-wrapper ">
             <div data-aos="fade-right" class="my-image">
-                <img src="../assets/Images/umairgif.gif" alt="">
+                <img src="~/public/assets/Images/umairgif.gif" alt="">
              </div>
             <div data-aos="fade-left" class="testimonials" >
                 <Splide :options="options"  >
                     
                     <SplideSlide>
                         <div class="testimonial">
-                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+                            <img class="qoutes" src="~/public/assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
 
                             <div class="testimonial-inside">
 
@@ -64,7 +64,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="../assets/Images/faiz.jpg" alt="faiz" title="Faiz">
+                                    <img src="~/public/assets/Images/faiz.jpg" alt="faiz" title="Faiz">
 
                                     </div>
                                     <div>
@@ -83,7 +83,7 @@ defineComponent( {
                     </SplideSlide>
                     <SplideSlide>
                         <div class="testimonial">
-                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+                            <img class="qoutes" src="~/public/assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
 
                             <div class="testimonial-inside">
 
@@ -95,7 +95,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="../assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
+                                    <img src="~/public/assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
 
                                     </div>
                                     <div>
@@ -114,7 +114,7 @@ defineComponent( {
                     </SplideSlide>
                     <SplideSlide>
                         <div class="testimonial">
-                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+                            <img class="qoutes" src="~/public/assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
 
                             <div class="testimonial-inside">
 
@@ -126,7 +126,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="../assets/Images/faiz.jpg" alt="faiz" title="Faiz">
+                                    <img src="~/public/assets/Images/faiz.jpg" alt="faiz" title="Faiz">
 
                                     </div>
                                     <div>
@@ -145,7 +145,7 @@ defineComponent( {
                     </SplideSlide>
                     <SplideSlide>
                         <div class="testimonial">
-                            <img class="qoutes" src="../assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
+                            <img class="qoutes" src="~/public/assets/Images/icon/Quote.svg" alt="Qoute" title="Qoute" style="margin-left: auto;">
 
                             <div class="testimonial-inside">
 
@@ -157,7 +157,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="../assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
+                                    <img src="~/public/assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
 
                                     </div>
                                     <div>

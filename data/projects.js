@@ -11,20 +11,20 @@ export const projects = [
     title: 'Web Development',
     info: 'information',
     skills: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'Nuxt.js'],
-    // image: '/images/web-development.jpg' 
+    image: '/assets/Images/project/project-2.png'
   },
   {
     slug: 'ui-ux-design',
     title: 'UI/UX Design',
     info: 'information',
     skills: ['Sketch', 'Wireframing', 'User Testing', 'Adobe Photoshop'],
-    // image: '/images/ui-ux-design.jpg'
+    image: '/assets/Images/project/project-2.png'
   },
   {
     slug: 'umair-work',
     title: 'Umair Work',
     info: 'information',
     skills: ['Sketch', 'Wireframing', 'User Testing', 'Adobe Photoshop'],
-    // image: '/images/umair-work.jpg'
+   image: '/assets/Images/project/project-2.png'
   }
 ];

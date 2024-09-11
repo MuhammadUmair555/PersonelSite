@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '~/assets/styles/style.scss',
+    '~/public/assets/styles/style.scss',
     '@splidejs/vue-splide/css'
   ],
 

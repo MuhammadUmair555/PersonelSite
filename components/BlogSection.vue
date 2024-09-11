@@ -60,12 +60,12 @@ defineComponent( {
                         <div class="blog">
                             <div class="blog-inside">
                                 <div class="blog-image">
-                                    <img src="../assets/Images/blogs/blog-post 3.jpg" alt="">
+                                    <img src="~/public/assets/Images/blogs/blog-post 3.jpg" alt="">
                                 </div>
                                 <div class="blog-name-area">
                                     <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span> </a></div>
                                     <p class="blog-name">Accessibility in Web Design..!</p>
-                                    <p class="blog-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
+                                    <p class="blog-link" >Read the story <img src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
                                 </div>
                             </div>
                         </div>
@@ -74,12 +74,12 @@ defineComponent( {
                         <div class="blog">
                             <div class="blog-inside">
                                 <div class="blog-image">
-                                    <img src="../assets/Images/blogs/blog-post 2.jpg" alt="">
+                                    <img src="~/public/assets/Images/blogs/blog-post 2.jpg" alt="">
                                 </div>
                                 <div class="blog-name-area">
                                     <div class="author"><a href="/">By : Umair Anwar Arain <span style="padding-left: 5px;">- January 15, 2025</span></a></div>
                                     <p class="blog-name">Become a Frontend Developer in 5 Simple Steps..!</p>
-                                    <p class="blog-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
+                                    <p class="blog-link" >Read the story <img src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
                                 </div>
                             </div>
                         </div>
@@ -88,12 +88,12 @@ defineComponent( {
                         <div class="blog">
                             <div class="blog-inside">
                                 <div class="blog-image">
-                                    <img src="../assets/Images/blogs/blog-post 4.jpg" alt="">
+                                    <img src="~/public/assets/Images/blogs/blog-post 4.jpg" alt="">
                                 </div>
                                 <div class="blog-name-area">
                                     <div class="author"><a href="/">By : Umair Anwar Arain </a></div>
                                    <p class="blog-name">Coming Soon..!</p>
-                                    <p class="blog-link" >Read the story <img src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
+                                    <p class="blog-link" >Read the story <img src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open blog" title="Open blog"></p>
                                 </div>
                             </div>
                         </div>
