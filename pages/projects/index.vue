@@ -2,28 +2,12 @@
   import { ref } from 'vue';
   import MyButton from '../../components/feature/MyButton.vue'
   import { projects } from '../../data/projects.js';
-//   const projects = [
-//   { slug: 'mobile-application-design', title: 'Mobile Application Design' },
-//   { slug: 'web-development', title: 'Web Development' },
-//   { slug: 'ui-ux-design', title: 'UI/UX Design' }
-// ];
 
 </script>
 
 <template>
-<div>
 
-
-<div>
-    <h1>My Projects</h1>
-    <ul>
-      <li v-for="project in projects" :key="project.slug">
-        <nuxt-link :to="`/projects/${project.slug}`">{{ project.title }}</nuxt-link>
-      </li>
-    </ul>
-  </div>
-  </div>
-    <!-- <section class="project-section">
+    <section class="project-section">
         <p class="main-heading">My Latest<span> Work</span></p>
         <div class="project-description">
               <p>
@@ -33,22 +17,23 @@
               
           </div>
         <div class="project-wrapper ">
-            
-              <div class="project">
+            <nuxt-link :to="`/projects/${project.slug}`"  v-for="project in projects" :key="project.slug">
+              <div class="project" >
                   <div class="project-inside">
                       <div class="project-image">
-                          <img src="../assets/Images/project/project-2.png" alt="">
+                          <img :src="project.image"  alt="">
                       </div>
                       <p class="project-status"><img src="../assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
 
                       <div class="project-name">
-                          Analytics Dashboard
-                          <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
+                        {{ project.title }}
+                          <p class="short-info"> {{ project.info }}</p>
                       </div>
                       <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                   </div>
               </div>
-              <div class="project">
+            </nuxt-link>
+              <!-- <div class="project">
                   <div class="project-inside">
                       <div class="project-image">
                           <img src="../assets/Images/project/project-POST.jpg" alt="">
@@ -75,7 +60,7 @@
                       </div>
                       <img class="Project-link" src="../assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                   </div>
-              </div>
+              </div> -->
          
         </div>
             <nuxt-link style="text-decoration: none; text-align: center;" to="/projects">
@@ -84,7 +69,7 @@
            
               </nuxt-link >
           
-    </section> -->
+    </section>
 </template>
   
 
