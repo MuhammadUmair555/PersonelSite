@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
 
   // modules: ['@nuxtjs/strapi'],
-  modules: ['@nuxtjs/aos'],
+  modules: ['@nuxtjs/aos', 'nuxt-aos'],
 
   aos: {
     // Add AOS global options here
