@@ -6,7 +6,7 @@
   // or other themes
 // import '@splidejs/vue-splide/css/skyblue';
 import '@splidejs/vue-splide/css/sea-green';
-
+import { projects } from '../data/projects.js';
 // or only core styles
 import '@splidejs/vue-splide/css/core';
 import MyButton from './feature/MyButton.vue';
@@ -58,86 +58,24 @@ defineComponent( {
             </div>
             <div data-aos="fade-left" class="projects "  >
                 <Splide :options="options" >
-                    <SplideSlide>
+                    <SplideSlide v-for="project in projects" :key="project.slug">
+                        <nuxt-link :to="`/projects/${project.slug}`">
                         <div class="project">
                             <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="~/public/assets/Images/project/project-2.png" alt="">
-                                </div>
-                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-
-                                <div class="project-name">
-                                    Analytics Dashboard
-                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
-                                </div>
-                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+                            <div class="project-image">
+                                <img :src="project.image" alt="">
+                            </div>
+                            <p class="project-status">
+                                <img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live
+                            </p>
+                            <div class="project-name">
+                                {{ project.title }}
+                                <p class="short-info"> {{ project.info }} </p>
+                            </div>
+                            <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div class="project">
-                            <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="~/public/assets/Images/project/project-umair-1s.jpg" alt="">
-                                </div>
-                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-
-                                <div class="project-name">
-                                    Analytics Dashboard
-                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
-                                </div>
-                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div class="project">
-                            <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="~/public/assets/Images/project/project-2.png" alt="">
-                                </div>
-                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-
-                                <div class="project-name">
-                                    Analytics Dashboard
-                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
-                                </div>
-                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
-                            </div>
-                        </div>
-                    </SplideSlide>
-
-                    <SplideSlide>
-                        <div class="project">
-                            <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="~/public/assets/Images/project/project-umair-1s.jpg" alt="">
-                                </div>
-                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-
-                                <div class="project-name">
-                                    Analytics Dashboard 2
-                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
-                                </div>
-                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
-                            </div>
-                        </div>
-                    </SplideSlide>
-                    <SplideSlide>
-                        <div class="project">
-                            <div class="project-inside">
-                                <div class="project-image">
-                                    <img src="~/public/assets/Images/project/project-POST.jpg" alt="">
-                                </div>
-                                <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-
-                                <div class="project-name">
-                                    Mobile App Design
-                                    <p class="short-info">This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.</p>
-                                </div>
-                                <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
-                            </div>
-                        </div>
+                        </nuxt-link>
                     </SplideSlide>
                 </Splide>
 
