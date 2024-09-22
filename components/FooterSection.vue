@@ -1,6 +1,6 @@
 <template>
 
-<div class="navbar-top">
+<div class="footer">
  <div class="footer-content">
       <ul>
         <li class="designDevelopment">Designed and Developed by Umair Anwar.</li>
@@ -18,8 +18,9 @@
   </script>
   
   <style scoped lang="scss">
-  .navbar-top{
+  .footer{
     position: relative;
+    margin-top: 100px;
     padding: 0;
     z-index: 1100;
     -webkit-backdrop-filter: blur(50px);
@@ -55,7 +56,7 @@
     padding: 0 10px;
     background-color: #0e0e0e;
 }
-.dark-mode .navbar-top{
+.dark-mode .footer{
   background-color: #fdfdfd;
   color: #181818;
 }

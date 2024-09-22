@@ -1,6 +1,6 @@
 export const projects = [
   {
-    slug: 'analytics-dashboard',
+    slug: 'Powerfull-Analytics-Dashboard',
     title: 'Powerfull Analytics Dashboard',
     info: 'This dashboard integrates real-time market data with a focus on design excellence and development efficiency. Built with Vue.js, it offers a high-performance platform that balances aesthetic appeal with the technical rigor needed for precise financial analysis.',
     skills: ['UX/UI Design', 'Figma', 'Prototyping', 'Adobe XD'],

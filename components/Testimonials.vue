@@ -235,22 +235,22 @@ defineComponent( {
         }
     }
 }
-    @media screen and (max-width: 575px) {
-        .splide{
-            .splide__slide{
-            min-width: unset !important;
-        }
-        .splide__pagination{
-            align-items: end;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            bottom: -35px;
-        }
+@media screen and (max-width: 575px) {
+    .splide{
+        .splide__slide{
+        min-width: unset !important;
     }
-  
-    
+    .splide__pagination{
+        align-items: end;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        bottom: -35px;
     }
+}
+
+
+}
 }
 </style>
 <style lang="scss" scoped>

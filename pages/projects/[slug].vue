@@ -11,7 +11,7 @@
   
  
 // Import project components
-import ProjectMobileApp from '~/components/MyProjects/ProjectMobileApp.vue';
+import ProjectAnalyticsDashboard from '~/components/MyProjects/ProjectAnalyticsDashboard.vue';
 import ProjectWebDevelopment from '~/components/MyProjects/ProjectWebDevelopment.vue';
 import ProjectUIUXDesign from '~/components/MyProjects/ProjectUIUXDesign.vue';
 
@@ -20,7 +20,7 @@ const route = useRoute();
 
 // Map slugs to components
 const componentMap = {
-  'mobile-application-design': ProjectMobileApp,
+  'Powerfull-Analytics-Dashboard': ProjectAnalyticsDashboard,
   'web-development': ProjectWebDevelopment,
   'ui-ux-design': ProjectUIUXDesign
 };
