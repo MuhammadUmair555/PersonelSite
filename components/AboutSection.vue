@@ -45,6 +45,7 @@ import MySkill from '../components/feature/MySkill.vue'
                 </div>
             </div>
         </div>
+        
     </section>
   
 </template>
@@ -136,6 +137,7 @@ import MySkill from '../components/feature/MySkill.vue'
     width: 10px;
     min-width: 10px;
 }
+
 @media screen and (max-width: 900px) {
     .about-wrapper{
         gap: 40px;

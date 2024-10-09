@@ -143,5 +143,25 @@ import ShortDetail from '../feature/ShortDetail.vue'
         text-align: center;
       }
   }
+ .project-screens{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+ .project-screens{
+    padding: 20px;
+    flex-direction: column-reverse;
+  }
+  .project-screens .laptop{
+    width: 100%;
+  }
+  .project-content-section{
+    flex-direction: column;
+    gap: 70px;
+  }
+
 }
 </style>

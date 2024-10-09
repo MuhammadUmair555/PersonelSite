@@ -204,4 +204,17 @@ background-color: #181818;
                 background-image: linear-gradient(90deg, #181818 21%, #0e5d3b9c 54%, #181818 90%);
             }
         }
+
+@media screen and (max-width: 575px) {
+
+ .ProjectShortSlider{
+   width: 100%;
+ }
+ .screen-content{
+    width: calc(100% - 50px);
+ }
+ .service a{
+    font-size: 14px;
+ }
+}
   </style>

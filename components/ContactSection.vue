@@ -31,6 +31,20 @@
                         
                     </div>
                 </div>
+                <div  class="contact-info">
+                    <div data-aos="fade-up" data-aos-delay="400" class="info-row">
+                        <div class="info-item">
+                        <span class="label">Language</span>
+                        <span class="colon">:</span>
+                        <span class="value">English, Urdu</span>
+                        </div>
+                        <div class="info-item">
+                        <span class="label">Residence:</span>
+                        <span class="colon">:</span>
+                        <span class="value">Pakistan, Karchi</span>
+                        </div>
+                    </div>
+                </div>
              </div>
             <div data-aos="fade-up" data-aos-delay="300" class="contacts" >
                <ContactForm />
@@ -113,6 +127,38 @@
        
     }
     
+}
+
+.contact-info {
+    margin-top: 30px;
+    display: flex;
+    align-items: start;
+    gap: 30px;
+    .info-item {
+    display: flex;
+    margin-bottom: 5px;
+
+    }
+
+    .label {
+    color: #606060;
+    width: 100px;
+    text-align: left;
+    font-size: 14px;
+
+    }
+    .colon{
+        width: 30px;
+    }
+    .value {
+    color: #dddd;
+    font-size: 14px;
+    }
+}
+.dark-mode .contact-info{
+    .value {
+        color: #181818;
+}
 }
 .dark-mode .service a{
     background-color: #00000014 !important;
