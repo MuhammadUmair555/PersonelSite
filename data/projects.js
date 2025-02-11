@@ -7,18 +7,18 @@ export const projects = [
     image: '/assets/Images/project/project-2.png'
   },
   {
-    slug: 'web-development',
-    title: 'Web Development',
-    info: 'information',
-    skills: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'Nuxt.js'],
-    image: '/assets/Images/project/project-2.png'
+    slug: 'TRADERSGPT',
+    title: 'TRADERSGPT Mobile App',
+    info: 'Real-Time Analytics, Personalized Insights, and Advanced Market Visualization',
+    skills: ['React-Native'],
+    image: '/assets/Images/project/Tradergpt.jpg'
   },
   {
-    slug: 'ui-ux-design',
-    title: 'UI/UX Design',
-    info: 'information',
+    slug: 'Tradercon',
+    title: 'Tradercon',
+    info: 'Empowering Traders through Social Education and Competition.',
     skills: ['Sketch', 'Wireframing', 'User Testing', 'Adobe Photoshop'],
-    image: '/assets/Images/project/project-2.png'
+    image: '/assets/Images/project/Tradercon.jpg'
   },
   {
     slug: 'umair-work',
