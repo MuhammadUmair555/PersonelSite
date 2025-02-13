@@ -10,8 +10,7 @@
         <FooterSection />
     </div>
 </template>
-<script setup>
-</script>
+
 <style lang="scss" scoped>
 .Container{
     max-width: 1000px;
@@ -29,5 +28,6 @@
 <script setup>
 import { ref } from 'vue';
 import { useDarkMode } from '../components/feature/useDarkMode';
-const { isDarkMode } = useDarkMode();
+// const { isDarkMode } = useDarkMode();
+const isDarkMode = ref(false);
 </script>

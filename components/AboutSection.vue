@@ -1,6 +1,7 @@
 <script setup>
 import MySkill from '../components/feature/MySkill.vue'
 // const isDarkMode = ref(localStorage.getItem('darkMode') === 'true');
+const isDarkMode = ref(false);
 </script>
 
 <template>
