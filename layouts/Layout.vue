@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
 .Container{
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 145px auto 0;
     padding: 25px;
     overflow: hidden;
