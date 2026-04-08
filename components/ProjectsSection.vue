@@ -10,36 +10,42 @@ import { projects } from '../data/projects.js';
 // or only core styles
 import '@splidejs/vue-splide/css/core';
 import MyButton from './feature/MyButton.vue';
-// Define the component
+import ProjectModal from './feature/ProjectModal.vue';
 
-defineComponent( {
-  components: {
-    Splide,
-    SplideSlide,
-    
-  },
-} );
-  const options = ref({
+const isModalVisible = ref(false);
+const selectedProject = ref({});
 
-  perPage: 5,
+const openProject = (project) => {
+  selectedProject.value = project;
+  isModalVisible.value = true;
+};
+
+const closeProject = () => {
+  isModalVisible.value = false;
+};
+
+// Components are automatically registered when imported in script setup
+const options = ref({
+
+perPage: 5,
+perMove: 1,
+snap   : true,
+focus  : 0,
+omitEnd: true,
+drag   : 'free',
+gap: '1rem',
+arrows: true,
+wheel  : true,
+pagination: true,
+speed: 1000,
+breakpoints: {
+  575: {
+  perPage: 1,
   perMove: 1,
-  snap   : true,
-  focus  : 0,
-  omitEnd: true,
-  drag   : 'free',
-  gap: '1rem',
-  arrows: true,
-  wheel  : true,
-  pagination: false,
-  speed: 1000,
-  breakpoints: {
-    575: {
-    perPage: 1,
-    perMove: 1,
-    gap: '0.7rem',
-    },
+  gap: '0.7rem',
+  },
 },
-  });
+});
 
 </script>
 
@@ -59,11 +65,10 @@ defineComponent( {
             <div data-aos="fade-left" class="projects "  >
                 <Splide :options="options" >
                     <SplideSlide v-for="project in projects" :key="project.slug">
-                        <nuxt-link :to="`/projects/${project.slug}`">
-                        <div class="project">
+                        <div class="project" @click="openProject(project)">
                             <div class="project-inside">
                             <div class="project-image">
-                                <img :src="project.image" alt="">
+                                <img :src="project.mainImage" alt="">
                             </div>
                             <p class="project-status">
                                 <img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live
@@ -75,11 +80,18 @@ defineComponent( {
                             <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
                             </div>
                         </div>
-                        </nuxt-link>
                     </SplideSlide>
                 </Splide>
 
             </div>
+
+            <!-- Project Modal -->
+            <ProjectModal 
+              :is-visible="isModalVisible" 
+              :project="selectedProject" 
+              @close="closeProject" 
+            />
+
             <div  class="feature-section " >
                 <ul>
                     <li data-aos="flip-left"><img src="~/public/assets/Images/intro-ft-icon1.png" alt="Dedication" title="Dedication" width="50" >Dedication</li>
@@ -117,7 +129,7 @@ defineComponent( {
     align-items: center;
     background: transparent;
     outline-color: #0ead69;
-    outline-width: 1px;
+    outline-width: 2px;
     outline-style: solid;
     border: 0;
     border-radius: 30px;
@@ -160,6 +172,47 @@ defineComponent( {
         }
     }
 }
+
+.splide__pagination{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+    padding-top: 20px;
+    padding-bottom: 0;
+    position: relative;
+    bottom: 0;
+}
+
+.splide__pagination__page{
+    border: 0;
+    border-radius: 8.5px;
+    display: inline-block;
+    height: 10px;
+    margin: 5px;
+    padding: 0;
+    position: relative;
+    transition: background-color .2s linear;
+    width: 10px;
+}
+.splide__pagination__page.is-active {
+    background: #0ead69;
+    z-index: 1;
+}
+.splide__pagination__page:hover{
+    background: #12d17e;
+    z-index: 1;
+}
+
+@media screen and (max-width: 575px) {
+    .splide__pagination{
+        justify-content: center;
+        padding-top: 15px;
+    }
+}
+
 .dark-mode .projects{
     .splide__arrow {
     background: #0ead69 !important;
@@ -307,6 +360,7 @@ defineComponent( {
         overflow: hidden;
         text-overflow: ellipsis;  
         -webkit-line-clamp: 2; 
+        line-clamp: 2; 
         }
     }
 

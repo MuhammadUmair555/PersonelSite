@@ -10,11 +10,10 @@
             <img class="analytics-logo" src="~/public/assets/Images/project/analytics/analytics-logo.png" alt="Analytics Project" title="logo">
             Analytics</p>
           <div class="project-description">
-                <p>"Powerfull Analytics Dashboard Based on Vue.js"
-                </p>
+                <p>Worked on a data-heavy trading analytics dashboard that helps users analyze stock, crypto, and market trends in a structured way. Focused on building scalable UI for handling multiple data views, filters, and chart-based insights.</p>
                 <p>
-                  This project showcases my ability to integrate multiple technologies and design principles to create a high  quality, professional-grade  Modern UI product. It stands as a testament to my dedication to  pushing the boundaries of UI development and delivering comprehensive solutions that meet the sophisticated demands of modern analytics.
-               </p>
+                  This project showcases my ability to integrate multiple technologies and design principles to create a high quality, professional-grade Modern UI product. It stands as a testament to my dedication to pushing the boundaries of UI development and delivering comprehensive solutions that meet the sophisticated demands of modern analytics.
+                </p>
                 
           </div>
       </div>
@@ -41,15 +40,14 @@
       
       <div class="implementation">
         <p class="main-heading" style="font-size: 20px; margin-bottom: 15px;">Technical Implementation:</p>
-        <p> Built using Vue.js, this dashboard leverages the full potential of the progressive JavaScript framework, ensuring a responsive and performant application. I utilized the Quasar UI library to create a sleek, modern interface that maintains high performance across all devices. The integration of Material Icons contributes to the visual clarity and aesthetic appeal of the dashboard.
-        </p>
+        <p>Built responsive dashboards with structured layouts, dynamic charts, and API integration for data handling. Implemented Vuex-based state management with reusable components to ensure scalable architecture. Optimized performance and UI responsiveness, layout structure and data visualization for better user experience.</p>
+        <p>Built using Vue.js, this dashboard leverages the full potential of the progressive JavaScript framework, ensuring a responsive and performant application. I utilized the Quasar UI library to create a sleek, modern interface that maintains high performance across all devices. The integration of Material Icons contributes to the visual clarity and aesthetic appeal of the dashboard.</p>
       </div>
       <div class="implementation">
         <p class="main-heading" style="font-size: 20px; margin-bottom: 15px">UI Features:</p>
         <ul>
-          
-          <li><p>Custom UI Components: Designed from the ground up to cater to specific analytic needs,component-based development that enhances user experience with modern UI elements.</p></li>
-          <li><p>SCSS: Used to enhance the styling process, allowing for more flexible and maintainable CSS coding through variables, nesting, and mixins</p></li>          
+          <li><p>Custom UI Components: Designed from the ground up to cater to specific analytic needs, component-based development that enhances user experience with modern UI elements.</p></li>
+          <li><p>SCSS: Used to enhance the styling process, allowing for more flexible and maintainable CSS coding through variables, nesting, and mixins.</p></li>          
         </ul>
       </div>
       

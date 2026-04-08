@@ -1,8 +1,20 @@
 <script setup>
   import { ref } from 'vue';
   import MyButton from '../../components/feature/MyButton.vue'
+  import ProjectModal from '../../components/feature/ProjectModal.vue'
   import { projects } from '../../data/projects.js';
 
+  const isModalVisible = ref(false);
+  const selectedProject = ref({});
+
+  const openProject = (project) => {
+    selectedProject.value = project;
+    isModalVisible.value = true;
+  };
+
+  const closeProject = () => {
+    isModalVisible.value = false;
+  };
 </script>
 
 <template>
@@ -17,22 +29,20 @@
               
           </div>
         <div class="project-wrapper ">
-            <nuxt-link :to="`/projects/${project.slug}`"  v-for="project in projects" :key="project.slug">
-              <div class="project" >
-                  <div class="project-inside">
-                      <div class="project-image">
-                          <img :src="project.image"  alt="">
-                      </div>
-                      <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
-
-                      <div class="project-name">
-                        {{ project.title }}
-                          <p class="short-info"> {{ project.info }}</p>
-                      </div>
-                      <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
+            <div v-for="project in projects" :key="project.slug" class="project" @click="openProject(project)">
+              <div class="project-inside">
+                  <div class="project-image">
+                      <img :src="project.mainImage"  alt="">
                   </div>
+                  <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+
+                  <div class="project-name">
+                    {{ project.title }}
+                      <p class="short-info"> {{ project.info }}</p>
+                  </div>
+                  <img class="Project-link" src="~/public/assets/Images/icon/link-out-svgrepo-com.svg" alt="Open Project" title="Open Project">
               </div>
-            </nuxt-link>
+            </div>
               <!-- <div class="project">
                   <div class="project-inside">
                       <div class="project-image">
@@ -63,6 +73,13 @@
               </div> -->
          
         </div>
+        
+        <ProjectModal 
+          :is-visible="isModalVisible" 
+          :project="selectedProject" 
+          @close="closeProject" 
+        />
+
             <nuxt-link style="text-decoration: none; text-align: center;" to="/projects">
             
                   <MyButton buttonMargin="25px auto 0;" buttonText="Load More Projects" />
@@ -218,6 +235,7 @@
         overflow: hidden;
         text-overflow: ellipsis;  
         -webkit-line-clamp: 2; 
+        line-clamp: 2; 
         }
     } 
 }

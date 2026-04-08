@@ -11,7 +11,7 @@
                     <AnimatedDesignation  />
                 </div> -->
                 <span data-aos="fade-down" class="hey-there">Hey there! I'm</span>
-                <h1 data-aos="fade-up" >Umair <span class="letter-case"> Anwar. </span></h1>
+                <h1 data-aos="fade-up" >Muhammad <span class="letter-case"> Umair<span style="color: #0ead69;">.</span> </span></h1>
                 <p data-aos="fade-up" data-aos-delay="300" class="my-bio">
                     I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
                 </p>
@@ -37,7 +37,7 @@
                 <span style="font-size: 22px;">⚡</span><p class="current-position"> Currently Specializing In UI Development Vue.js | React.js | React Native.</p>
             </div>
             <div class="currently-work-mobile">
-                <span style="font-size: 22px;">💻</span><p> Software Engineer Frontend at <a href="https://www.linkedin.com/company/office-field/" target="_blank" >Officefield</a></p>
+                <span style="font-size: 22px;">💻</span><p> Senior Software Engineer (Frontend) at <a href="https://www.linkedin.com/company/office-field/" target="_blank" >Officefield</a></p>
             </div>
         </div>
         
@@ -84,7 +84,7 @@
             // display: none;
         }
        h1{
-        font-size: 70px;
+        font-size: 60px;
         font-weight: 600;
         line-height: 1;
         color: #fdfdfd;
@@ -93,7 +93,9 @@
        }
        .letter-case{
             // font-weight: 200;
-            color: #bcbcbc;
+            // color: #bcbcbc;
+        color: #fdfdfd;
+
         }
     }
     
