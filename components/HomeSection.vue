@@ -13,7 +13,10 @@
                 <span data-aos="fade-down" class="hey-there">Hey there! I'm</span>
                 <h1 data-aos="fade-up" >Muhammad <span class="letter-case"> Umair<span style="color: #0ead69;">.</span> </span></h1>
                 <p data-aos="fade-up" data-aos-delay="300" class="my-bio">
-                    I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> specializing in modern UI development. Proficient in modern frameworks and technologies, I bring extensive experience in creative design and efficient code implementation to deliver exceptional user interfaces.
+                    I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> with 6 years of experience building web applications, apps, dashboards, and user interfaces using
+modern frameworks. Focused on building clean and user-friendly interfaces while writing maintainable code. Skilled in
+improving performance through better structure and optimization techniques. Comfortable working with existing
+codebases and leveraging AI-assisted tools to improve development speed and productivity.
                 </p>
             </div>
             
@@ -52,12 +55,14 @@
                     
                 </div>
             </a>
+            <a href="https://drive.google.com/file/d/14NeM0tRS9jPmiomhBatjtEx78T0DGRmF/view?usp=drive_link" target="_blank" style="text-decoration: none;">
                 <div class="ContactMe">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#0ead69" viewBox="0 0 56 56"><path d="M15.5547 53.125h24.8906c4.8516 0 7.2656-2.4375 7.2656-7.336V10.2344c0-4.875-2.414-7.3594-7.2656-7.3594H15.5547c-4.8281 0-7.2656 2.4844-7.2656 7.3594V45.789c0 4.8985 2.4375 7.336 7.2656 7.336Zm.1875-3.7735c-2.4141 0-3.6797-1.289-3.6797-3.6328v-35.414c0-2.3203 1.2656-3.6563 3.7031-3.6563h24.4922c2.4375 0 3.6797 1.3125 3.6797 3.6563v35.414c0 2.3438-1.2422 3.6328-3.6562 3.6328Zm3.3984-32.9062h17.7656c.8204 0 1.4532-.6562 1.4532-1.4766 0-.7969-.6328-1.4062-1.4532-1.4062H19.1406c-.8672 0-1.4766.6093-1.4766 1.4062 0 .8204.6094 1.4766 1.4766 1.4766Zm0 8.1797h17.7656c.8204 0 1.4532-.6563 1.4532-1.4766 0-.7969-.6328-1.4062-1.4532-1.4062H19.1406c-.8672 0-1.4766.6093-1.4766 1.4062 0 .8203.6094 1.4766 1.4766 1.4766Zm0 8.1797h8.4141c.8203 0 1.4531-.6329 1.4531-1.4297 0-.8203-.6328-1.4532-1.4531-1.4532h-8.4141c-.8672 0-1.4766.6329-1.4766 1.4532 0 .7968.6094 1.4297 1.4766 1.4297Z"/></svg>
                     </span>
                      <p>Resume</p>
                 </div>
+            </a>
                 
            </div>
     </section>
@@ -377,14 +382,9 @@
         padding: 15px 0;
        }
     .myResume{
-        gap: 50px;
+        gap: 20px;
         justify-content: center;
-        a{
-            width: 100%;
-        }
-        .ContactMe{
-            width: 100%;
-        }
+      
     }
     }
    
