@@ -268,7 +268,6 @@ defineComponent( {
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 text-overflow: ellipsis;  
-                -webkit-line-clamp: 1; 
             }
         }
     }
