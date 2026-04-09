@@ -17,6 +17,8 @@ import ProjectNitrox from '~/components/MyProjects/ProjectNitrox.vue';
 import ProjectWebDevelopment from '~/components/MyProjects/ProjectWebDevelopment.vue';
 import ProjectUIUXDesign from '~/components/MyProjects/ProjectUIUXDesign.vue';
 import ProjectPOS from '~/components/MyProjects/ProjectPOS.vue';
+import ProjectEasyConsult from '~/components/MyProjects/ProjectEasyConsult.vue';
+
 
 // Get the current route's slug
 const route = useRoute();
@@ -28,7 +30,9 @@ const componentMap = {
   'nitrox-gaming-community': ProjectNitrox,
   'web-development': ProjectWebDevelopment,
   'ui-ux-design': ProjectUIUXDesign,
-  'easy-sale-system-pos': ProjectPOS
+  'easy-sale-system-pos': ProjectPOS,
+  'easy-consult-ai': ProjectEasyConsult
+
 };
 
 // Select the right component based on the slug

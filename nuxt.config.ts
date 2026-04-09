@@ -10,13 +10,14 @@ export default defineNuxtConfig({
   },
 
   // modules: ['@nuxtjs/strapi'],
-  modules: ['@nuxtjs/aos', 'nuxt-aos'],
+  modules: ['nuxt-aos'],
 
   aos: {
-    // Add AOS global options here
-    duration: 1000, // Animation duration in ms
-    once: true, // Animation happens only once
-    easing: 'ease-in-out', // Default easing for animations
+    duration: 500,
+    once: true,
+    easing: 'ease-out-quint',
+    offset: 0,
+    anchorPlacement: 'top-bottom',
   },
 
   css: [
@@ -60,5 +61,4 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['nuxt-aos']
 })

@@ -68,5 +68,24 @@ export const projects = [
       '/assets/Images/project/salesystem/salesystem.png'
     ],
     liveLink: '#'
+  },
+  {
+    slug: 'easy-consult-ai',
+    title: 'EasyConsult.ai',
+    subtitle: 'Empowering Businesses with Intelligent AI Transformation',
+    info: 'EasyConsult.ai provides AI-driven solutions to help businesses make smarter decisions and increase efficiency through intelligent automation and strategic consulting.',
+    description: [
+      'Fully tailored conversational AI designed to match exact business requirements, supporting multiple languages and 24/7 availability.',
+      'Intelligent automation for sales, reporting, and inventory, featuring personalized sales outreach and real-time expense reporting.',
+      'Autonomous AI systems that actively execute multi-step tasks such as market research, vendor analysis, and IT ticket triaging.',
+      'Strategic evaluation of AI potential before implementation, identifying gaps and highlighting key integration points.'
+    ],
+    skills: ['AI Automation', 'LLMs', 'Conversational AI', 'Data Analytics', 'Strategic Consulting', 'Autonomous AI Agents'],
+    mainImage: '/assets/Images/project/easyconsult/cover.png',
+    images: [
+      '/assets/Images/project/easyconsult/services.png',
+      '/assets/Images/project/easyconsult/details.png'
+    ],
+    liveLink: 'https://easy-consult-site.vercel.app/'
   }
 ];

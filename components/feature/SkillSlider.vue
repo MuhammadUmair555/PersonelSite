@@ -53,6 +53,11 @@
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
+                    <img src="~/public/assets/Images/skill/astro-svgrepo-com.svg" alt="astro" title="astro">
+                </div>
+            </SplideSlide>
+            <SplideSlide>
+                <div class="skill-logo">
                     <img src="~/public/assets/Images/skill/photoshop-svgrepo-com.svg" alt="Photoshop" title="Photoshop">
                 </div>
             </SplideSlide>
