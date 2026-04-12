@@ -31,7 +31,8 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
                 <a href="https://www.linkedin.com/in/umair-se/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="#181818" viewBox="0 0 512 512"><path d="M116.504 500.219V170.654H6.975v329.564h109.529v.001zM61.751 125.674c38.183 0 61.968-25.328 61.968-56.953-.722-32.328-23.785-56.941-61.252-56.941C24.994 11.781.5 36.394.5 68.722c0 31.625 23.772 56.953 60.53 56.953h.721v-.001zm115.373 374.545s1.437-298.643 0-329.564H286.67v47.794h-.727c14.404-22.49 40.354-55.533 99.44-55.533 72.085 0 126.116 47.103 126.116 148.333V500.22H401.971V323.912c0-44.301-15.848-74.531-55.497-74.531-30.254 0-48.284 20.38-56.202 40.08-2.897 7.012-3.602 16.861-3.602 26.711v184.047H177.124z" style="display:inline;fill-rule:evenodd;clip-rule:evenodd"/></svg>
                 </a>
-                <a href=""><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="#181818" stroke="#181818" viewBox="0 0 512 512"><path d="M283.122 122.174v46.583h83.424l-9.045 74.367h-74.379v268.375h-98.726V243.124h-51.443v-74.367h51.443v-56.302c0-27.82-2.096-41.02 9.725-62.578C205.948 28.32 239.308-.174 297.007.512c57.713.711 82.04 6.263 82.04 6.263l-12.501 79.257s-36.853-9.731-54.942-6.263c-18.065 3.469-28.482 14.597-28.482 42.405z" style="display:inline"/></svg></a>
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill="#181818" stroke="#181818" viewBox="0 0 512 512"><path d="M283.122 122.174v46.583h83.424l-9.045 74.367h-74.379v268.375h-98.726V243.124h-51.443v-74.367h51.443v-56.302c0-27.82-2.096-41.02 9.725-62.578C205.948 28.32 239.308-.174 297.007.512c57.713.711 82.04 6.263 82.04 6.263l-12.501 79.257s-36.853-9.731-54.942-6.263c-18.065 3.469-28.482 14.597-28.482 42.405z" style="display:inline"/></svg></a>
             </div>
             </div>
         </div>
@@ -60,7 +61,7 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#0ead69" viewBox="0 0 56 56"><path d="M15.5547 53.125h24.8906c4.8516 0 7.2656-2.4375 7.2656-7.336V10.2344c0-4.875-2.414-7.3594-7.2656-7.3594H15.5547c-4.8281 0-7.2656 2.4844-7.2656 7.3594V45.789c0 4.8985 2.4375 7.336 7.2656 7.336Zm.1875-3.7735c-2.4141 0-3.6797-1.289-3.6797-3.6328v-35.414c0-2.3203 1.2656-3.6563 3.7031-3.6563h24.4922c2.4375 0 3.6797 1.3125 3.6797 3.6563v35.414c0 2.3438-1.2422 3.6328-3.6562 3.6328Zm3.3984-32.9062h17.7656c.8204 0 1.4532-.6562 1.4532-1.4766 0-.7969-.6328-1.4062-1.4532-1.4062H19.1406c-.8672 0-1.4766.6093-1.4766 1.4062 0 .8204.6094 1.4766 1.4766 1.4766Zm0 8.1797h17.7656c.8204 0 1.4532-.6563 1.4532-1.4766 0-.7969-.6328-1.4062-1.4532-1.4062H19.1406c-.8672 0-1.4766.6093-1.4766 1.4062 0 .8203.6094 1.4766 1.4766 1.4766Zm0 8.1797h8.4141c.8203 0 1.4531-.6329 1.4531-1.4297 0-.8203-.6328-1.4532-1.4531-1.4532h-8.4141c-.8672 0-1.4766.6329-1.4766 1.4532 0 .7968.6094 1.4297 1.4766 1.4297Z"/></svg>
                     </span>
-                     <p>Resume</p>
+                     <p>My Resume</p>
                 </div>
             </a>
                 
@@ -99,7 +100,7 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
        .letter-case{
             // font-weight: 200;
             // color: #bcbcbc;
-        color: #fdfdfd;
+        color: var(--text-primary);
 
         }
     }
@@ -131,7 +132,7 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
         a{
             text-decoration: none;
             position: relative;
-            background-color: #d4d4d4;
+            background-color: var(--card-bg-dark);
             margin: 1px;
             padding: 10px;
             border-radius: 50px;
@@ -227,7 +228,7 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
         }
         p{
             width:fit-content;
-            color: #fdfdfd;
+            color: var(--text-primary);
             &:hover a{
                 color: #0ead69;
                 cursor: pointer;
@@ -258,7 +259,7 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
         justify-content: center;
         gap: 10px;
         overflow: hidden;
-        background-color: #181818 ;
+        background-color: var(--card-bg-dark) ;
         cursor: pointer;
         span{
             height: 30px;
@@ -270,14 +271,14 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
             width: 30px;
         }
         p{
-            color: #fdfdfd;
+            color:  var(--text-primary);
             font-size: 16px;
             font-weight: 500;
         }
 
         &:hover {
             // background-color: #0e0e0e;
-            background-image: linear-gradient(90deg, #181818 21%, #0e5d3b9c 54%, #181818 90%);
+            background-image: linear-gradient(90deg, var(--card-bg) 21%, #0e5d3b9c 54%, var(--card-bg) 90%);
         
 
         }
@@ -391,8 +392,13 @@ codebases and leveraging AI-assisted tools to improve development speed and prod
         padding: 15px 0;
        }
     .myResume{
+        flex-direction: column-reverse;
         gap: 20px;
-        justify-content: center;
+        justify-content: start;
+        align-items: start;
+        a{
+            width: 100%;
+        }
       
     }
     }

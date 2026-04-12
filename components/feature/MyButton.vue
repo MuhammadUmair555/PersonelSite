@@ -74,7 +74,7 @@ const props = defineProps({
         z-index: -1;
         // border-radius: 15px;
         background-image: conic-gradient(from 324deg, #202020 50%, #0ead69 60%, #202020, #202020);
-        animation: spin-2adedd72 8s linear infinite;
+        animation: spin 8s linear infinite;
 
     }
 

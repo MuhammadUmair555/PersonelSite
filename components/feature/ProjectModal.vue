@@ -155,7 +155,7 @@ watch(() => props.isVisible, (val) => {
 .pm-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: var(--overlay-bg);
   backdrop-filter: blur(10px);
   z-index: 9999;
   display: flex;
@@ -171,18 +171,13 @@ watch(() => props.isVisible, (val) => {
   max-width: 1080px;
   height: 70vh;
   max-height: 680px;
-  background: #141414;
-  border: 1px solid rgba(14, 173, 105, 0.18);
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
   border-radius: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
-  :global(.dark-mode) & {
-    background: #fafafa;
-    border-color: rgba(14, 173, 105, 0.12);
-  }
 
   @media (max-width: 767px) {
     height: auto;
@@ -201,9 +196,9 @@ watch(() => props.isVisible, (val) => {
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--close-btn-bg);
   backdrop-filter: blur(6px);
-  color: #fff;
+  color: var(--close-btn-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,17 +206,9 @@ watch(() => props.isVisible, (val) => {
   transition: background 0.25s ease, transform 0.25s ease;
 
   &:hover {
-    background: #0ead69;
+    background: var(--primary-color);
+    color: #fff;
     transform: rotate(90deg);
-  }
-
-  :global(.dark-mode) & {
-    background: rgba(0, 0, 0, 0.15);
-    color: #222;
-    &:hover {
-      background: #0ead69;
-      color: #fff;
-    }
   }
 }
 
@@ -248,13 +235,9 @@ watch(() => props.isVisible, (val) => {
 /* ─── Slider Column ───────────────────────────────────────── */
 .pm-slider {
   flex: 0 0 50%;
-  background: #0a0a0a;
+  background: var(--slider-bg);
   position: relative;
   overflow: hidden;
-
-  :global(.dark-mode) & {
-    background: #e8e8e8;
-  }
 
   @media (max-width: 767px) {
     flex: none;
@@ -280,11 +263,7 @@ watch(() => props.isVisible, (val) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0a0a0a;
-
-    :global(.dark-mode) & {
-      background: #e8e8e8;
-    }
+    background: var(--slider-bg);
 
     img {
       width: 100%;
@@ -319,8 +298,8 @@ watch(() => props.isVisible, (val) => {
     }
 
     :global(.dark-mode) & {
-      background: rgba(0, 0, 0, 0.3);
-      &.is-active { background: #0ead69; }
+      background: rgba(0, 0, 0, 0.15);
+      &.is-active { background: var(--primary-color); }
     }
   }
 
@@ -345,7 +324,7 @@ watch(() => props.isVisible, (val) => {
     font-size: 11px;
     font-weight: 600;
     color: #ffffffab;
-    background: #141414;
+    background: var(--card-bg);
     backdrop-filter: blur(8px);
     padding: 3px 11px;
     white-space: nowrap;
@@ -353,9 +332,9 @@ watch(() => props.isVisible, (val) => {
     transition: background 0.2s ease;
 
     :global(.dark-mode) & {
-      color: #fff;
-      background: rgba(14, 173, 105, 0.75);
-      border-color: rgba(14, 173, 105, 0.5);
+      color: var(--text-primary);
+      background: var(--primary-color);
+      opacity: 0.9;
     }
   }
 
@@ -372,7 +351,7 @@ watch(() => props.isVisible, (val) => {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: #141414;
+  background: var(--modal-bg);
 
   /* Scrollbar */
   scrollbar-width: thin;
@@ -382,7 +361,7 @@ watch(() => props.isVisible, (val) => {
   &::-webkit-scrollbar-track { background: transparent; }
 
   :global(.dark-mode) & {
-    background: #fafafa;
+    background: var(--modal-bg);
   }
 
   @media (max-width: 767px) {
@@ -398,17 +377,15 @@ watch(() => props.isVisible, (val) => {
 .pm-title {
   font-size: 22px;
   font-weight: 700;
-  color: #0ead69;
+  color: var(--primary-color);
   margin: 0 0 4px;
   line-height: 1.25;
 }
 .pm-subtitle {
   font-size: 13px;
-  color: #888;
+  color: var(--text-secondary);
   margin: 0;
   font-weight: 400;
-
-  :global(.dark-mode) & { color: #666; }
 }
 
 /* ─── Section ─────────────────────────────────────────────── */
@@ -429,29 +406,25 @@ watch(() => props.isVisible, (val) => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
   display: flex;
   align-items: center;
   gap: 8px;
-
-  :global(.dark-mode) & { color: #111; }
 }
 .pm-accent-bar {
   display: inline-block;
   width: 3px;
   height: 14px;
-  background: #0ead69;
+  background: var(--primary-color);
   border-radius: 2px;
   flex-shrink: 0;
 }
 .pm-text {
   font-size: 13px;
   line-height: 1.6;
-  color: #999;
+  color: var(--text-secondary);
   margin: 0;
-
-  :global(.dark-mode) & { color: #555; }
 }
 
 /* ─── Bullets ─────────────────────────────────────────────── */
@@ -469,9 +442,7 @@ watch(() => props.isVisible, (val) => {
     gap: 8px;
     font-size: 13px;
     line-height: 1.5;
-    color: #999;
-
-    :global(.dark-mode) & { color: #555; }
+    color: var(--text-secondary);
   }
 }
 .pm-bullet-dot {
@@ -480,7 +451,7 @@ watch(() => props.isVisible, (val) => {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #0ead69;
+  background: var(--primary-color);
 }
 
 /* ─── Skill Tags ──────────────────────────────────────────── */
@@ -492,13 +463,12 @@ watch(() => props.isVisible, (val) => {
 .pm-tag {
   font-size: 11.5px;
   font-weight: 500;
-  color: #0ead69;
+  color: var(--primary-color);
   background: rgba(14, 173, 105, 0.08);
   border: 1px solid rgba(14, 173, 105, 0.2);
   border-radius: 99px;
   padding: 4px 12px;
   white-space: nowrap;
-
 }
 
 /* ─── Footer / CTA ────────────────────────────────────────── */
@@ -510,7 +480,7 @@ watch(() => props.isVisible, (val) => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #0ead69;
+  background: var(--primary-color);
   color: #fff;
   text-decoration: none;
   font-size: 13.5px;
@@ -520,7 +490,7 @@ watch(() => props.isVisible, (val) => {
   transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 
   &:hover {
-    background: #0b9a5a;
+    background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(14, 173, 105, 0.35);
   }
@@ -559,8 +529,8 @@ watch(() => props.isVisible, (val) => {
 }
 .splide__arrow {
     align-items: center;
-    background: #141414;
-    outline-color: #0ead69;
+    background: var(--card-bg);
+    outline-color: var(--primary-color);
     outline-width: 2px;
     outline-style: solid;
     border: 0;
@@ -575,6 +545,11 @@ watch(() => props.isVisible, (val) => {
     width: 3.5em;
     height: 3.5em;
     z-index: 1;
+
+    :global(.dark-mode) & {
+      background: var(--primary-color);
+      outline-color: var(--primary-color);
+    }
 }
 
 .splide__arrow:disabled {

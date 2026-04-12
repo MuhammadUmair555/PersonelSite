@@ -82,7 +82,7 @@ const isDarkMode = ref(false);
 //     z-index: -1;
 //     border-radius: 15px;
 //     background-image: conic-gradient(from 324deg, #181818 50%, #0ead69 60%, #181818, #181818);
-//     animation: spin-2adedd72 8s linear infinite;
+//     animation: spin 8s linear infinite;
 
 // }
 // .dark-mode .gradient-border::before {
