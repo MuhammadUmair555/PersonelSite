@@ -65,10 +65,10 @@ import SkillSlider from '../feature/SkillSlider.vue'
 }
 
 .dark-mode .service {
-    background-color: #e0e0e0;
+    background-color: #efefef;
     &:hover {
         // background-color: #0e0e0e;
-        background-image: linear-gradient(90deg, #e0e0e0 21%, #0e5d3b9c 54%, #e0e0e0 90%);
+        background-image: linear-gradient(90deg, #efefef 21%, #0e5d3b9c 54%, #efefef 90%);
        
 
     }

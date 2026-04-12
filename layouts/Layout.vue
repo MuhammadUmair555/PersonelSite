@@ -14,14 +14,16 @@
 <style lang="scss" scoped>
 .Container{
     max-width: 1200px;
-    margin: 145px auto 0;
     padding: 25px;
+    margin: 0 auto;
+    padding-top: 180px;
     overflow: hidden;
 }
 @media screen and (max-width: 575px) {
     .Container{
         padding: 15px;
-        margin: 110px auto 0;
+        margin: 0 auto;
+        padding-top: 110px;
     }
 }
 </style>

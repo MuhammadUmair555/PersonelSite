@@ -75,6 +75,16 @@
               </ul>
             </div>
 
+            <!-- Technologies (Mobile only) -->
+            <div class="pm-section pm-mobile-only" v-if="project.skills && project.skills.length">
+              <h3 class="pm-section-heading">
+                <span class="pm-accent-bar"></span>Technologies
+              </h3>
+              <div class="pm-tags">
+                <span v-for="skill in project.skills" :key="skill" class="pm-tag">{{ skill }}</span>
+              </div>
+            </div>
+
 
 
             <!-- Footer -->
@@ -407,6 +417,13 @@ watch(() => props.isVisible, (val) => {
   flex-direction: column;
   gap: 8px;
 }
+
+.pm-mobile-only {
+  display: none;
+  @media (max-width: 767px) {
+    display: flex;
+  }
+}
 .pm-section-heading {
   font-size: 13px;
   font-weight: 600;
@@ -482,7 +499,6 @@ watch(() => props.isVisible, (val) => {
   padding: 4px 12px;
   white-space: nowrap;
 
-  :global(.dark-mode) & { background: rgba(14, 173, 105, 0.06); }
 }
 
 /* ─── Footer / CTA ────────────────────────────────────────── */
