@@ -15,14 +15,14 @@ const isDarkMode = ref(false);
                     <div class="education">
                         <div class="small-circle"></div>
                         <div>
-                            <p class="education-name">SOFTWARE ENGINEER (Frontend)</p>
-                            <p class="education-from">Officefield, Gulshan e Iqbal, Karachi  <span>( 2022 - Present )</span></p>
+                            <p class="education-name">Senior Software Engineer (Frontend)</p>
+                            <p class="education-from">Officefield, Karachi  <span>( 2022 - Present )</span></p>
                         </div>
                     </div>
                     <div class="education">
                         <div class="small-circle"></div>
                         <div>
-                            <p class="education-name">WEB DEVELOPER</p>
+                            <p class="education-name">Software Engineer</p>
                             <p class="education-from">BCI New Media, Karachi<span> ( 2019 - 2021 )</span></p>
                         </div>
                     </div>

@@ -59,19 +59,19 @@ body {
 
 
 // Scroll Animations
-[data-aos] {
-  opacity: 0;
-  transition-property: transform, opacity;
+// [data-aos] {
+//   opacity: 0;
+//   transition-property: transform, opacity;
   
-  &.aos-init {
-    // Once AOS initializes, it will take over.
-    // We don't force opacity 1 here because AOS will add .aos-animate
-  }
-}
+//   &.aos-init {
+//     // Once AOS initializes, it will take over.
+//     // We don't force opacity 1 here because AOS will add .aos-animate
+//   }
+// }
 
-html:not(.aos-init) [data-aos] {
-  opacity: 0;
-}
+// html:not(.aos-init) [data-aos] {
+//   opacity: 0;
+// }
 
 
 

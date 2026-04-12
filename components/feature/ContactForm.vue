@@ -66,7 +66,7 @@
 
 const submitForm = () => {
     if (validateForm()) {
-        emailjs.send('service_47rrc29', 'template_xnuxqfq', {
+        emailjs.send('service_66tgm2b', 'template_xnuxqfq', {
             from_name: form.name,
             to_name: 'Umair',
             subject: form.subject,

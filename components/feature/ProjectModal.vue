@@ -49,6 +49,19 @@
               <p class="pm-text">{{ project.info }}</p>
             </div>
 
+            <!-- Key Features -->
+            <div class="pm-section" v-if="project.keyFeatures && project.keyFeatures.length">
+              <h3 class="pm-section-heading">
+                <span class="pm-accent-bar"></span>Key Features
+              </h3>
+              <ul class="pm-bullets">
+                <li v-for="(feature, i) in project.keyFeatures" :key="i">
+                  <span class="pm-bullet-dot"></span>
+                  <span>{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+
             <!-- Technical Implementation -->
             <div class="pm-section" v-if="project.description && project.description.length">
               <h3 class="pm-section-heading">
@@ -268,12 +281,14 @@ watch(() => props.isVisible, (val) => {
       // height: 100%;
       object-fit: cover; /* fill the frame cleanly */
       display: block;
+      min-height: 320px;
+      max-height: 320px;
     }
   }
 
   /* Pagination dots */
   :deep(.splide__pagination) {
-    bottom: 18px;
+    bottom: 0;
     z-index: 50;
     gap: 6px;
     li { line-height: 0; }
@@ -312,9 +327,7 @@ watch(() => props.isVisible, (val) => {
     pointer-events: none;
 
     @media (max-width: 767px) {
-      bottom: 40px;
-      left: 10px;
-      right: 10px;
+      display: none;
     }
   }
 

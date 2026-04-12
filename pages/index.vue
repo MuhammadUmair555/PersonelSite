@@ -9,12 +9,12 @@
       <div id="aboutSection">
         <AboutSection />
       </div>
-      <div>
+      <!-- <div>
         <Testimonials />
-      </div>
-      <div id="blog">
+      </div> -->
+      <!-- <div id="blog">
         <BlogSection />
-      </div>
+      </div> -->
       <div id="contact">
         <ContactSection />
       </div>

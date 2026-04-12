@@ -7,8 +7,16 @@ export const projects = [
     description: [
       'Built responsive dashboards with structured layouts, dynamic charts, and API integration for data handling.',
       'Implemented Vuex-based state management with reusable components to ensure scalable architecture.',
-      'Optimized performance and UI responsiveness, layout structure and data visualization for better user experience.'
+      'Optimized performance and UI responsiveness, layout structure and data visualization for better user experience.',
     ],
+    keyFeatures: [
+      'Social trading and copy trading features.',
+      'Real-time market data and analytics.',
+      'Portfolio tracking and management.',
+      'Community discussion and insights.',
+      'Advanced charting and technical analysis.'
+    ],
+    
     skills: ['Vue.js', 'Quasar Framework', 'Vuex', 'ApexCharts', 'Highcharts', 'Data Visualization', 'Performance Optimization'],
     mainImage: '/assets/Images/project/analytics/project-analytics.jpg',
     images: [
@@ -30,8 +38,11 @@ export const projects = [
     skills: ['React Native', 'Component Architecture', 'UI Design', 'API Integration', 'AI Feature Integration'],
     mainImage: '/assets/Images/project/tradergpt/Tradergpt.jpg',
     images: [
-      '/assets/Images/project/Tradergpt.jpg',
-      '/assets/Images/project/project-2.png'
+      '/assets/Images/project/tradergpt/0.jpg',
+      '/assets/Images/project/tradergpt/1.jpg',
+      '/assets/Images/project/tradergpt/2.jpg',
+      '/assets/Images/project/tradergpt/3.jpg'
+
     ],
     liveLink: 'https://tradersgpt.io/'
   },
@@ -67,7 +78,7 @@ export const projects = [
     images: [
       '/assets/Images/project/salesystem/salesystem.png'
     ],
-    liveLink: '#'
+    liveLink: 'https://easy-sale-system.vercel.app/'
   },
   {
     slug: 'easy-consult-ai',
@@ -87,5 +98,28 @@ export const projects = [
       '/assets/Images/project/easyconsult/details.png'
     ],
     liveLink: 'https://easy-consult-site.vercel.app/'
+  },
+  {
+    slug: 'elite-consult',
+    title: 'Elite Consult',
+    subtitle: 'Mental Health Services that Work',
+    info: 'Elite Consulting specializes in trauma recovery, utilizing a "bottom-up" approach with Experiential Therapies to help individuals resolve "stuck" emotions and nervous system responses.',
+    description: [
+      'Holistic trauma therapy focusing on mind, body, and soul through unique experiential methods.',
+      'Comprehensive housing consultations including Professional Statement of Need (PSN) documentation.',
+      'Specialized Housing Stabilization Services (HSS) to support long-term recovery and stability.',
+      'Integrated system for trauma-expert consultations and professional medical statements.'
+    ],
+    skills: ['Nuxt.js', 'Vue.js', 'Next.js', 'React', 'AOS', 'Element UI', 'UnoCSS', 'Google Font API', 'Priority Hints', 'Vercel'],
+    mainImage: '/assets/Images/project/eliteconsult/cover.jpg',
+    images: [
+      '/assets/Images/project/eliteconsult/img1.jpg',
+      '/assets/Images/project/eliteconsult/img2.jpg',
+      '/assets/Images/project/eliteconsult/img3.jpg',
+      '/assets/Images/project/eliteconsult/img4.jpg',
+      '/assets/Images/project/eliteconsult/img21.jpg',
+      '/assets/Images/project/eliteconsult/img5.jpg',
+    ],
+    liveLink: 'https://elite-consult.vercel.app/'
   }
 ];

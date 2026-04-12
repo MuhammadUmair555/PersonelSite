@@ -11,7 +11,7 @@
 <div :class="{ 'scrolled': isScrolled }" class="navbar-top">
     <nav>
       <ul>
-        <li><nuxt-link to="/"><div class="logo">U<span>AA</span></div></nuxt-link></li>
+        <li class="logo-li"><nuxt-link to="/"><div class="logo">Umair</div></nuxt-link></li>
         <!-- <li><nuxt-link to="/"><div class="logo">
           <div class="animated-perspective">U</div>
           <div class="animated-perspective">A</div>
@@ -20,7 +20,7 @@
 
         <li class="on-mobile"><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
-        <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+        <!-- <li><nuxt-link to="/blog">Blog</nuxt-link></li> -->
         <li class="mode-toggle">
           <nuxt-link @click="toggleDarkMode">
             <span :class="{ 'animate-toggle': isAnimating }">
@@ -84,7 +84,7 @@ onUnmounted(() => {
     transition: transform 1s ease;
     border-bottom: 1px solid #3f3f469c;
     nav{
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
     }
   }
@@ -132,6 +132,7 @@ onUnmounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Dancing Script", cursive;
     perspective: 400px;
     transition-duration: 1s;
 
@@ -187,12 +188,16 @@ onUnmounted(() => {
 
   nav ul li a {
     text-decoration: none;
-    color: #f5f5f5;
+    color: #f5f5f5a2;
     font-size: 18px;
   }
+  .logo-li a{
+   color: #ffffff;
+  }
+  
   .router-link-active {
     /* color: #00FF7F; */
-    color: #0ead69;
+    color: #ffffff;
 
   }
 .dark-mode nav ul li a {
@@ -220,9 +225,7 @@ onUnmounted(() => {
     border: unset;
     padding: 0 15px;
   }
-  .on-mobile{
-    display: none;
-  }
+ 
   .navbar-top.scrolled {
     transform: unset; 
     border-bottom: 1px solid #3f3f469c;
