@@ -294,7 +294,7 @@ watch(() => props.isVisible, (val) => {
 
     &.is-active {
       width: 24px;
-      background: #0ead69;
+      background: var(--primary-color);
     }
 
     :global(.dark-mode) & {
@@ -323,7 +323,7 @@ watch(() => props.isVisible, (val) => {
   .pm-tag-slider {
     font-size: 11px;
     font-weight: 600;
-    color: #ffffffab;
+    color: var(--text-primary);
     background: var(--card-bg);
     backdrop-filter: blur(8px);
     padding: 3px 11px;

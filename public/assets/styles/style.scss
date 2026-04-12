@@ -6,6 +6,12 @@
   --card-bg-dark: #141414;
   --text-primary: #fdfdfd;
   --text-secondary: #a7a7a7;
+  --modal-bg: #141414;
+  --modal-border: rgba(14, 173, 105, 0.18);
+  --overlay-bg: rgba(0, 0, 0, 0.82);
+  --close-btn-bg: rgba(0, 0, 0, 0.55);
+  --close-btn-text: #fff;
+  --slider-bg: #0a0a0a;
 }
 
 .dark-mode {
@@ -14,6 +20,12 @@
   --card-bg-dark: #d6d6d6;
   --text-primary: #111111;
   --text-secondary: #555555;
+  --modal-bg: #fafafa;
+  --modal-border: rgba(14, 173, 105, 0.12);
+  --overlay-bg: rgba(255, 255, 255, 0.7);
+  --close-btn-bg: rgba(0, 0, 0, 0.15);
+  --close-btn-text: #222;
+  --slider-bg: #e8e8e8;
 }
 
 html {
