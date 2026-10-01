@@ -13,10 +13,7 @@
                 <span class="hey-there">Hey there! I'm</span>
                 <h1>Muhammad <span class="letter-case"> Umair<span style="color: #0ead69;">.</span> </span></h1>
                 <p class="my-bio">
-                    I'm a <span style="color: #0ead69; font-weight: 500;">Software Engineer </span> with 6 years of experience building web applications, apps, dashboards, and user interfaces using
-modern frameworks. Focused on building clean and user-friendly interfaces while writing maintainable code. Skilled in
-improving performance through better structure and optimization techniques. Comfortable working with existing
-codebases and leveraging AI-assisted tools to improve development speed and productivity.
+                   Senior <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> with 6+ years of experience architecting responsive, high-performance web and mobile applications using Vue.js, React.js, and React Native. Specializes in scalable component architecture, real-time data visualization, and high-performance UI for fintech and trading platforms. Skilled at integrating REST APIs, optimizing rendering performance, and partnering with backend and AI teams to ship production features. Experienced leveraging AI-assisted development workflows to increase delivery speed while maintaining code quality.
                 </p>
             </div>
             

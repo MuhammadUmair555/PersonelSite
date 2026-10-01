@@ -12,11 +12,11 @@
     <nav>
       <ul>
         <li class="logo-li"><nuxt-link to="/"><div class="logo">Umair</div></nuxt-link></li>
-        <!-- <li><nuxt-link to="/"><div class="logo">
+        <li><nuxt-link to="/"><div class="logo">
           <div class="animated-perspective">U</div>
           <div class="animated-perspective">A</div>
           <div class="animated-perspective">A</div>
-        </div></nuxt-link></li> -->
+        </div></nuxt-link></li> 
 
         <li class="on-mobile"><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
