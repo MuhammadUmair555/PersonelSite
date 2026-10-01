@@ -139,11 +139,20 @@
             align-items: center;
             justify-content: center;
             transition-duration: 0.5s;
-            
+
+            svg{
+                width: 100%;
+                height: 100%;
+                fill: #ffffff;
+            }
+
             &:hover {
             background-color: #0ead69;
             transition-duration: 0.5s;
 
+                svg{
+                    fill: #0e0e0e;
+                }
             }
         }   
     }
@@ -299,6 +308,14 @@
     .circle{
     background-color: #d4d4d4;
 }
+}
+
+.dark-mode .social-follwing a{
+    background-color: #ffffff;
+}
+
+.dark-mode .social-follwing a svg{
+    fill: #0ead69;
 }
 
 @media screen and (max-width: 991px) {

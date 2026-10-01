@@ -4,7 +4,9 @@ import SkillSlider from '../feature/SkillSlider.vue'
 <template>
     <div class="skill-wrapper">
         <p data-aos="fade-up" class="main-heading">My <span>Skills</span></p>
-        
+         <p data-aos="fade-up" class="skill-info">
+           Front-End Development, UI Architecture, Component-Driven Design, Responsive and Accessible UI, Performance Optimization, Data-Heavy Interfaces.
+         </p>
         <div data-aos="fade-up" class="work-experience">
                 <div class="service">
                     <span>
@@ -24,8 +26,8 @@ import SkillSlider from '../feature/SkillSlider.vue'
         <SkillSlider />
 
            <p data-aos="fade-up" class="skill-info">
-            Expertise in developing UIs for web and mobile apps using modern tech like React, Next.js, and libraries. My skills include frontend development with HTML, CSS, JavaScript, and creative design in Figma and Adobe XD. I'm also experienced in Git and development tools.
-        </p>
+            <br><span style="color: #0ead69; font-weight: 600;" >Tools & Practices:</span> Git, GitHub, JIRA, npm/yarn, Vite, Webpack, Postman, ESLint, Prettier, VS Code, Agile/Scrum, Lazy Loading, AI-Assisted Development, Cross-Functional Collaboration, Code Reviews.
+</p>
     </div>
 </template>
 <style lang="scss" scoped>

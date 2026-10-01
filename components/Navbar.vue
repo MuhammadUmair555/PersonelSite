@@ -11,12 +11,14 @@
 <div :class="{ 'scrolled': isScrolled }" class="navbar-top">
     <nav>
       <ul>
-        <li class="logo-li"><nuxt-link to="/"><div class="logo">Umair</div></nuxt-link></li>
-        <li><nuxt-link to="/"><div class="logo">
+        <li class="logo-li"><nuxt-link to="/"><div class="logo">
+          <img src="../public/assets/logo.png" alt="">
+        </div></nuxt-link></li>
+        <!-- <li><nuxt-link to="/"><div class="logo">
           <div class="animated-perspective">U</div>
           <div class="animated-perspective">A</div>
           <div class="animated-perspective">A</div>
-        </div></nuxt-link></li> 
+        </div></nuxt-link></li>  -->
 
         <li class="on-mobile"><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
@@ -82,7 +84,7 @@ onUnmounted(() => {
     backdrop-filter: blur(8px);
     background-color:#0e0e0e84;
     transition: transform 1s ease;
-    border-bottom: 1px solid #3f3f469c;
+    border-bottom: 1px solid transparent;
     nav{
       max-width: 1200px;
       margin: auto;
@@ -90,6 +92,7 @@ onUnmounted(() => {
   }
   .navbar-top.scrolled {
   transform: translateY(-20px); /* Adjust this value to control the upward movement */
+  border-bottom: 1px solid #3f3f469c;
 }
 .mode-toggle {
   cursor: pointer;
@@ -114,7 +117,7 @@ onUnmounted(() => {
     display: flex;
     list-style: none;
     gap: 25px;
-    margin: 40px 0 20px;
+    margin: 32px 0 12px;
     padding: 0;
     align-items: center;
     justify-content: end;
@@ -135,6 +138,10 @@ onUnmounted(() => {
     font-family: "Dancing Script", cursive;
     perspective: 400px;
     transition-duration: 1s;
+    max-width: 60px;
+    img{
+      width: 100%;
+    }
 
     .animated-perspective {
         width: 60px;

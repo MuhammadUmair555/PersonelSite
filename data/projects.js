@@ -1,36 +1,8 @@
 export const projects = [
+  
   {
-    slug: 'personal-portfolio',
-    title: 'Personal Portfolio',
-    subtitle: 'Design, Development & Deployment of My Own Showcase',
-    info: 'Designed and developed my own portfolio website from scratch to showcase my work, skills, and experience — handling the full cycle from UI design and component architecture to animations, dark mode, and deployment.',
-    description: [
-      'Built with Nuxt 3 and Vue 3 featuring server-side rendering, auto-imported components, and a custom SCSS design system using CSS variables for consistent theming.',
-      'Implemented a persistent dark mode with saved user preference, AOS scroll animations, and Splide-powered carousels for projects and skills.',
-      'Developed reusable components including a project detail modal with image slider, gradient-border buttons, experience timeline, and a validated EmailJS contact form.',
-      'Responsive across desktop, tablet, and mobile breakpoints, deployed on Vercel with automatic GitHub integration.'
-    ],
-    keyFeatures: [
-      'Dark mode with saved user preference.',
-      'Responsive layout for all screen sizes.',
-      'Animated project modal with gallery slider.',
-      'Scroll-triggered animations and auto-scrolling skill slider.',
-      'Contact form with validation and EmailJS delivery.'
-    ],
-    skills: ['Nuxt.js', 'Vue.js', 'JavaScript', 'SCSS', 'AOS', 'Splide', 'EmailJS', 'Responsive Design', 'Dark Mode UI', 'Vercel'],
-    mainImage: '/assets/Images/project/portfolio/home.png',
-    images: [
-      '/assets/Images/project/portfolio/projects.png',
-      '/assets/Images/project/portfolio/skills.png',
-      '/assets/Images/project/portfolio/experience.png',
-      '/assets/Images/project/portfolio/contact.png',
-      '/assets/Images/project/portfolio/full-site.png'
-    ],
-    liveLink: 'https://www.umairdev.vercel.app/'
-  },
-  {
-    slug: 'Powerfull-Analytics-Dashboard',
-    title: 'Powerfull Analytics Dashboard',
+    slug: 'Traderverse',
+    title: 'Powerfull Social Platform',
     subtitle: 'High-Performance Financial Analytics',
     info: 'Worked on a data-heavy trading analytics dashboard that helps users analyze stock, crypto, and market trends in a structured way. Focused on building scalable UI for handling multiple data views, filters, and chart-based insights.',
     description: [
@@ -76,6 +48,35 @@ export const projects = [
     liveLink: 'https://tradersgpt.io/'
   },
   {
+    slug: 'personal-portfolio',
+    title: 'Personal Portfolio',
+    subtitle: 'Design, Development & Deployment of My Own Showcase',
+    info: 'Designed and developed my own portfolio website from scratch to showcase my work, skills, and experience — handling the full cycle from UI design and component architecture to animations, dark mode, and deployment.',
+    description: [
+      'Built with Nuxt 3 and Vue 3 featuring server-side rendering, auto-imported components, and a custom SCSS design system using CSS variables for consistent theming.',
+      'Implemented a persistent dark mode with saved user preference, AOS scroll animations, and Splide-powered carousels for projects and skills.',
+      'Developed reusable components including a project detail modal with image slider, gradient-border buttons, experience timeline, and a validated EmailJS contact form.',
+      'Responsive across desktop, tablet, and mobile breakpoints, deployed on Vercel with automatic GitHub integration.'
+    ],
+    keyFeatures: [
+      'Dark mode with saved user preference.',
+      'Responsive layout for all screen sizes.',
+      'Animated project modal with gallery slider.',
+      'Scroll-triggered animations and auto-scrolling skill slider.',
+      'Contact form with validation and EmailJS delivery.'
+    ],
+    skills: ['Nuxt.js', 'Vue.js', 'JavaScript', 'SCSS', 'AOS', 'Splide', 'EmailJS', 'Responsive Design', 'Dark Mode UI', 'Vercel'],
+    mainImage: '/assets/Images/project/portfolio/home.png',
+    images: [
+      '/assets/Images/project/portfolio/projects.png',
+      '/assets/Images/project/portfolio/skills.png',
+      '/assets/Images/project/portfolio/experience.png',
+      '/assets/Images/project/portfolio/contact.png',
+      '/assets/Images/project/portfolio/full-site.png'
+    ],
+    liveLink: 'https://www.umairdev.vercel.app/'
+  },
+  {
     slug: 'nitrox-gaming-community',
     title: 'NITROX - GAMING COMMUNITY',
     subtitle: 'Modern Glassmorphism Design',
@@ -87,8 +88,11 @@ export const projects = [
     skills: ['Vue.js', 'JavaScript', 'Tailwind', 'Vuetify', 'Responsive Design', 'Component Architecture'],
     mainImage: '/assets/Images/project/nitrox/nitrox.png',
     images: [
-      '/assets/Images/project/project-POST.jpg',
-      '/assets/Images/project/project-2.png'
+      '/assets/Images/project/nitrox/img5.png',
+      '/assets/Images/project/nitrox/img1.png',
+      '/assets/Images/project/nitrox/img2.png',
+      '/assets/Images/project/nitrox/img3.png',
+      '/assets/Images/project/nitrox/img4.png'
     ],
     liveLink: 'https://nitrox-app.traderverse.io/'
   },

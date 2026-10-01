@@ -55,9 +55,9 @@ breakpoints: {
         <div  class="project-wrapper" >
             <div data-aos="fade-up" class="project-description " >
                 <p>
-                    Explore projects where my creativity in UI merges with technical expertise and design excellence across diverse domains.
-                 From <span style="color:#0ead69;font-weight:500;">Dashboards</span> and <span style="color:#0ead69;font-weight:500;">AI Chatbots</span> to <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
-            </p>
+                 A selection of projects I've designed and engineered across different domains.
+                Clean code, thoughtful design, and real-world impact in every one.
+                Each built with a focus on performance, scalability, and attention to detail.</p>
             <nuxt-link style="text-decoration: none;" to="/projects">
                 <MyButton buttonMargin="25px 0 0" buttonText="View All Projects" />
             </nuxt-link >
@@ -119,7 +119,7 @@ breakpoints: {
 .splide__arrows{
     position: absolute;
     top: -50px;
-    left: 160px;
+    left: 185px;
 }
 .splide__arrow svg{
     fill: #fff !important;
