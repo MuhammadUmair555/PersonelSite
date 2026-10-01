@@ -48,7 +48,7 @@ export default {
           company: 'OfficeField',
           location: 'Karachi',
           duration: '2022 - Present',
-          description: 'Building scalable web apps and high-performance dashboards, focused on real-time data visualization and seamless frontend experiences.'
+          description: 'Build high-performance web applications focused on real-time data visualization and smooth, responsive user experiences. Architect reusable component systems in React and Vue, significantly reducing development time for new features. Maintain UI consistency across the full product suite through shared components and design standards. Collaborate with cross-functional teams in an Agile environment, taking part in code reviews and sprint planning'
         },
         {
           title: 'Software Engineer',
@@ -68,10 +68,17 @@ export default {
         },
         {
           title: 'Diploma in Web Development',
-          institution: 'State Professional Institute',
+          institution: 'Infra Professional Institute',
           location: 'Karachi',
-          duration: '2014 - 2015',
-          description: 'Specialized training in modern web development technologies and practices.'
+          duration: '2017 - 2017',
+          // description: 'Specialized training in modern web development technologies and practices.'
+        },
+        {
+          title: 'Diploma in Mobile App Development',
+          institution: 'Apptron | Sir Syed University',
+          location: 'Karachi',
+          duration: '2018 - 2018',
+          // description: ''
         }
       ]
     }

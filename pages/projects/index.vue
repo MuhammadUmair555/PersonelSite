@@ -23,8 +23,7 @@
         <p class="main-heading">My Latest<span> Work</span></p>
         <div class="project-description">
               <p>
-                  Explore projects where my creativity in UI merges with technical expertise and design excellence across diverse domains.
-                From <span style="color:#0ead69;font-weight:500;">Dashboards</span> and <span style="color:#0ead69;font-weight:500;">AI Chatbots</span> to <span style="color:#0ead69;font-weight:500;">Websites</span> and  <span style="color:#0ead69;font-weight:500;">Mobile Apps</span>.
+                A selection of projects I've designed and engineered across different domains. Clean code, thoughtful design, and real-world impact in every one. Each built with a focus on performance, scalability, and attention to detail.
               </p>
               
           </div>

@@ -36,6 +36,24 @@
           <!-- Right: Details -->
           <div class="pm-details">
             <!-- Header -->
+              <div class="pm-footer">
+                <div class="gradient-border">
+              <a
+                v-if="project.liveLink && project.liveLink !== '#'"
+                :href="project.liveLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pm-live-btn"
+              >
+                <span>View Live Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+              </div>
+            </div>
             <div class="pm-header">
               <h2 class="pm-title">{{ project.title }}</h2>
               <p class="pm-subtitle">{{ project.subtitle }}</p>
@@ -88,22 +106,7 @@
 
 
             <!-- Footer -->
-            <div class="pm-footer">
-              <a
-                v-if="project.liveLink && project.liveLink !== '#'"
-                :href="project.liveLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="pm-live-btn"
-              >
-                <span>View Live Project</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-              </a>
-            </div>
+           
           </div>
 
         </div>
@@ -172,7 +175,7 @@ watch(() => props.isVisible, (val) => {
   height: 70vh;
   max-height: 680px;
   background: var(--modal-bg);
-  border: 1px solid var(--modal-border);
+  border: 1px solid lightgray;
   border-radius: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -211,6 +214,38 @@ watch(() => props.isVisible, (val) => {
     transform: rotate(90deg);
   }
 }
+ .gradient-border{
+    position: relative;
+    z-index: 9;
+    padding: 2px;
+    overflow: hidden;
+    // margin: 25px auto 0;
+    border-radius: 12px;
+    min-width: 150px;
+    display: flex;
+    width: fit-content;
+    }
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+        }
+    .gradient-border::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: -190px;
+        right: -190px;
+        width: 230px;
+        height: 250px;
+        bottom: -100px;
+        margin: auto;
+        z-index: -1;
+        // border-radius: 15px;
+        background-image: conic-gradient(from 324deg, #202020 50%, #0ead69 60%, #202020, #202020);
+        animation: spin 8s linear infinite;
+
+    }
 
 /* ─── Body (two-column layout) ────────────────────────────── */
 .pm-body {
@@ -268,7 +303,7 @@ watch(() => props.isVisible, (val) => {
     img {
       width: 100%;
       // height: 100%;
-      object-fit: cover; /* fill the frame cleanly */
+      // object-fit: cover; 
       display: block;
       min-height: 320px;
       max-height: 320px;
@@ -355,9 +390,9 @@ watch(() => props.isVisible, (val) => {
 
   /* Scrollbar */
   scrollbar-width: thin;
-  scrollbar-color: rgba(14, 173, 105, 0.35) transparent;
+  scrollbar-color: rgba(113, 113, 113, 0.622) transparent;
   &::-webkit-scrollbar { width: 5px; }
-  &::-webkit-scrollbar-thumb { background: rgba(14, 173, 105, 0.35); border-radius: 99px; }
+  &::-webkit-scrollbar-thumb { background: rgba(113, 113, 113, 0.622); border-radius: 99px; }
   &::-webkit-scrollbar-track { background: transparent; }
 
   :global(.dark-mode) & {
@@ -375,11 +410,12 @@ watch(() => props.isVisible, (val) => {
   padding-right: 30px; // space for close button
 }
 .pm-title {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 600;
   color: var(--primary-color);
   margin: 0 0 4px;
   line-height: 1.25;
+  text-transform: uppercase;
 }
 .pm-subtitle {
   font-size: 13px;
@@ -473,26 +509,24 @@ watch(() => props.isVisible, (val) => {
 
 /* ─── Footer / CTA ────────────────────────────────────────── */
 .pm-footer {
-  margin-top: auto;
-  padding-top: 8px;
+  // margin-top: auto;
+  padding-bottom: 8px;
 }
 .pm-live-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--primary-color);
+  background-color: #202020;
   color: #fff;
   text-decoration: none;
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 10px 22px;
   border-radius: 10px;
   transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 
   &:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(14, 173, 105, 0.35);
+    background-image: linear-gradient(90deg, #181818 21%, rgba(14, 93, 59, 0.6117647059) 54%, #181818 90%);
   }
 }
 

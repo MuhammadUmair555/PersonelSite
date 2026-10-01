@@ -2,23 +2,23 @@ export const projects = [
   
   {
     slug: 'Traderverse',
-    title: 'Powerfull Social Platform',
-    subtitle: 'High-Performance Financial Analytics',
-    info: 'Worked on a data-heavy trading analytics dashboard that helps users analyze stock, crypto, and market trends in a structured way. Focused on building scalable UI for handling multiple data views, filters, and chart-based insights.',
+    title: 'Traderverse Social Platform',
+    subtitle: 'A modern social trading platform built to empower today\'s traders',
+    info: 'Developed a modern social trading platform with market insights, portfolio tracking, and financial analytics. Built responsive interfaces for trader profiles, social feeds, watchlists, portfolios, and market dashboards.',
     description: [
-      'Built responsive dashboards with structured layouts, dynamic charts, and API integration for data handling.',
-      'Implemented Vuex-based state management with reusable components to ensure scalable architecture.',
-      'Optimized performance and UI responsiveness, layout structure and data visualization for better user experience.',
+      'Implemented interactive charts, real-time market data, trading insights, and performance visualizations.',
+      'Created reusable, scalable frontend components with Vuex-based state management and REST API integration.',
+      'Focused on responsive UI/UX across desktop and mobile, with optimized performance for data-heavy views.'
     ],
     keyFeatures: [
-      'Social trading and copy trading features.',
-      'Real-time market data and analytics.',
-      'Portfolio tracking and management.',
-      'Community discussion and insights.',
-      'Advanced charting and technical analysis.'
+      'Trader profiles and social feeds.',
+      'Watchlists and portfolio tracking.',
+      'Real-time market data and trading insights.',
+      'Interactive charts and performance visualizations.',
+      'Market dashboards and financial analytics.'
     ],
-    
-    skills: ['Vue.js', 'Quasar Framework', 'Vuex', 'ApexCharts', 'Highcharts', 'Data Visualization', 'Performance Optimization'],
+
+    skills: ['Vue.js', 'Vite', 'Vuex', 'JavaScript', 'HTML5', 'CSS3', 'ApexCharts', 'Highcharts', 'REST API Integration', 'Component Architecture', 'Responsive Design', 'Data Visualization', 'Performance Optimization', 'State Management'],
     mainImage: '/assets/Images/project/analytics/project-analytics.jpg',
     images: [
       '/assets/Images/project/analytics/desktop-profile.webp',
@@ -29,7 +29,7 @@ export const projects = [
   },
   {
     slug: 'TRADERSGPT-APP',
-    title: 'TRADERSGPT APP',
+    title: 'TradersGPT APP',
     subtitle: 'AI-Powered Market Insights',
     info: 'Developed TradersGPT – an AI-powered trading insights app using React Native.',
     description: [
@@ -98,9 +98,9 @@ export const projects = [
   },
   {
     slug: 'easy-sale-system-pos',
-    title: 'Easy Sale System POS',
+    title: 'Easy Sale Software POS',
     subtitle: 'Modern POS & Inventory Management',
-    info: 'Developed a high-performance desktop POS system using Python and PyQt5, featuring a robust SQLite backend with WAL optimization and automated cloud backups.',
+    info: 'Developed a high-performance desktop POS software using Python and PyQt5, featuring a robust SQLite backend with WAL optimization and automated cloud backups.',
     description: [
       'Engineered a sophisticated UI with QtWebEngine for dynamic HTML/CSS thermal receipts and utilized ReportLab and PyQtChart for comprehensive business analytics.',
       'Implemented a robust SQLite backend with WAL optimization and automated Google Drive cloud backup synchronization.',
@@ -109,41 +109,46 @@ export const projects = [
     skills: ['Python', 'PyQt5', 'SQLite', 'Google Drive API', 'ReportLab', 'PyQtChart', 'QtWebEngine'],
     mainImage: '/assets/Images/project/salesystem/salesystem.png',
     images: [
-      '/assets/Images/project/salesystem/salesystem.png'
+      '/assets/Images/project/salesystem/img1.png',
+      '/assets/Images/project/salesystem/img2.png',
+      '/assets/Images/project/salesystem/img3.png',
+      '/assets/Images/project/salesystem/img4.png',
+      '/assets/Images/project/salesystem/img5.png',
     ],
     liveLink: 'https://easy-sale-system.vercel.app/'
   },
   {
     slug: 'easy-consult-ai',
     title: 'EasyConsult.ai',
-    subtitle: 'Empowering Businesses with Intelligent AI Transformation',
-    info: 'EasyConsult.ai provides AI-driven solutions to help businesses make smarter decisions and increase efficiency through intelligent automation and strategic consulting.',
+    subtitle: 'Marketing Website for an AI Consulting & Automation Company',
+    info: 'Designed and developed the company website from scratch, presenting AI consulting, automation, and custom AI agent services through a fast, responsive, and accessible interface.',
     description: [
-      'Fully tailored conversational AI designed to match exact business requirements, supporting multiple languages and 24/7 availability.',
-      'Intelligent automation for sales, reporting, and inventory, featuring personalized sales outreach and real-time expense reporting.',
-      'Autonomous AI systems that actively execute multi-step tasks such as market research, vendor analysis, and IT ticket triaging.',
-      'Strategic evaluation of AI potential before implementation, identifying gaps and highlighting key integration points.'
+      'Designed the UI and built the full frontend in Vue.js, with a reusable component structure and a consistent visual system.',
+      'Used Tailwind CSS with Radix UI and shadcn/ui primitives for accessible, easy-to-maintain interface components.',
+      'Integrated Calendly so visitors can book consultations directly from the site.',
+      'Added SEO and Open Graph metadata for better search visibility and link previews, and deployed on Vercel.'
     ],
-    skills: ['AI Automation', 'LLMs', 'Conversational AI', 'Data Analytics', 'Strategic Consulting', 'Autonomous AI Agents'],
+    skills: ['Vue.js', 'Tailwind CSS', 'shadcn/ui', 'Radix UI', 'Responsive Design', 'Calendly Integration', 'SEO', 'Vercel'],
     mainImage: '/assets/Images/project/easyconsult/cover.png',
     images: [
-      '/assets/Images/project/easyconsult/services.png',
-      '/assets/Images/project/easyconsult/details.png'
+      '/assets/Images/project/easyconsult/img1.png',
+      '/assets/Images/project/easyconsult/img2.png',
+      '/assets/Images/project/easyconsult/img3.png',
+      '/assets/Images/project/easyconsult/img4.png',
     ],
     liveLink: 'https://easy-consult-site.vercel.app/'
   },
   {
     slug: 'elite-consult',
-    title: 'Elite Consult',
-    subtitle: 'Mental Health Services that Work',
-    info: 'Elite Consulting specializes in trauma recovery, utilizing a "bottom-up" approach with Experiential Therapies to help individuals resolve "stuck" emotions and nervous system responses.',
+    title: 'Elite Consulting',
+    subtitle: 'Consulting Company Website, Designed and Built End to End',
+    info: 'A professional consulting website that I conceptualized, sketched, designed, and developed completely on my own, from the first idea to the live product.',
     description: [
-      'Holistic trauma therapy focusing on mind, body, and soul through unique experiential methods.',
-      'Comprehensive housing consultations including Professional Statement of Need (PSN) documentation.',
-      'Specialized Housing Stabilization Services (HSS) to support long-term recovery and stability.',
-      'Integrated system for trauma-expert consultations and professional medical statements.'
+      'Created the concept and initial sketches, then turned them into a polished, brand-focused UI design.',
+      'Developed the entire frontend with a responsive, reusable component structure.',
+      'Handled the full workflow solo: design, development, and deployment on Vercel.'
     ],
-    skills: ['Nuxt.js', 'Vue.js', 'Next.js', 'React', 'AOS', 'Element UI', 'UnoCSS', 'Google Font API', 'Priority Hints', 'Vercel'],
+    skills: ['UI/UX Design', 'Wireframing', 'Responsive Design', 'Frontend Development', 'Component Architecture', 'Vercel'],
     mainImage: '/assets/Images/project/eliteconsult/cover.jpg',
     images: [
       '/assets/Images/project/eliteconsult/img1.jpg',
