@@ -19,11 +19,12 @@ export const projects = [
     ],
 
     skills: ['Vue.js', 'Vite', 'Vuex', 'JavaScript', 'HTML5', 'CSS3', 'ApexCharts', 'Highcharts', 'REST API Integration', 'Component Architecture', 'Responsive Design', 'Data Visualization', 'Performance Optimization', 'State Management'],
-    mainImage: '/assets/Images/project/analytics/project-analytics.jpg',
+    mainImage: '/assets/Images/project/analytics/project-analytics.png',
     images: [
       '/assets/Images/project/analytics/desktop-profile.webp',
       '/assets/Images/project/analytics/desktop-timeline.webp',
-      '/assets/Images/project/analytics/desktop-discover.webp'
+      '/assets/Images/project/analytics/desktop-discover.webp',
+      '/assets/Images/project/analytics/img1.png',
     ],
     liveLink: 'https://traderverse.io/'
   },
@@ -116,6 +117,34 @@ export const projects = [
       '/assets/Images/project/salesystem/img5.png',
     ],
     liveLink: 'https://easy-sale-system.vercel.app/'
+  },
+  {
+    slug: 'analytics-trading',
+    title: 'Analytics',
+    subtitle: 'AI-Enhanced Equities Market Analytics Platform',
+    info: 'Built a data-heavy trading analytics dashboard for stock, crypto, and market trend analysis, featuring dynamic charts, multiple data views, and a scalable Vuex-based architecture. The platform gives retail traders access to insights once reserved for professionals.',
+    description: [
+      'Developed responsive dashboards with dynamic ApexCharts and Highcharts visualizations, supporting multiple data views, filters, and chart-based insights.',
+      'Built interfaces for news sentiment analysis (positive, negative, neutral), news clustering and summaries, and Insider Intel for congressional trading activity.',
+      'Created customizable KPI widgets (80+) and a market calendar for earnings, dividends, IPOs, and market holidays, all driven by REST API integration.',
+      'Structured the app with reusable Quasar and Vue components and Vuex state management, and optimized rendering performance for large datasets.'
+    ],
+    keyFeatures: [
+      'News analytics with sentiment analysis and automatic news clustering.',
+      'Insider Intel: congressional trading activity tracking.',
+      '80+ customizable KPIs and widgets.',
+      'All-in-one stock market calendar and detailed stock reports.',
+      'Technical indicators and ML forecasting views with historical data.'
+    ],
+    skills: ['Vue.js', 'Quasar', 'Vuex', 'JavaScript', 'HTML5', 'CSS3', 'ApexCharts', 'Highcharts', 'REST API Integration', 'Component Architecture', 'Responsive Design', 'Data Visualization', 'Performance Optimization', 'State Management'],
+    mainImage: '/assets/Images/project/traderverse/cover.jpg',
+    images: [
+      '/assets/Images/project/traderverse/img1.png',
+      '/assets/Images/project/traderverse/img2.png',
+      '/assets/Images/project/traderverse/img3.png',
+      '/assets/Images/project/traderverse/img4.png',
+    ],
+    liveLink: 'https://analytics.traderverse.io/'
   },
   {
     slug: 'easy-consult-ai',
