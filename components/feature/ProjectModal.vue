@@ -174,8 +174,8 @@ watch(() => props.isVisible, (val) => {
   max-width: 1200px;
   height: 85vh;
   max-height: 680px;
-  background: var(--modal-bg);
-  border: 1px solid lightgray;
+  // background: var(--modal-bg);
+  border: 1px solid #4e4e4e;
   border-radius: 20px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -312,7 +312,7 @@ watch(() => props.isVisible, (val) => {
 
   /* Pagination dots */
   :deep(.splide__pagination) {
-    bottom: 32px;
+    bottom: 10px;
     z-index: 50;
     gap: 6px;
     li { line-height: 0; }
@@ -346,10 +346,10 @@ watch(() => props.isVisible, (val) => {
     right: 0;
     padding: 20px;
     z-index: 1;
-    height: 100px;
+    // height: 100px;
     align-items: end;
     display: flex;
-    background: linear-gradient(to bottom, transparent 0%, var(--slider-bg) 100%);
+    // background: linear-gradient(to bottom, transparent 0%, var(--slider-bg) 100%);
     flex-wrap: wrap;
     gap: 6px;
     pointer-events: none;

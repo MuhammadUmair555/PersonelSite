@@ -3,91 +3,69 @@
 // import MyButton from './feature/MyButton.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-// ── 3D Cursor Tracking ───────────────────────────────────────────────────────
+// ── 3D Global Cursor Tracking ────────────────────────────────────────────────
 
-const imgWrapRef   = ref(null)   // the .img-3d-wrapper div
-const isHovering   = ref(false)
+const imgWrapRef = ref(null)
 
 // Current interpolated values
 let rotX = 0
 let rotY = 0
-let scaleVal = 1
 let glowOp = 0
 
-// Target values (set from mouse)
+// Target values derived from global viewport cursor position
 let targetRotX = 0
 let targetRotY = 0
-let targetScale = 1
 let targetGlowOp = 0
 
 let rafId = null
 let reducedMotion = false
 
-// Lerp factor — smaller = more inertia / lag
-const LERP   = 0.07
-// Max rotation angle in degrees
-const MAX_ROT = 30
+// Lerp factor — lower = more inertia
+const LERP    = 0.06
+// Max rotation angle in degrees (viewport edge = full angle)
+const MAX_ROT = 25
 
 function lerp(a, b, t) {
   return a + (b - a) * t
 }
 
-function onMouseMove(e) {
+// Global mousemove — cursor position relative to full viewport, not the image
+function onGlobalMouseMove(e) {
   if (reducedMotion) return
-  const el = imgWrapRef.value
-  if (!el) return
 
-  const rect = el.getBoundingClientRect()
-  // Normalised cursor position: -1 … +1 relative to element centre
-  const nx = ((e.clientX - rect.left) / rect.width  - 0.5) * 2
-  const ny = ((e.clientY - rect.top)  / rect.height - 0.5) * 2
+  // Normalise 0…1 across viewport, then shift to -1…+1 around centre
+  const nx = (e.clientX / window.innerWidth)  * 2 - 1
+  const ny = (e.clientY / window.innerHeight) * 2 - 1
 
-  // rotateY  → left/right tilt  (positive cursor-right → positive Y)
-  // rotateX  → up/down tilt     (positive cursor-down  → negative X = tilt away)
+  // rotateY: cursor right → tilt right; rotateX: cursor down → tilt back (negative)
   targetRotY =  nx * MAX_ROT
   targetRotX = -ny * MAX_ROT
 
-  targetScale  = 1.06
-  targetGlowOp = 0.7
-}
-
-function onMouseEnter() {
-  if (reducedMotion) return
-  isHovering.value = true
-}
-
-function onMouseLeave() {
-  if (reducedMotion) return
-  isHovering.value = false
-  targetRotX   = 0
-  targetRotY   = 0
-  targetScale  = 1
-  targetGlowOp = 0
+  targetGlowOp = 0.55
 }
 
 function animate() {
   rafId = requestAnimationFrame(animate)
 
-  rotX     = lerp(rotX,     targetRotX,   LERP)
-  rotY     = lerp(rotY,     targetRotY,   LERP)
-  scaleVal = lerp(scaleVal, targetScale,  LERP)
-  glowOp   = lerp(glowOp,  targetGlowOp, LERP)
+  rotX   = lerp(rotX,   targetRotX,   LERP)
+  rotY   = lerp(rotY,   targetRotY,   LERP)
+  glowOp = lerp(glowOp, targetGlowOp, LERP)
 
   const el = imgWrapRef.value
   if (!el) return
 
-  const img   = el.querySelector('.circle-img')
-  const glow  = el.querySelector('.img-glow')
+  const img  = el.querySelector('.circle-img')
+  const glow = el.querySelector('.img-glow')
 
   if (img) {
-    img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scaleVal})`
+    img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`
   }
   if (glow) {
     glow.style.opacity = glowOp
-    // Shift glow toward cursor
-    const gx = 50 + (rotY / MAX_ROT) * 25
-    const gy = 50 - (rotX / MAX_ROT) * 25
-    glow.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(14,173,105,0.45) 0%, transparent 65%)`
+    // Shift the glow highlight to match the tilt direction
+    const gx = 50 + (rotY / MAX_ROT) * 28
+    const gy = 50 - (rotX / MAX_ROT) * 28
+    glow.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(14,173,105,0.4) 0%, transparent 65%)`
   }
 }
 
@@ -95,11 +73,13 @@ onMounted(() => {
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
   reducedMotion = mq.matches
   if (!reducedMotion) {
+    window.addEventListener('mousemove', onGlobalMouseMove, { passive: true })
     animate()
   }
 })
 
 onBeforeUnmount(() => {
+  window.removeEventListener('mousemove', onGlobalMouseMove)
   if (rafId) cancelAnimationFrame(rafId)
 })
 </script>
@@ -119,9 +99,6 @@ onBeforeUnmount(() => {
             
             <div
                 class="umair-anwar-arain immediate-zoom-in"
-                @mousemove="onMouseMove"
-                @mouseenter="onMouseEnter"
-                @mouseleave="onMouseLeave"
             >
                 <div class="circle heartbeat"></div>
                 <!-- 3D perspective stage -->
@@ -296,7 +273,6 @@ onBeforeUnmount(() => {
             perspective: 700px;
             perspective-origin: 50% 50%;
             transform-style: preserve-3d;
-            cursor: none; // image tracks cursor, so hide system cursor on it
         }
 
         .circle-img{
