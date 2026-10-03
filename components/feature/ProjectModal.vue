@@ -171,8 +171,8 @@ watch(() => props.isVisible, (val) => {
 .pm-container {
   position: relative;
   width: 100%;
-  max-width: 1080px;
-  height: 70vh;
+  max-width: 1200px;
+  height: 85vh;
   max-height: 680px;
   background: var(--modal-bg);
   border: 1px solid lightgray;
@@ -199,7 +199,7 @@ watch(() => props.isVisible, (val) => {
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: var(--close-btn-bg);
+  background: var(--primary-color);
   backdrop-filter: blur(6px);
   color: var(--close-btn-text);
   display: flex;
@@ -210,7 +210,7 @@ watch(() => props.isVisible, (val) => {
 
   &:hover {
     background: var(--primary-color);
-    color: #fff;
+    color: var(--close-btn-bg);
     transform: rotate(90deg);
   }
 }
@@ -269,7 +269,7 @@ watch(() => props.isVisible, (val) => {
 
 /* ─── Slider Column ───────────────────────────────────────── */
 .pm-slider {
-  flex: 0 0 50%;
+  flex: 0 0 70%;
   background: var(--slider-bg);
   position: relative;
   overflow: hidden;
@@ -306,13 +306,13 @@ watch(() => props.isVisible, (val) => {
       // object-fit: cover; 
       display: block;
       min-height: 320px;
-      max-height: 320px;
+      // max-height: 320px;
     }
   }
 
   /* Pagination dots */
   :deep(.splide__pagination) {
-    bottom: 0;
+    bottom: 32px;
     z-index: 50;
     gap: 6px;
     li { line-height: 0; }
@@ -341,11 +341,15 @@ watch(() => props.isVisible, (val) => {
   /* Technology tags overlay at bottom-left */
   .pm-slider-tags {
     position: absolute;
-    bottom: 25px;
-    left: 14px;
-    right: 14px;
-    z-index: 60;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 1;
+    height: 100px;
+    align-items: end;
     display: flex;
+    background: linear-gradient(to bottom, transparent 0%, var(--slider-bg) 100%);
     flex-wrap: wrap;
     gap: 6px;
     pointer-events: none;
@@ -358,8 +362,8 @@ watch(() => props.isVisible, (val) => {
   .pm-tag-slider {
     font-size: 11px;
     font-weight: 600;
-    color: var(--text-primary);
-    background: var(--card-bg);
+    color: #202020;
+    background: var(--primary-color);
     backdrop-filter: blur(8px);
     padding: 3px 11px;
     white-space: nowrap;
@@ -367,7 +371,7 @@ watch(() => props.isVisible, (val) => {
     transition: background 0.2s ease;
 
     :global(.dark-mode) & {
-      color: var(--text-primary);
+      
       background: var(--primary-color);
       opacity: 0.9;
     }
@@ -407,7 +411,7 @@ watch(() => props.isVisible, (val) => {
 
 /* ─── Header ──────────────────────────────────────────────── */
 .pm-header {
-  padding-right: 30px; // space for close button
+  // padding-right: 30px; 
 }
 .pm-title {
   font-size: 25px;
@@ -561,6 +565,8 @@ watch(() => props.isVisible, (val) => {
     fill: #fff !important;
     width: 1em !important;
 }
+
+
 .splide__arrow {
     align-items: center;
     background: var(--card-bg);

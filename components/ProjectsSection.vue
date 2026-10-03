@@ -24,6 +24,8 @@ const closeProject = () => {
   isModalVisible.value = false;
 };
 
+const getProjectStatus = (project) => project.status || (project.liveLink ? 'Live' : 'Working');
+
 // Components are automatically registered when imported in script setup
 const options = ref({
 
@@ -71,7 +73,9 @@ breakpoints: {
                                 <img :src="project.mainImage" alt="">
                             </div>
                             <p class="project-status">
-                                <img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live
+                                <img v-if="getProjectStatus(project) === 'Live'" src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="" title="Live">
+                                <img v-else-if="getProjectStatus(project) === 'For Sale'" src="~/public/assets/Images/icon/for-sale-tag.svg" alt="" title="For Sale">
+                                {{ getProjectStatus(project) }}
                             </p>
                             <div class="project-name">
                                 {{ project.title }}

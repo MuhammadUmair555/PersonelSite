@@ -210,10 +210,11 @@ export const projects = [
     skills: ['Next.js', 'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Figma', 'UI/UX Design', 'Responsive Design', 'Web3 / DeFi UI', 'Vercel'],
     mainImage: '/assets/Images/project/virtue/virtue.png',
     images: [
-      '/assets/Images/project/virtue/img1.png',
+      '/assets/Images/project/virtu-finance/img1.png',
       '/assets/Images/project/virtue/img2.png',
       '/assets/Images/project/virtue/img3.png',
     ],
+    status: 'For Sale',
     liveLink: 'https://virtual-finance-iota.vercel.app/'
   },
 ];
