@@ -1,7 +1,107 @@
 <script setup>
 // import AnimatedDesignation from './AnimatedDesignation.vue'
 // import MyButton from './feature/MyButton.vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
+// ── 3D Cursor Tracking ───────────────────────────────────────────────────────
+
+const imgWrapRef   = ref(null)   // the .img-3d-wrapper div
+const isHovering   = ref(false)
+
+// Current interpolated values
+let rotX = 0
+let rotY = 0
+let scaleVal = 1
+let glowOp = 0
+
+// Target values (set from mouse)
+let targetRotX = 0
+let targetRotY = 0
+let targetScale = 1
+let targetGlowOp = 0
+
+let rafId = null
+let reducedMotion = false
+
+// Lerp factor — smaller = more inertia / lag
+const LERP   = 0.07
+// Max rotation angle in degrees
+const MAX_ROT = 30
+
+function lerp(a, b, t) {
+  return a + (b - a) * t
+}
+
+function onMouseMove(e) {
+  if (reducedMotion) return
+  const el = imgWrapRef.value
+  if (!el) return
+
+  const rect = el.getBoundingClientRect()
+  // Normalised cursor position: -1 … +1 relative to element centre
+  const nx = ((e.clientX - rect.left) / rect.width  - 0.5) * 2
+  const ny = ((e.clientY - rect.top)  / rect.height - 0.5) * 2
+
+  // rotateY  → left/right tilt  (positive cursor-right → positive Y)
+  // rotateX  → up/down tilt     (positive cursor-down  → negative X = tilt away)
+  targetRotY =  nx * MAX_ROT
+  targetRotX = -ny * MAX_ROT
+
+  targetScale  = 1.06
+  targetGlowOp = 0.7
+}
+
+function onMouseEnter() {
+  if (reducedMotion) return
+  isHovering.value = true
+}
+
+function onMouseLeave() {
+  if (reducedMotion) return
+  isHovering.value = false
+  targetRotX   = 0
+  targetRotY   = 0
+  targetScale  = 1
+  targetGlowOp = 0
+}
+
+function animate() {
+  rafId = requestAnimationFrame(animate)
+
+  rotX     = lerp(rotX,     targetRotX,   LERP)
+  rotY     = lerp(rotY,     targetRotY,   LERP)
+  scaleVal = lerp(scaleVal, targetScale,  LERP)
+  glowOp   = lerp(glowOp,  targetGlowOp, LERP)
+
+  const el = imgWrapRef.value
+  if (!el) return
+
+  const img   = el.querySelector('.circle-img')
+  const glow  = el.querySelector('.img-glow')
+
+  if (img) {
+    img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scaleVal})`
+  }
+  if (glow) {
+    glow.style.opacity = glowOp
+    // Shift glow toward cursor
+    const gx = 50 + (rotY / MAX_ROT) * 25
+    const gy = 50 - (rotX / MAX_ROT) * 25
+    glow.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(14,173,105,0.45) 0%, transparent 65%)`
+  }
+}
+
+onMounted(() => {
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+  reducedMotion = mq.matches
+  if (!reducedMotion) {
+    animate()
+  }
+})
+
+onBeforeUnmount(() => {
+  if (rafId) cancelAnimationFrame(rafId)
+})
 </script>
 <template>
     <section class="home-section">
@@ -17,9 +117,21 @@
                 </p>
             </div>
             
-            <div class="umair-anwar-arain immediate-zoom-in">
+            <div
+                class="umair-anwar-arain immediate-zoom-in"
+                @mousemove="onMouseMove"
+                @mouseenter="onMouseEnter"
+                @mouseleave="onMouseLeave"
+            >
                 <div class="circle heartbeat"></div>
-                <img class="circle-img" src="~/public/assets/Images/umair-logo.png" alt="">
+                <!-- 3D perspective stage -->
+                <div class="img-3d-wrapper" ref="imgWrapRef">
+                    <!-- The image itself — never modified, just wrapped -->
+                    <img class="circle-img" src="~/public/assets/Images/umair-logo.png" alt="">
+                    <!-- Cursor-following glow overlay -->
+                    <div class="img-glow"></div>
+                </div>
+                <!-- /3D perspective stage -->
                 <div class="social-border">
                 <img src="~/public/assets/Images/social.png" alt="">
 
@@ -175,10 +287,49 @@
             animation: customZoomIn 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
             opacity: 0; // Start hidden
         }
+
+        // ── 3D stage ──────────────────────────────────────────────────────────
+        .img-3d-wrapper {
+            position: relative;
+            display: inline-block;
+            /* Perspective gives the 3-D depth feel */
+            perspective: 700px;
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+            cursor: none; // image tracks cursor, so hide system cursor on it
+        }
+
         .circle-img{
             width: 300px;
             pointer-events: none;
+            display: block;
+            position: relative;
+            z-index: 2;
+            /* GPU-accelerated transform applied by JS */
+            will-change: transform;
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            /* Initial state — JS handles dynamic transforms */
+            transform: rotateX(0deg) rotateY(0deg) scale(1);
+            border-radius: 50%; // keeps it tidy in all orientations
+            // Remove outline during focus for accessibility (keyboard)
+            outline: none;
         }
+
+        // Cursor-following glow that JS moves
+        .img-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            will-change: opacity, background;
+            opacity: 0;
+            // background set dynamically by JS
+            mix-blend-mode: screen;
+        }
+        // ── end 3D stage ──────────────────────────────────────────────────────
+
        .circle{
             position: absolute;
             border-radius: 50%;
@@ -426,6 +577,33 @@
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+// ── Reduced-motion fallback ───────────────────────────────────────────────────
+// Users who opt out of motion get a completely static image — no 3D at all.
+@media (prefers-reduced-motion: reduce) {
+    .umair-anwar-arain {
+        .img-3d-wrapper {
+            cursor: default;
+        }
+        .circle-img {
+            transform: none !important;
+            will-change: auto;
+        }
+        .img-glow {
+            display: none;
+        }
+    }
+}
+
+// On touch/mobile devices hide the glow (no cursor to track)
+@media (hover: none) {
+    .umair-anwar-arain {
+        .img-3d-wrapper {
+            cursor: default;
+        }
+        .img-glow { display: none; }
     }
 }
 </style>
