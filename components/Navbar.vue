@@ -24,7 +24,7 @@
         <li><nuxt-link to="/projects">Projects</nuxt-link></li>
         <!-- <li><nuxt-link to="/blog">Blog</nuxt-link></li> -->
         <li class="mode-toggle">
-          <nuxt-link @click="toggleDarkMode">
+          <button @click="toggleDarkMode" aria-label="Toggle dark mode" class="mode-toggle-btn">
             <span :class="{ 'animate-toggle': isAnimating }">
               <svg v-if="isDarkMode" width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.34323 0.906284C8.18434 0.927335 8.02513 0.952691 7.86572 0.982437C2.96934 1.89614 -0.259268 6.60615 0.654436 11.5025C1.56814 16.3989 6.27815 19.6275 11.1745 18.7138C12.8551 18.4002 14.3391 17.6394 15.5267 16.5774C10.8051 17.203 6.36803 14.0269 5.48408 9.28995C4.88397 6.07409 6.07071 2.93862 8.34323 0.906284Z" fill="#0e0e0e"/>
@@ -41,7 +41,7 @@
                 <path d="M5.63608 5.63559L7.05029 7.0498" stroke="#FDC200" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </span>
-          </nuxt-link>
+          </button>
         </li>
 
       </ul>
@@ -96,6 +96,16 @@ onUnmounted(() => {
 }
 .mode-toggle {
   cursor: pointer;
+}
+
+.mode-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mode-toggle span {

@@ -4,7 +4,7 @@
  <div class="footer-content">
       <ul>
         <li class="designDevelopment">Designed and Developed by: Muhammad Umair.</li>
-        <li >Copyright © 2024 All rights reserved.</li>
+        <li >Copyright &copy; {{ new Date().getFullYear() }} All rights reserved.</li>
       </ul>
     </div>
   </div>

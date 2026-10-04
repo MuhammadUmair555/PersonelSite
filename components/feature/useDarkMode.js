@@ -5,22 +5,15 @@ export function useDarkMode() {
   const isAnimating = ref(false);
 
   const toggleDarkMode = () => {
-    console.log('Toggle clicked');
-    if (isAnimating.value) {
-      console.log('Animation is in progress, skipping toggle');
-      return;
-    }
+    if (isAnimating.value) return;
 
     isAnimating.value = true;
-    console.log('Animation started');
 
     setTimeout(() => {
       isDarkMode.value = !isDarkMode.value;
-      console.log('Dark mode:', isDarkMode.value);
       document.documentElement.classList.toggle('dark-mode', isDarkMode.value);
       localStorage.setItem('darkMode', isDarkMode.value);
       isAnimating.value = false;
-      console.log('Animation ended');
     }, 300);
   };
 
@@ -30,7 +23,6 @@ export function useDarkMode() {
     if (savedMode) {
       document.documentElement.classList.add('dark-mode');
     }
-    console.log('Mounted with dark mode:', savedMode);
   });
 
   return {

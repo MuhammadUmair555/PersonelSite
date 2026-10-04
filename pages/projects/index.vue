@@ -4,6 +4,30 @@
   import ProjectModal from '../../components/feature/ProjectModal.vue'
   import { projects } from '../../data/projects.js';
 
+  const siteUrl = 'https://engumair.vercel.app'
+  const pageUrl = `${siteUrl}/projects`
+  const ogImage = `${siteUrl}/assets/og-image.png`
+
+  useSeoMeta({
+    title: 'Projects – Muhammad Umair | Frontend Engineering Portfolio',
+    description: 'Explore Muhammad Umair\'s portfolio of frontend engineering projects spanning trading platforms, mobile apps, consulting sites, and UI/UX design work.',
+    ogTitle: 'Projects – Muhammad Umair | Frontend Engineering Portfolio',
+    ogDescription: 'Frontend engineering projects spanning trading platforms, mobile apps, consulting sites, and UI/UX design — built with Vue.js, React.js, Nuxt.js, and React Native.',
+    ogUrl: pageUrl,
+    ogType: 'website',
+    ogImage,
+    ogImageWidth: '1200',
+    ogImageHeight: '630',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Projects – Muhammad Umair | Frontend Engineering Portfolio',
+    twitterDescription: 'Frontend engineering projects spanning trading platforms, mobile apps, consulting sites, and UI/UX design.',
+    twitterImage: ogImage,
+  })
+
+  useHead({
+    link: [{ rel: 'canonical', href: pageUrl }],
+  })
+
   const isModalVisible = ref(false);
   const selectedProject = ref({});
 
@@ -15,12 +39,14 @@
   const closeProject = () => {
     isModalVisible.value = false;
   };
+
+  const getProjectStatus = (project) => project.status || (project.liveLink ? 'Live' : 'Working');
 </script>
 
 <template>
 
     <section class="project-section">
-        <p class="main-heading">My Latest<span> Work</span></p>
+        <h1 class="main-heading">My Latest<span> Work</span></h1>
         <div class="project-description">
               <p>
                 A selection of projects I've designed and engineered across different domains. Clean code, thoughtful design, and real-world impact in every one. Each built with a focus on performance, scalability, and attention to detail.
@@ -31,9 +57,13 @@
             <div v-for="project in projects" :key="project.slug" class="project" @click="openProject(project)">
               <div class="project-inside">
                   <div class="project-image">
-                      <img :src="project.mainImage"  alt="">
+                      <img :src="project.mainImage" :alt="`${project.title} – project screenshot`" width="600" height="400" loading="lazy">
                   </div>
-                  <p class="project-status"><img src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="live" title="Live"> Live</p>
+                  <p class="project-status">
+                    <img v-if="getProjectStatus(project) === 'Live'" src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="" width="18" height="18" aria-hidden="true"> 
+                    <img v-else-if="getProjectStatus(project) === 'For Sale'" src="~/public/assets/Images/icon/for-sale-tag.svg" alt="" width="18" height="18" aria-hidden="true">
+                    {{ getProjectStatus(project) }}
+                  </p>
 
                   <div class="project-name">
                     {{ project.title }}

@@ -103,7 +103,7 @@
   import { ref } from 'vue';
   import { Splide, SplideSlide } from '@splidejs/vue-splide';
   import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-  
+  // Splide CSS is loaded globally via nuxt.config.ts
   const options = ref({
     // classes: {
     //   arrows: 'splide__arrows splide__arrows--custom', // Your custom class

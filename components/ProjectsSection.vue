@@ -64,13 +64,14 @@ breakpoints: {
                 <MyButton buttonMargin="25px 0 0" :buttonText="`View All Projects (${projects.length})`" />
             </nuxt-link >
             </div>
+            
             <div data-aos="fade-left" class="projects "  >
                 <Splide :options="options" >
                     <SplideSlide v-for="project in projects" :key="project.slug">
                         <div class="project" @click="openProject(project)">
                             <div class="project-inside">
                             <div class="project-image">
-                                <img :src="project.mainImage" alt="">
+                                <img :src="project.mainImage" :alt="`${project.title} – project screenshot`" width="400" height="300" loading="lazy">
                             </div>
                             <p class="project-status">
                                 <img v-if="getProjectStatus(project) === 'Live'" src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="" title="Live">

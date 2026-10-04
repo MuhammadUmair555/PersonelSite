@@ -124,7 +124,7 @@
 <script setup>
 import { ref, watch, nextTick } from 'vue';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/vue-splide/css';
+// Splide CSS is loaded globally via nuxt.config.ts
 
 const props = defineProps({
   isVisible: Boolean,

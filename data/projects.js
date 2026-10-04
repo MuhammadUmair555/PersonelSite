@@ -75,7 +75,7 @@ export const projects = [
       '/assets/Images/project/portfolio/contact.png',
       '/assets/Images/project/portfolio/full-site.png'
     ],
-    liveLink: 'https://www.umairdev.vercel.app/'
+    liveLink: 'https://engumair.vercel.app/'
   },
   {
     slug: 'dineup-restaurant-explorer',

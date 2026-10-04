@@ -28,8 +28,6 @@
 }
 </style>
 <script setup>
-import { ref } from 'vue';
 import { useDarkMode } from '../components/feature/useDarkMode';
-// const { isDarkMode } = useDarkMode();
-const isDarkMode = ref(false);
+const { isDarkMode } = useDarkMode();
 </script>

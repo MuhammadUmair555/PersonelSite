@@ -45,7 +45,7 @@ defineComponent( {
         <p data-aos="fade-up"> See Testimonial what our clients say about the exceptional service  and expertise <span class="br-mobile"> we've delivered in their projects.</span></p>
         <div class="testimonial-wrapper ">
             <div data-aos="fade-right" class="my-image">
-                <img src="~/public/assets/Images/umairgif.gif" alt="">
+                <!-- <img src="~/public/assets/Images/umairgif.gif" alt=""> -->
              </div>
             <div data-aos="fade-left" class="testimonials" >
                 <Splide :options="options"  >

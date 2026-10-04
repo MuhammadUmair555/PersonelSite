@@ -4,29 +4,29 @@
         <div class="name">
             <label for="name">Name</label>
             <div>
-                <input type="text" id="name" v-model="form.name">
-                <span v-if="errors.name">{{ errors.name }}</span>
+                <input type="text" id="name" v-model="form.name" aria-required="true" :aria-describedby="errors.name ? 'name-error' : undefined">
+                <span v-if="errors.name" id="name-error" role="alert">{{ errors.name }}</span>
             </div>
         </div>
         <div class="email">
             <label for="email">E-Mail</label>
             <div>
-                <input type="email" id="email" v-model="form.email">
-                <span v-if="errors.email">{{ errors.email }}</span>
+                <input type="email" id="email" v-model="form.email" aria-required="true" :aria-describedby="errors.email ? 'email-error' : undefined">
+                <span v-if="errors.email" id="email-error" role="alert">{{ errors.email }}</span>
             </div>
         </div>
         <div class="subject">
             <label for="subject">Subject</label>
             <div>
-                <input type="text" id="subject" v-model="form.subject">
-                <span v-if="errors.subject">{{ errors.subject }}</span>
+                <input type="text" id="subject" v-model="form.subject" aria-required="true" :aria-describedby="errors.subject ? 'subject-error' : undefined">
+                <span v-if="errors.subject" id="subject-error" role="alert">{{ errors.subject }}</span>
             </div>
         </div>
         <div class="message">
             <label for="message">Message</label>
             <div>
-                <textarea id="message" v-model="form.message"></textarea>
-            <span v-if="errors.message">{{ errors.message }}</span>
+                <textarea id="message" v-model="form.message" aria-required="true" :aria-describedby="errors.message ? 'message-error' : undefined"></textarea>
+            <span v-if="errors.message" id="message-error" role="alert">{{ errors.message }}</span>
         </div>
         </div>
         
