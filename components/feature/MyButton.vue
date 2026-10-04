@@ -27,7 +27,7 @@ const props = defineProps({
         border-radius: 12px;
         overflow: hidden;
         padding: 16px 25px;
-        min-width: 150px;
+        min-width: 190px;
         display: flex;
         align-items: center;
         justify-content: center;

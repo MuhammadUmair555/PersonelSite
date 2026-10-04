@@ -103,8 +103,6 @@
               </div>
             </div>
 
-
-
             <!-- Footer -->
            
           </div>
@@ -136,7 +134,7 @@ const close = () => emit('close');
 const splideOptions = {
   type: 'loop',
   rewind: true,
-  autoplay: true,
+  autoplay: false,
   interval: 3500,
   arrows: true,
   pagination: true,
@@ -377,9 +375,6 @@ watch(() => props.isVisible, (val) => {
     }
   }
 
-
-
-
 }
 
 /* ─── Details Column ──────────────────────────────────────── */
@@ -410,9 +405,7 @@ watch(() => props.isVisible, (val) => {
 }
 
 /* ─── Header ──────────────────────────────────────────────── */
-.pm-header {
-  // padding-right: 30px; 
-}
+
 .pm-title {
   font-size: 25px;
   font-weight: 600;

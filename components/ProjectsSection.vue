@@ -123,7 +123,7 @@ breakpoints: {
 .splide__arrows{
     position: absolute;
     top: -50px;
-    left: 185px;
+    left: 215px;
 }
 .splide__arrow svg{
     fill: #fff !important;

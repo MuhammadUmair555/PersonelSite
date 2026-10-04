@@ -77,6 +77,34 @@ export const projects = [
     ],
     liveLink: 'https://www.umairdev.vercel.app/'
   },
+   {
+    slug: 'virtue-finance',
+    title: 'Virtue Finance',
+    subtitle: 'Blockchain Token Landing Page, Designed and Built End to End',
+    info: 'A landing page for a next-generation blockchain token and treasury protocol. I created the concept, designed the UI/UX in Figma, and developed the complete frontend, presenting the token\'s staking stats, treasury model, and protocol revenue in a clear, modern interface.',
+    description: [
+      'Conceived the concept and designed the full UI/UX in Figma, with a Roman-inspired brand identity, custom illustrations, and a polished dark crypto aesthetic.',
+      'Developed the responsive frontend in Next.js and React, translating the Figma designs into pixel-accurate, reusable components.',
+      'Built a live-style stats section for Total Staked, Treasury Balance, Total Value Locked, and Current APY, plus a "How it works" flow explaining how bonds, LP fees, and taxes feed the treasury.',
+      'Added clear calls to action, including an Enter App button and community links, and deployed the site on Vercel.'
+    ],
+    keyFeatures: [
+      'Token overview and protocol profits sections.',
+      'Staking and treasury stats dashboard (TVL, APY, treasury balance).',
+      'Step-by-step token treasury explainer.',
+      'Enter App call to action and community links.',
+      'Fully responsive layout across desktop and mobile.'
+    ],
+    skills: ['Next.js', 'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Figma', 'UI/UX Design', 'Responsive Design', 'Web3 / DeFi UI', 'Vercel'],
+    mainImage: '/assets/Images/project/virtu-finance/cover.png',
+    images: [
+      '/assets/Images/project/virtu-finance/img1.png',
+      '/assets/Images/project/virtue/img2.png',
+      '/assets/Images/project/virtue/img3.png',
+    ],
+    status: 'For Sale',
+    liveLink: 'https://virtual-finance-iota.vercel.app/'
+  },
   {
     slug: 'nitrox-gaming-community',
     title: 'NITROX - GAMING COMMUNITY',
@@ -188,33 +216,5 @@ export const projects = [
       '/assets/Images/project/eliteconsult/img5.jpg',
     ],
     liveLink: 'https://elite-consult.vercel.app/'
-  },
-  {
-    slug: 'virtue-finance',
-    title: 'Virtue Finance',
-    subtitle: 'Blockchain Token Landing Page, Designed and Built End to End',
-    info: 'A landing page for a next-generation blockchain token and treasury protocol. I created the concept, designed the UI/UX in Figma, and developed the complete frontend, presenting the token\'s staking stats, treasury model, and protocol revenue in a clear, modern interface.',
-    description: [
-      'Conceived the concept and designed the full UI/UX in Figma, with a Roman-inspired brand identity, custom illustrations, and a polished dark crypto aesthetic.',
-      'Developed the responsive frontend in Next.js and React, translating the Figma designs into pixel-accurate, reusable components.',
-      'Built a live-style stats section for Total Staked, Treasury Balance, Total Value Locked, and Current APY, plus a "How it works" flow explaining how bonds, LP fees, and taxes feed the treasury.',
-      'Added clear calls to action, including an Enter App button and community links, and deployed the site on Vercel.'
-    ],
-    keyFeatures: [
-      'Token overview and protocol profits sections.',
-      'Staking and treasury stats dashboard (TVL, APY, treasury balance).',
-      'Step-by-step token treasury explainer.',
-      'Enter App call to action and community links.',
-      'Fully responsive layout across desktop and mobile.'
-    ],
-    skills: ['Next.js', 'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Figma', 'UI/UX Design', 'Responsive Design', 'Web3 / DeFi UI', 'Vercel'],
-    mainImage: '/assets/Images/project/virtue/virtue.png',
-    images: [
-      '/assets/Images/project/virtu-finance/img1.png',
-      '/assets/Images/project/virtue/img2.png',
-      '/assets/Images/project/virtue/img3.png',
-    ],
-    status: 'For Sale',
-    liveLink: 'https://virtual-finance-iota.vercel.app/'
-  },
+  }
 ];

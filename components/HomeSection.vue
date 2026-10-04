@@ -3,88 +3,294 @@
 // import MyButton from './feature/MyButton.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-// ── 3D Global Cursor Tracking ────────────────────────────────────────────────
+// ── Refs ─────────────────────────────────────────────────────────────────────
+const imgWrapRef  = ref(null)
+const canvasRef   = ref(null)
 
-const imgWrapRef = ref(null)
+// ── 3D rotation state ────────────────────────────────────────────────────────
+let rotX = 0, rotY = 0, glowOp = 0
+let targetRotX = 0, targetRotY = 0, targetGlowOp = 0
 
-// Current interpolated values
-let rotX = 0
-let rotY = 0
-let glowOp = 0
-
-// Target values derived from global viewport cursor position
-let targetRotX = 0
-let targetRotY = 0
-let targetGlowOp = 0
+// ── Cursor influence on particles (normalised -1…+1) ─────────────────────────
+let cursorNX = 0, cursorNY = 0
 
 let rafId = null
 let reducedMotion = false
 
-// Lerp factor — lower = more inertia
 const LERP    = 0.06
-// Max rotation angle in degrees (viewport edge = full angle)
 const MAX_ROT = 25
 
-function lerp(a, b, t) {
-  return a + (b - a) * t
+// ── Tiny deterministic noise helper (no deps) ─────────────────────────────────
+// Returns a smooth pseudo-random value in -1…+1 given time + seed
+function smoothNoise(t, seed) {
+  const s = Math.sin(t * 0.0013 + seed * 127.1) * 43758.5453
+  return (s - Math.floor(s)) * 2 - 1
 }
 
-// Global mousemove — cursor position relative to full viewport, not the image
+// ── Particle palette ──────────────────────────────────────────────────────────
+// white ↔ green (theme: #0ead69), with soft alpha variation
+const PALETTE = [
+  [255, 255, 255],   // pure white
+  [200, 255, 225],   // white-green tint
+  [14,  173, 105],   // theme green
+  [120, 220, 170],   // mid green-white
+  [230, 255, 245],   // near-white cool
+]
+
+// ── Particle class ────────────────────────────────────────────────────────────
+class Particle {
+  constructor(cw, ch, emitX, emitY, imgRadius) {
+    this.cw = cw
+    this.ch = ch
+    this.emitX = emitX       // image centre X in viewport (canvas) coords
+    this.emitY = emitY       // image centre Y in viewport (canvas) coords
+    this.imgRadius = imgRadius
+    this.reset(true)
+  }
+
+  reset(initial = false) {
+    // Emit from a ring around the image centre
+    const angle = Math.random() * Math.PI * 2
+    const dist  = this.imgRadius * (0.15 + Math.random() * 0.95)
+    this.x = this.emitX + Math.cos(angle) * dist
+    this.y = this.emitY + Math.sin(angle) * dist
+
+    // Depth layer: 0 = far (small, dim), 1 = close (large, bright)
+    this.depth = Math.random()
+
+    // Travel direction — radially outward + random drift, slow enough to roam gracefully
+    const outAngle = angle + (Math.random() - 0.5) * 1.4
+    const speed    = 0.25 + Math.random() * 0.55 + this.depth * 0.35
+    this.vx = Math.cos(outAngle) * speed
+    this.vy = Math.sin(outAngle) * speed
+
+    // Organic noise seeds — unique per particle for varied wave motion
+    this.seedX = Math.random() * 100
+    this.seedY = Math.random() * 100
+
+    // Size based on depth
+    this.baseSize = 0.6 + this.depth * 2.2
+    this.size     = this.baseSize
+
+    // Color from palette, weighted toward white for subtlety
+    const ci = Math.random() < 0.55 ? 0 : Math.floor(Math.random() * PALETTE.length)
+    this.rgb = PALETTE[ci]
+
+    // Life: 0 = just born, 1 = dead
+    this.life    = initial ? Math.random() : 0
+    this.lifeInc = 0.0012 + Math.random() * 0.003  // slower aging = more travel distance
+
+    // Trail: 30% chance for a subtle elongated particle
+    this.hasTrail = Math.random() < 0.3
+    this.trail    = []
+    this.trailLen = this.hasTrail ? Math.floor(4 + Math.random() * 6) : 0
+
+    // Twinkle — occasional brightness pulse
+    this.twinkle      = Math.random() < 0.2
+    this.twinklePhase = Math.random() * Math.PI * 2
+  }
+
+  // Alpha envelope: fade in → hold → fade out (smooth life curve)
+  alpha() {
+    const t = this.life
+    if (t < 0.15) return t / 0.15
+    if (t > 0.75) return 1 - (t - 0.75) / 0.25
+    return 1
+  }
+
+  update(time, curNX, curNY) {
+    this.life += this.lifeInc
+    if (this.life >= 1) {
+      this.reset()
+      return
+    }
+
+    // Organic wave displacement from noise
+    const waveX = smoothNoise(time + this.seedX, this.seedX) * 0.18
+    const waveY = smoothNoise(time + this.seedY, this.seedY) * 0.18
+
+    // Cursor subtly bends the flow (very gentle pull)
+    const cx = curNX * 0.08
+    const cy = curNY * 0.08
+
+    if (this.hasTrail) {
+      this.trail.push({ x: this.x, y: this.y })
+      if (this.trail.length > this.trailLen) this.trail.shift()
+    }
+
+    this.x += this.vx + waveX + cx
+    this.y += this.vy + waveY + cy
+
+    // Twinkle size pulse
+    if (this.twinkle) {
+      this.twinklePhase += 0.08
+      this.size = this.baseSize * (0.8 + Math.sin(this.twinklePhase) * 0.35)
+    }
+  }
+
+  draw(ctx, time) {
+    const a = this.alpha()
+    if (a <= 0.01) return
+
+    const [r, g, b] = this.rgb
+
+    // Draw trail first (behind particle)
+    if (this.hasTrail && this.trail.length > 1) {
+      for (let i = 1; i < this.trail.length; i++) {
+        const ta  = (i / this.trail.length) * a * 0.35
+        const tr  = this.trail[i - 1]
+        const tc  = this.trail[i]
+        ctx.beginPath()
+        ctx.strokeStyle = `rgba(${r},${g},${b},${ta})`
+        ctx.lineWidth   = this.size * (i / this.trail.length) * 0.7
+        ctx.moveTo(tr.x, tr.y)
+        ctx.lineTo(tc.x, tc.y)
+        ctx.stroke()
+      }
+    }
+
+    // Outer soft glow (only for closer particles)
+    if (this.depth > 0.4) {
+      const glowR = this.size * 3.5
+      const grad  = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowR)
+      grad.addColorStop(0, `rgba(${r},${g},${b},${a * 0.25 * this.depth})`)
+      grad.addColorStop(1, `rgba(${r},${g},${b},0)`)
+      ctx.beginPath()
+      ctx.fillStyle = grad
+      ctx.arc(this.x, this.y, glowR, 0, Math.PI * 2)
+      ctx.fill()
+    }
+
+    // Core particle dot
+    ctx.beginPath()
+    ctx.fillStyle = `rgba(${r},${g},${b},${a * (0.7 + this.depth * 0.3)})`
+    ctx.arc(this.x, this.y, Math.max(0.3, this.size), 0, Math.PI * 2)
+    ctx.fill()
+  }
+}
+
+// ── Particle system state ─────────────────────────────────────────────────────
+let particles  = []
+let canvasTime = 0
+
+const PARTICLE_COUNT    = 65
+const PARTICLE_COUNT_SM = 32
+
+// emitX/emitY = image centre in viewport (fixed canvas) coordinates
+function initParticles(cw, ch, emitX, emitY, imgRadius) {
+  const count = cw < 700 ? PARTICLE_COUNT_SM : PARTICLE_COUNT
+  particles = Array.from({ length: count }, () =>
+    new Particle(cw, ch, emitX, emitY, imgRadius)
+  )
+}
+
+// Recalculate emit origin from the image's current screen rect
+function getEmitOrigin() {
+  const wrap = imgWrapRef.value
+  if (!wrap) return null
+  const r = wrap.getBoundingClientRect()
+  return {
+    x:      r.left + r.width  / 2,
+    y:      r.top  + r.height / 2,
+    radius: Math.min(r.width, r.height) * 0.48,
+  }
+}
+
+function resizeCanvas() {
+  const canvas = canvasRef.value
+  if (!canvas) return
+  canvas.width  = window.innerWidth
+  canvas.height = window.innerHeight
+  const o = getEmitOrigin()
+  if (o) initParticles(canvas.width, canvas.height, o.x, o.y, o.radius)
+}
+
+// ── Lerp ─────────────────────────────────────────────────────────────────────
+function lerp(a, b, t) { return a + (b - a) * t }
+
+// ── Global mouse handler ──────────────────────────────────────────────────────
 function onGlobalMouseMove(e) {
   if (reducedMotion) return
-
-  // Normalise 0…1 across viewport, then shift to -1…+1 around centre
   const nx = (e.clientX / window.innerWidth)  * 2 - 1
   const ny = (e.clientY / window.innerHeight) * 2 - 1
-
-  // rotateY: cursor right → tilt right; rotateX: cursor down → tilt back (negative)
-  targetRotY =  nx * MAX_ROT
-  targetRotX = -ny * MAX_ROT
-
+  targetRotY  =  nx * MAX_ROT
+  targetRotX  = -ny * MAX_ROT
   targetGlowOp = 0.55
+  cursorNX = nx
+  cursorNY = ny
 }
 
+// ── Main RAF loop ─────────────────────────────────────────────────────────────
 function animate() {
   rafId = requestAnimationFrame(animate)
+  canvasTime++
 
+  // ── 3D rotation interpolation ──
   rotX   = lerp(rotX,   targetRotX,   LERP)
   rotY   = lerp(rotY,   targetRotY,   LERP)
   glowOp = lerp(glowOp, targetGlowOp, LERP)
 
   const el = imgWrapRef.value
-  if (!el) return
-
-  const img  = el.querySelector('.circle-img')
-  const glow = el.querySelector('.img-glow')
-
-  if (img) {
-    img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`
+  if (el) {
+    const img  = el.querySelector('.circle-img')
+    const glow = el.querySelector('.img-glow')
+    if (img) {
+      img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`
+    }
+    if (glow) {
+      glow.style.opacity = glowOp
+      const gx = 50 + (rotY / MAX_ROT) * 28
+      const gy = 50 - (rotX / MAX_ROT) * 28
+      glow.style.background =
+        `radial-gradient(circle at ${gx}% ${gy}%, rgba(14,173,105,0.4) 0%, transparent 65%)`
+    }
   }
-  if (glow) {
-    glow.style.opacity = glowOp
-    // Shift the glow highlight to match the tilt direction
-    const gx = 50 + (rotY / MAX_ROT) * 28
-    const gy = 50 - (rotX / MAX_ROT) * 28
-    glow.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(14,173,105,0.4) 0%, transparent 65%)`
+
+  // ── Particle canvas draw ──
+  const canvas = canvasRef.value
+  if (!canvas) return
+  const ctx = canvas.getContext('2d')
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  // Refresh emit origin every frame so scroll/resize is always accurate
+  const o = getEmitOrigin()
+  if (o) {
+    for (const p of particles) {
+      p.emitX = o.x
+      p.emitY = o.y
+      p.imgRadius = o.radius
+      p.cw = canvas.width
+      p.ch = canvas.height
+      p.update(canvasTime, cursorNX, cursorNY)
+      p.draw(ctx, canvasTime)
+    }
   }
 }
 
+// ── Lifecycle ─────────────────────────────────────────────────────────────────
 onMounted(() => {
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
   reducedMotion = mq.matches
+
   if (!reducedMotion) {
     window.addEventListener('mousemove', onGlobalMouseMove, { passive: true })
+    window.addEventListener('resize',    resizeCanvas,      { passive: true })
+    resizeCanvas()
     animate()
   }
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', onGlobalMouseMove)
+  window.removeEventListener('resize',    resizeCanvas)
   if (rafId) cancelAnimationFrame(rafId)
+  particles = []
 })
 </script>
 <template>
     <section class="home-section">
+        <!-- Full-viewport particle canvas — fixed overlay, behind all content -->
+        <canvas ref="canvasRef" class="particle-canvas" aria-hidden="true"></canvas>
         <div class="Im-Umair">
             <div class="my-name">
                 <!-- <div data-aos="fade-down" class="AnimatedDesignation">
@@ -219,7 +425,6 @@ onBeforeUnmount(() => {
         a{
             text-decoration: none;
             position: relative;
-            background-color: var(--card-bg-dark);
             margin: 1px;
             padding: 10px;
             border-radius: 50px;
@@ -229,19 +434,22 @@ onBeforeUnmount(() => {
             align-items: center;
             justify-content: center;
             transition-duration: 0.5s;
+            background-color: #0ead69;
 
             svg{
                 width: 100%;
                 height: 100%;
-                fill: #ffffff;
+                fill: #0e0e0e;
+
             }
 
             &:hover {
-            background-color: #0ead69;
+            background-color: var(--card-bg-dark);
             transition-duration: 0.5s;
 
                 svg{
-                    fill: #0e0e0e;
+                    fill: #ffffff;
+
                 }
             }
         }   
@@ -269,11 +477,14 @@ onBeforeUnmount(() => {
         .img-3d-wrapper {
             position: relative;
             display: inline-block;
-            /* Perspective gives the 3-D depth feel */
             perspective: 700px;
             perspective-origin: 50% 50%;
             transform-style: preserve-3d;
         }
+
+        // Particle canvas — full viewport overlay, fixed so it covers the whole screen
+        // Canvas is a sibling of <section> rendered as fixed overlay
+
 
         .circle-img{
             width: 300px;
@@ -440,9 +651,9 @@ onBeforeUnmount(() => {
 
 
 
-.dark-mode .social-follwing a svg{
-    fill: #181818;
-}
+// .dark-mode .social-follwing a svg{
+//     fill: #181818;
+// }
 
 @media screen and (max-width: 991px) {
   .home-section{
@@ -584,5 +795,19 @@ onBeforeUnmount(() => {
 }
 </style>
 <style lang="scss">
+// Full-viewport particle canvas — must be global (not scoped) for fixed positioning
+.particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  will-change: contents;
+}
 
+@media (prefers-reduced-motion: reduce) {
+  .particle-canvas { display: none; }
+}
 </style>
