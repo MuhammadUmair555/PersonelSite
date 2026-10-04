@@ -61,7 +61,7 @@ breakpoints: {
                 Clean code, thoughtful design, and real-world impact in every one.
                 Each built with a focus on performance, scalability, and attention to detail.</p>
             <nuxt-link style="text-decoration: none;" to="/projects">
-                <MyButton buttonMargin="25px 0 0" buttonText="View All Projects" />
+                <MyButton buttonMargin="25px 0 0" :buttonText="`View All Projects (${projects.length})`" />
             </nuxt-link >
             </div>
             <div data-aos="fade-left" class="projects "  >

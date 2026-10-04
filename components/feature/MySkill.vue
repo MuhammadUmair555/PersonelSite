@@ -26,7 +26,7 @@ import SkillSlider from '../feature/SkillSlider.vue'
         <SkillSlider />
 
            <p data-aos="fade-up" class="skill-info">
-            <br><span style="color: #0ead69; font-weight: 600;" >Tools & Practices:</span> Git, GitHub, JIRA, npm/yarn, Vite, Webpack, Postman, ESLint, Prettier, VS Code, Agile/Scrum, Lazy Loading, AI-Assisted Development, Cross-Functional Collaboration, Code Reviews.
+            <br><span style="color: #0ead69; font-weight: 600;" >Tools & Practices:</span> Git, GitHub, JIRA, Vite, Webpack, Postman, ESLint, Prettier, VS Code, Agile/Scrum, Lazy Loading, AI-Assisted Development, Cross-Functional Collaboration, Code Reviews.
 </p>
     </div>
 </template>

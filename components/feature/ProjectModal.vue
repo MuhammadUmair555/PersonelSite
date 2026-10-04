@@ -39,7 +39,7 @@
               <div class="pm-footer">
                 <div class="gradient-border">
               <a
-                v-if="project.liveLink && project.liveLink !== '#'"
+                v-if="project.liveLink && project.liveLink !== '#' && !project.forSale"
                 :href="project.liveLink"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -52,6 +52,14 @@
                   <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
+              <span v-else-if="project.forSale" class="pm-for-sale-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                  <line x1="7" y1="7" x2="7.01" y2="7"/>
+                </svg>
+                Available for Purchase
+              </span>
               </div>
             </div>
             <div class="pm-header">
@@ -114,7 +122,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, nextTick } from 'vue';
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
 
@@ -132,22 +140,30 @@ const splideRef = ref(null);
 const close = () => emit('close');
 
 const splideOptions = {
-  type: 'loop',
-  rewind: true,
+  // type: 'loop',
+  // rewind: true,
   autoplay: false,
-  interval: 3500,
+  // interval: 3500,
   arrows: true,
   pagination: true,
-  speed: 800,
-  pauseOnHover: true,
+  // speed: 800,
+  // pauseOnHover: true,
 };
 
-// Lock body scroll when modal opens
-watch(() => props.isVisible, (val) => {
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = val ? 'hidden' : '';
-  }
-});
+// Lock body scroll when modal opens, and refresh Splide so the
+// first slide is correctly centered after the modal's CSS layout settles.
+// watch(() => props.isVisible, async (val) => {
+//   if (typeof document !== 'undefined') {
+//     document.body.style.overflow = val ? 'hidden' : '';
+//   }
+//   if (val) {
+//     await nextTick();
+//     // Wait for the modal CSS transition (300ms) to fully settle before Splide measures widths
+//     setTimeout(() => {
+//       splideRef.value?.splide?.refresh();
+//     }, 320);
+//   }
+// });
 </script>
 
 <style lang="scss" scoped>
@@ -275,24 +291,29 @@ watch(() => props.isVisible, (val) => {
   @media (max-width: 767px) {
     flex: none;
     width: 100%;
-    height: 260px;
+    height: auto;
   }
 
-  /* Make Splide fill the column */
-  // :deep(.splide) {
-  //   height: 100%;
-  // }
-  // :deep(.splide__track) {
-  //   height: 100%;
-  // }
-  // :deep(.splide__list) {
-  //   height: 100%;
-  // }
+  /* Make Splide fill the column — required so it measures widths correctly on first open */
+  :deep(.splide) {
+    width: 100%;
+    height: 100%;
+  }
+  :deep(.splide__track) {
+    width: 100%;
+    // height: 100%;
+  }
+  :deep(.splide__list) {
+    height: 100%;
+  }
+  :deep(.splide__slide) {
+    width: 100% !important;
+  }
 
   /* Slide */
   .pm-slide {
     width: 100%;
-    height: 100%;
+    // height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,7 +324,7 @@ watch(() => props.isVisible, (val) => {
       // height: 100%;
       // object-fit: cover; 
       display: block;
-      min-height: 320px;
+      // min-height: 320px;
       // max-height: 320px;
     }
   }
@@ -526,6 +547,19 @@ watch(() => props.isVisible, (val) => {
     background-image: linear-gradient(90deg, #181818 21%, rgba(14, 93, 59, 0.6117647059) 54%, #181818 90%);
   }
 }
+.pm-for-sale-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #202020;
+  color: var(--primary-color);
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: default;
+  user-select: none;
+}
 
 /* ─── Transition ──────────────────────────────────────────── */
 .modal-fade-enter-active,
@@ -548,7 +582,7 @@ watch(() => props.isVisible, (val) => {
 
 .pm-container{
   .splide{
-    padding: 0 !important;
+    padding: 0;
   }
 }
 </style>

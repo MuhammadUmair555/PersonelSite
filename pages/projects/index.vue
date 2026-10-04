@@ -79,11 +79,11 @@
           @close="closeProject" 
         />
 
-            <nuxt-link style="text-decoration: none; text-align: center;" to="/projects">
+            <!-- <nuxt-link style="text-decoration: none; text-align: center;" to="/projects">
             
                   <MyButton buttonMargin="25px auto 0;" buttonText="Load More Projects" />
            
-              </nuxt-link >
+              </nuxt-link > -->
           
     </section>
 </template>

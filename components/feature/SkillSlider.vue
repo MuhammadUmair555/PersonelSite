@@ -54,6 +54,12 @@
             </SplideSlide>
             <SplideSlide>
                 <div class="skill-logo">
+                    <img src="~/public/assets/Images/skill/tailwind-svgrepo-com.svg" alt="jQuery" title="Tailwind">
+                    <p>Tailwind</p>
+                </div>
+            </SplideSlide>
+             <SplideSlide>
+                <div class="skill-logo">
                     <img src="~/public/assets/Images/skill/jquery-fill-svgrepo-com.svg" alt="jQuery" title="jQuery">
                     <p>jQuery</p>
                 </div>

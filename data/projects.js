@@ -77,33 +77,62 @@ export const projects = [
     ],
     liveLink: 'https://www.umairdev.vercel.app/'
   },
-   {
-    slug: 'virtue-finance',
-    title: 'Virtue Finance',
-    subtitle: 'Blockchain Token Landing Page, Designed and Built End to End',
-    info: 'A landing page for a next-generation blockchain token and treasury protocol. I created the concept, designed the UI/UX in Figma, and developed the complete frontend, presenting the token\'s staking stats, treasury model, and protocol revenue in a clear, modern interface.',
+  {
+    slug: 'dineup-restaurant-explorer',
+    title: 'DineUp',
+    subtitle: 'Restaurant Discovery Web Application',
+    info: 'Developed the complete frontend of a web application for exploring restaurants, giving users a fast, intuitive way to browse and discover places to eat. Built fully responsive, so it works smoothly on desktop, tablet, and mobile.',
     description: [
-      'Conceived the concept and designed the full UI/UX in Figma, with a Roman-inspired brand identity, custom illustrations, and a polished dark crypto aesthetic.',
-      'Developed the responsive frontend in Next.js and React, translating the Figma designs into pixel-accurate, reusable components.',
-      'Built a live-style stats section for Total Staked, Treasury Balance, Total Value Locked, and Current APY, plus a "How it works" flow explaining how bonds, LP fees, and taxes feed the treasury.',
-      'Added clear calls to action, including an Enter App button and community links, and deployed the site on Vercel.'
+      'Developed the full frontend from the approved designs, turning them into clean, reusable, production-ready components.',
+      'Built the restaurant exploration experience with browsing, listings, and detail views that stay fast and easy to navigate.',
+      'Implemented a fully mobile-responsive layout, so the experience stays consistent across screen sizes and devices.',
+      'Integrated the frontend with backend APIs and focused on performance and a smooth user experience.'
     ],
     keyFeatures: [
-      'Token overview and protocol profits sections.',
-      'Staking and treasury stats dashboard (TVL, APY, treasury balance).',
-      'Step-by-step token treasury explainer.',
-      'Enter App call to action and community links.',
-      'Fully responsive layout across desktop and mobile.'
+      'Restaurant exploration and discovery.',
+      'Fully responsive across desktop and mobile.',
+      'Reusable component-based architecture.',
+      'API-driven content and listings.'
     ],
-    skills: ['Next.js', 'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Figma', 'UI/UX Design', 'Responsive Design', 'Web3 / DeFi UI', 'Vercel'],
-    mainImage: '/assets/Images/project/virtu-finance/cover.png',
+    skills: ['Vue.js', 'JavaScript', 'Tailwind', 'REST API Integration', 'Responsive Design', 'Component Architecture', 'Mobile-First Design'],
+    mainImage: '/assets/Images/project/dineup/cover.jpeg',
     images: [
-      '/assets/Images/project/virtu-finance/img1.png',
-      '/assets/Images/project/virtue/img2.png',
-      '/assets/Images/project/virtue/img3.png',
+      '/assets/Images/project/dineup/img1.jpeg',
+      '/assets/Images/project/dineup/img2.jpeg',
+      '/assets/Images/project/dineup/img3.jpeg',
+    ],
+    liveLink: 'https://dineup.wonderbyte.io/v2/'
+  },
+  {
+    slug: 'nur-islamic-life-app',
+    title: 'NUR: Islamic Life App',
+    subtitle: 'UI/UX Design for a Calm Daily Prayer Companion on iPhone',
+    info: 'Designed the complete UI/UX in Figma for a mobile app that brings prayer times, an offline Qur\'an, daily adhkar, and private prayer circles into one calm, distraction-free experience.',
+    description: [
+      'Created the concept, wireframes, and high-fidelity Figma screens for the full app, from the home screen to the Qur\'an reader, adhkar, alarms, and prayer history.',
+      'Designed a "living horizon" home screen where the sky changes from dawn to night with the day\'s prayer times, giving users a clear countdown and a gentle reminder to pause.',
+      'Crafted a paper-style Qur\'an reading experience, plus social features such as private prayer circles and shareable ayah images.',
+      'Focused on a minimal, ad-free, accessible design system that keeps the experience peaceful and easy to use every day.'
+    ],
+    keyFeatures: [
+      'Living Horizon home screen that follows the day.',
+      'Offline Qur\'an reader with bookmarks and translations.',
+      'Morning and evening adhkar, duas, and tasbih.',
+      'Worship alarms and private prayer circles.',
+      'Prayer history insights and shareable ayah images.'
+    ],
+    skills: ['UI/UX Design', 'Figma', 'Wireframing', 'Mobile App Design', 'Design Systems', 'Prototyping', 'User Flows', 'Visual Design'],
+    mainImage: '/assets/Images/project/nur-app/cover.png',
+    images: [
+      '/assets/Images/project/nur-app/img2.webp',
+      '/assets/Images/project/nur-app/img1.png',
+      '/assets/Images/project/nur-app/img2.png',
+
+
     ],
     status: 'For Sale',
-    liveLink: 'https://virtual-finance-iota.vercel.app/'
+    forSale: true,
+    liveLink: 'https://nur.prismcodelabs.com/'
   },
   {
     slug: 'nitrox-gaming-community',
@@ -136,14 +165,16 @@ export const projects = [
       'Designed for efficiency and reliability to empower local businesses with enterprise-grade tools.'
     ],
     skills: ['Python', 'PyQt5', 'SQLite', 'Google Drive API', 'ReportLab', 'PyQtChart', 'QtWebEngine'],
-    mainImage: '/assets/Images/project/salesystem/salesystem.png',
+    mainImage: '/assets/Images/project/salesystem/cover.webp',
     images: [
+      '/assets/Images/project/salesystem/img1.jpeg',
       '/assets/Images/project/salesystem/img1.png',
       '/assets/Images/project/salesystem/img2.png',
       '/assets/Images/project/salesystem/img3.png',
-      '/assets/Images/project/salesystem/img4.png',
-      '/assets/Images/project/salesystem/img5.png',
+      '/assets/Images/project/salesystem/img2.jpeg',
+
     ],
+    status: 'For Sale',
     liveLink: 'https://easy-sale-system.vercel.app/'
   },
   {
@@ -174,26 +205,34 @@ export const projects = [
     ],
     liveLink: 'https://analytics.traderverse.io/'
   },
-  {
-    slug: 'easy-consult-ai',
-    title: 'EasyConsult.ai',
-    subtitle: 'Marketing Website for an AI Consulting & Automation Company',
-    info: 'Designed and developed the company website from scratch, presenting AI consulting, automation, and custom AI agent services through a fast, responsive, and accessible interface.',
+  
+   {
+    slug: 'virtue-finance',
+    title: 'Virtue Finance',
+    subtitle: 'Blockchain Token Landing Page, Designed and Built End to End',
+    info: 'A landing page for a next-generation blockchain token and treasury protocol. I created the concept, designed the UI/UX in Figma, and developed the complete frontend, presenting the token\'s staking stats, treasury model, and protocol revenue in a clear, modern interface.',
     description: [
-      'Designed the UI and built the full frontend in Vue.js, with a reusable component structure and a consistent visual system.',
-      'Used Tailwind CSS with Radix UI and shadcn/ui primitives for accessible, easy-to-maintain interface components.',
-      'Integrated Calendly so visitors can book consultations directly from the site.',
-      'Added SEO and Open Graph metadata for better search visibility and link previews, and deployed on Vercel.'
+      'Conceived the concept and designed the full UI/UX in Figma, with a Roman-inspired brand identity, custom illustrations, and a polished dark crypto aesthetic.',
+      'Developed the responsive frontend in Next.js and React, translating the Figma designs into pixel-accurate, reusable components.',
+      'Built a live-style stats section for Total Staked, Treasury Balance, Total Value Locked, and Current APY, plus a "How it works" flow explaining how bonds, LP fees, and taxes feed the treasury.',
+      'Added clear calls to action, including an Enter App button and community links, and deployed the site on Vercel.'
     ],
-    skills: ['Vue.js', 'Tailwind CSS', 'shadcn/ui', 'Radix UI', 'Responsive Design', 'Calendly Integration', 'SEO', 'Vercel'],
-    mainImage: '/assets/Images/project/easyconsult/cover.png',
+    keyFeatures: [
+      'Token overview and protocol profits sections.',
+      'Staking and treasury stats dashboard (TVL, APY, treasury balance).',
+      'Step-by-step token treasury explainer.',
+      'Enter App call to action and community links.',
+      'Fully responsive layout across desktop and mobile.'
+    ],
+    skills: ['Next.js', 'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Figma', 'UI/UX Design', 'Responsive Design', 'Web3 / DeFi UI', 'Vercel'],
+    mainImage: '/assets/Images/project/virtu-finance/cover.png',
     images: [
-      '/assets/Images/project/easyconsult/img1.png',
-      '/assets/Images/project/easyconsult/img2.png',
-      '/assets/Images/project/easyconsult/img3.png',
-      '/assets/Images/project/easyconsult/img4.png',
+      '/assets/Images/project/virtu-finance/img0.png',
+      '/assets/Images/project/virtu-finance/img1.png',
+      '/assets/Images/project/virtu-finance/img4.png',
     ],
-    liveLink: 'https://easy-consult-site.vercel.app/'
+    status: 'For Sale',
+    liveLink: 'https://virtual-finance-iota.vercel.app/'
   },
   {
     slug: 'elite-consult',
@@ -215,6 +254,58 @@ export const projects = [
       '/assets/Images/project/eliteconsult/img21.jpg',
       '/assets/Images/project/eliteconsult/img5.jpg',
     ],
+    status: 'For Sale',
     liveLink: 'https://elite-consult.vercel.app/'
-  }
+  },
+  
+  {
+    slug: 'widget-app-design',
+    title: 'Widget App',
+    subtitle: 'Every moment. Made yours. A Mobile App UI/UX Design Concept',
+    info: 'A mobile app design concept focused on personalization, letting users build a home experience around the widgets and moments that matter most to them. Designed end to end in Figma, from concept and wireframes to polished high-fidelity screens.',
+    description: [
+      'Created the concept, user flows, and wireframes, then developed them into high-fidelity Figma screens with a clean, modern visual style.',
+      'Designed a flexible widget-based interface that puts personalization at the center of the experience.',
+      'Built a consistent design system with reusable components, typography, color, and spacing for a cohesive look across every screen.',
+      'Focused on clarity, usability, and a mobile-first layout that feels simple and enjoyable to use daily.'
+    ],
+    keyFeatures: [
+      'Personalized, widget-based home experience.',
+      'Clean, modern, mobile-first interface.',
+      'Reusable component library and design system.',
+      'Consistent visual language across all screens.'
+    ],
+    skills: ['UI/UX Design', 'Figma', 'Wireframing', 'Mobile App Design', 'Design Systems', 'Prototyping', 'User Flows', 'Visual Design'],
+    mainImage: '/assets/Images/project/widget-app/cover.png',
+    images: [
+      '/assets/Images/project/widget-app/img0.png',
+      '/assets/Images/project/widget-app/img1.png',
+      '/assets/Images/project/widget-app/img2.png',
+      '/assets/Images/project/widget-app/img3.png',
+    ],
+    status: 'For Sale',
+    forSale: true,
+    liveLink: 'https://www.figma.com/'
+  },
+   {
+    slug: 'easy-consult-ai',
+    title: 'EasyConsult.ai',
+    subtitle: 'Marketing Website for an AI Consulting & Automation Company',
+    info: 'Designed and developed the company website from scratch, presenting AI consulting, automation, and custom AI agent services through a fast, responsive, and accessible interface.',
+    description: [
+      'Designed the UI and built the full frontend in Vue.js, with a reusable component structure and a consistent visual system.',
+      'Used Tailwind CSS with Radix UI and shadcn/ui primitives for accessible, easy-to-maintain interface components.',
+      'Integrated Calendly so visitors can book consultations directly from the site.',
+      'Added SEO and Open Graph metadata for better search visibility and link previews, and deployed on Vercel.'
+    ],
+    skills: ['Vue.js', 'Tailwind CSS', 'shadcn/ui', 'Radix UI', 'Responsive Design', 'Calendly Integration', 'SEO', 'Vercel'],
+    mainImage: '/assets/Images/project/easyconsult/cover.png',
+    images: [
+      '/assets/Images/project/easyconsult/img1.png',
+      '/assets/Images/project/easyconsult/img2.png',
+      '/assets/Images/project/easyconsult/img3.png',
+      '/assets/Images/project/easyconsult/img4.png',
+    ],
+    liveLink: 'https://easy-consult-site.vercel.app/'
+  },
 ];
