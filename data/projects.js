@@ -281,7 +281,6 @@ export const projects = [
       '/assets/Images/project/widget-app/img0.png',
       '/assets/Images/project/widget-app/img1.png',
       '/assets/Images/project/widget-app/img2.png',
-      '/assets/Images/project/widget-app/img3.png',
     ],
     status: 'For Sale',
     forSale: true,
