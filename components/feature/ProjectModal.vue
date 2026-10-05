@@ -198,7 +198,7 @@ const splideOptions = {
 
   @media (max-width: 767px) {
     height: auto;
-    max-height: 92vh;
+    max-height: 78vh;
     border-radius: 16px;
   }
 }
