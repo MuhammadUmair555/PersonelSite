@@ -64,7 +64,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="~/public/assets/Images/faiz.jpg" alt="faiz" title="Faiz">
+                                    <!-- <img src="~/public/assets/Images/faiz.jpg" alt="faiz" title="Faiz"> -->
 
                                     </div>
                                     <div>
@@ -95,7 +95,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="~/public/assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
+                                    <!-- <img src="~/public/assets/Images/jawwad.jpg" alt="faiz" title="Faiz"> -->
 
                                     </div>
                                     <div>
@@ -126,7 +126,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="~/public/assets/Images/faiz.jpg" alt="faiz" title="Faiz">
+                                    <!-- <img src="~/public/assets/Images/faiz.jpg" alt="faiz" title="Faiz"> -->
 
                                     </div>
                                     <div>
@@ -157,7 +157,7 @@ defineComponent( {
                                 </div>
                                 <div class="testimonial-name">
                                     <div class="client-profile-img">
-                                    <img src="~/public/assets/Images/jawwad.jpg" alt="faiz" title="Faiz">
+                                    <!-- <img src="~/public/assets/Images/jawwad.jpg" alt="faiz" title="Faiz"> -->
 
                                     </div>
                                     <div>
