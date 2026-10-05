@@ -130,7 +130,7 @@ export const projects = [
 
 
     ],
-    status: 'For Sale',
+    status: 'Available for Purchase',
     forSale: true,
     liveLink: 'https://nur.prismcodelabs.com/'
   },
@@ -174,7 +174,7 @@ export const projects = [
       '/assets/Images/project/salesystem/img2.jpeg',
 
     ],
-    status: 'For Sale',
+    status: 'Available for Purchase',
     liveLink: 'https://easy-sale-system.vercel.app/'
   },
   {
@@ -231,7 +231,7 @@ export const projects = [
       '/assets/Images/project/virtu-finance/img1.png',
       '/assets/Images/project/virtu-finance/img4.png',
     ],
-    status: 'For Sale',
+    status: 'Available for Purchase',
     liveLink: 'https://virtual-finance-iota.vercel.app/'
   },
   {
@@ -254,7 +254,7 @@ export const projects = [
       '/assets/Images/project/eliteconsult/img21.jpg',
       '/assets/Images/project/eliteconsult/img5.jpg',
     ],
-    status: 'For Sale',
+    status: 'Available for Purchase',
     liveLink: 'https://elite-consult.vercel.app/'
   },
   
@@ -282,7 +282,7 @@ export const projects = [
       '/assets/Images/project/widget-app/img1.png',
       '/assets/Images/project/widget-app/img2.png',
     ],
-    status: 'For Sale',
+    status: 'Available for Purchase',
     forSale: true,
     liveLink: 'https://www.figma.com/'
   },

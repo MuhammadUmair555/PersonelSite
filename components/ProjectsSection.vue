@@ -65,7 +65,7 @@ breakpoints: {
             </nuxt-link >
             </div>
             
-            <div data-aos="fade-left" class="projects "  >
+            <div data-aos="fade-left" class="projects" >
                 <Splide :options="options" >
                     <SplideSlide v-for="project in projects" :key="project.slug">
                         <div class="project" @click="openProject(project)">
@@ -75,7 +75,7 @@ breakpoints: {
                             </div>
                             <p class="project-status">
                                 <img v-if="getProjectStatus(project) === 'Live'" src="~/public/assets/Images/icon/live-svgrepo-com.svg" alt="" title="Live">
-                                <img v-else-if="getProjectStatus(project) === 'For Sale'" src="~/public/assets/Images/icon/for-sale-tag.svg" alt="" title="For Sale">
+                                <img v-else-if="getProjectStatus(project) === 'Available for Purchase'" src="~/public/assets/Images/icon/for-sale-tag.svg" alt="" title="Available for Purchase">
                                 {{ getProjectStatus(project) }}
                             </p>
                             <div class="project-name">
