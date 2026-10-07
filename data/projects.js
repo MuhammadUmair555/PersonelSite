@@ -104,8 +104,8 @@ export const projects = [
     liveLink: 'https://dineup.wonderbyte.io/v2/'
   },
   {
-    slug: 'nur-islamic-life-app',
-    title: 'NUR: Islamic Life App',
+    slug: 'islamic-life-app',
+    title: 'Islamic Life App',
     subtitle: 'UI/UX Design for a Calm Daily Prayer Companion on iPhone',
     info: 'Designed the complete UI/UX in Figma for a mobile app that brings prayer times, an offline Qur\'an, daily adhkar, and private prayer circles into one calm, distraction-free experience.',
     description: [
@@ -124,15 +124,14 @@ export const projects = [
     skills: ['UI/UX Design', 'Figma', 'Wireframing', 'Mobile App Design', 'Design Systems', 'Prototyping', 'User Flows', 'Visual Design'],
     mainImage: '/assets/Images/project/nur-app/cover.png',
     images: [
-      '/assets/Images/project/nur-app/img2.webp',
-      '/assets/Images/project/nur-app/img1.png',
+      '/assets/Images/project/nur-app/img3.jpg',
       '/assets/Images/project/nur-app/img2.png',
+      '/assets/Images/project/nur-app/img1.png',
 
 
     ],
     status: 'Available for Purchase',
     forSale: true,
-    liveLink: 'https://nur.prismcodelabs.com/'
   },
   {
     slug: 'nitrox-gaming-community',
