@@ -47,7 +47,18 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
+      meta: [
+        { name: 'theme-color', content: '#0ead69' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-title', content: 'Umair Dev' },
+      ],
       link: [
+        // Web App Manifest (enables "Add to Home Screen" / PWA install)
+        { rel: 'manifest', href: '/manifest.json' },
+        // Apple Touch Icon (for iOS home screen)
+        { rel: 'apple-touch-icon', href: '/assets/logo.png' },
         // DNS prefetch + preconnect for Google Fonts
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
