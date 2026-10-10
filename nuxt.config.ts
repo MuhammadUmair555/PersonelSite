@@ -58,7 +58,7 @@ export default defineNuxtConfig({
         // Web App Manifest (enables "Add to Home Screen" / PWA install)
         { rel: 'manifest', href: '/manifest.json' },
         // Apple Touch Icon (for iOS home screen)
-        { rel: 'apple-touch-icon', href: '/assets/logo.png' },
+        { rel: 'apple-touch-icon', href: '/assets/web-icon.svg' },
         // DNS prefetch + preconnect for Google Fonts
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
