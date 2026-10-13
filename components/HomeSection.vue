@@ -285,6 +285,8 @@ function animate() {
 }
 
 // ── Lifecycle ─────────────────────────────────────────────────────────────────
+let sectionObserver = null
+
 onMounted(() => {
   const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
   reducedMotion = mq.matches
@@ -294,12 +296,32 @@ onMounted(() => {
     window.addEventListener('resize',    resizeCanvas,      { passive: true })
     resizeCanvas()
     animate()
+
+    // ── Fade canvas after #projects scrolls past ──────────────────────────────
+    // We watch the #projects div. When it exits the viewport upward (user has
+    // scrolled past Latest Work), dim the canvas to a ghost trace. When it
+    // re-enters (user scrolls back up), restore it.
+    const projectsEl = document.getElementById('projects')
+    if (projectsEl) {
+      sectionObserver = new IntersectionObserver(
+        ([entry]) => {
+          const canvas = canvasRef.value
+          if (!canvas) return
+          // entry.boundingClientRect.top < 0  → section has scrolled above viewport
+          const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0
+          canvas.style.opacity = scrolledPast ? '0.06' : '1'
+        },
+        { threshold: 0 }
+      )
+      sectionObserver.observe(projectsEl)
+    }
   }
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', onGlobalMouseMove)
   window.removeEventListener('resize',    resizeCanvas)
+  if (sectionObserver) sectionObserver.disconnect()
   if (rafId) cancelAnimationFrame(rafId)
   glyphs = []
 })
@@ -820,6 +842,8 @@ onBeforeUnmount(() => {
   pointer-events: none;
   z-index: 0;
   will-change: contents;
+  opacity: 1;
+  transition: opacity 1.4s ease;   // smooth fade when scrolling past #projects
 }
 
 @media (prefers-reduced-motion: reduce) {
