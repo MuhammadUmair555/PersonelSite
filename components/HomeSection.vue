@@ -291,15 +291,14 @@ onBeforeUnmount(() => {
     <section class="home-section">
         <!-- Full-viewport particle canvas — fixed overlay, behind all content -->
         <canvas ref="canvasRef" class="particle-canvas" aria-hidden="true"></canvas>
-        <div class="Im-Umair">
+        <div  class="Im-Umair">
             <div class="my-name">
                 <!-- <div data-aos="fade-down" class="AnimatedDesignation">
                     <AnimatedDesignation  />
                 </div> -->
                 <span class="hey-there">Hey there! I'm</span>
                 <h1>Muhammad <span class="letter-case"> Umair<span style="color: #0ead69;">.</span> </span></h1>
-                <p class="my-bio">
-                   Senior <span style="color: #0ead69; font-weight: 500;">Software Engineer Frontend</span> with 6+ years of experience architecting responsive, high-performance web and mobile applications using Vue.js, React.js, and React Native. Specializes in scalable component architecture, real-time data visualization, and high-performance UI for fintech and trading platforms. Skilled at integrating REST APIs, optimizing rendering performance, and partnering with backend and AI teams to ship production features. Experienced leveraging AI-assisted development workflows to increase delivery speed while maintaining code quality.
+                <p class="my-bio"><span style="color: var(--text-primary);">Software Engineer Frontend</span> with 6+ years of experience delivering end-to-end web and mobile solutions, from interpreting UI/UX designs and architecting the frontend to building, optimizing, and deploying production applications. Expertise in JavaScript, Vue.js, React.js, and React Native, with a focus on responsive interfaces, reusable components, API integration, data-driven dashboards, and performance. Translates business requirements into intuitive, scalable, and maintainable products while collaborating with cross-functional teams. Leverages AI-assisted development to accelerate delivery without compromising code quality.
                 </p>
             </div>
             
@@ -329,10 +328,10 @@ onBeforeUnmount(() => {
             </div>
             </div>
         </div>
-        <div class="currently-work">
-            <div class="currently-work-mobile">
+        <div data-aos="fade-up" class="currently-work">
+            <!-- <div class="currently-work-mobile">
                 <span style="font-size: 22px;">⚡</span><p class="current-position"> Currently Specializing In UI Development Vue.js | React.js | React Native.</p>
-            </div>
+            </div> -->
             <div class="currently-work-mobile">
                 <span style="font-size: 22px;">💻</span><p> Senior Software Engineer (Frontend) at <a href="https://www.linkedin.com/company/office-field/" target="_blank" >Officefield</a></p>
             </div>
@@ -349,16 +348,15 @@ onBeforeUnmount(() => {
                     
                 </div>
             </a>
-            <a href="https://drive.google.com/file/d/1CLZ0BgYTkU394pdPG7oNYyh-7dfokZrU/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <a href="https://drive.google.com/file/d/1ZTbrWAKtymUZ2zPl3hA6tHNdwdXFb2Zl/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                 <div class="ContactMe">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#0ead69" viewBox="0 0 56 56"><path d="M15.5547 53.125h24.8906c4.8516 0 7.2656-2.4375 7.2656-7.336V10.2344c0-4.875-2.414-7.3594-7.2656-7.3594H15.5547c-4.8281 0-7.2656 2.4844-7.2656 7.3594V45.789c0 4.8985 2.4375 7.336 7.2656 7.336Zm.1875-3.7735c-2.4141 0-3.6797-1.289-3.6797-3.6328v-35.414c0-2.3203 1.2656-3.6563 3.7031-3.6563h24.4922c2.4375 0 3.6797 1.3125 3.6797 3.6563v35.414c0 2.3438-1.2422 3.6328-3.6562 3.6328Zm3.3984-32.9062h17.7656c.8204 0 1.4532-.6562 1.4532-1.4766 0-.7969-.6328-1.4062-1.4532-1.4062H19.1406c-.8672 0-1.4766.6093-1.4766 1.4062 0 .8204.6094 1.4766 1.4766 1.4766Zm0 8.1797h17.7656c.8204 0 1.4532-.6563 1.4532-1.4766 0-.7969-.6328-1.4062-1.4532-1.4062H19.1406c-.8672 0-1.4766.6093-1.4766 1.4062 0 .8203.6094 1.4766 1.4766 1.4766Zm0 8.1797h8.4141c.8203 0 1.4531-.6329 1.4531-1.4297 0-.8203-.6328-1.4532-1.4531-1.4532h-8.4141c-.8672 0-1.4766.6329-1.4766 1.4532 0 .7968.6094 1.4297 1.4766 1.4297Z"/></svg>
                     </span>
                      <p>My Resume</p>
                 </div>
-            </a>
-                
-           </div>
+            </a> 
+        </div>
     </section>
 </template>
 <style lang="scss" scoped>
