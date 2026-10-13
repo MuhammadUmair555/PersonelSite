@@ -1,231 +1,247 @@
 <script setup>
-// import AnimatedDesignation from './AnimatedDesignation.vue'
-// import MyButton from './feature/MyButton.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-// ── Refs ─────────────────────────────────────────────────────────────────────
-const imgWrapRef  = ref(null)
-const canvasRef   = ref(null)
+// ── Refs ──────────────────────────────────────────────────────────────────────
+const imgWrapRef = ref(null)
+const canvasRef  = ref(null)
 
-// ── 3D rotation state ────────────────────────────────────────────────────────
+// ── 3D rotation state (unchanged) ────────────────────────────────────────────
 let rotX = 0, rotY = 0, glowOp = 0
 let targetRotX = 0, targetRotY = 0, targetGlowOp = 0
-
-// ── Cursor influence on particles (normalised -1…+1) ─────────────────────────
-let cursorNX = 0, cursorNY = 0
-
 let rafId = null
 let reducedMotion = false
-
 const LERP    = 0.06
 const MAX_ROT = 25
+function lerp(a, b, t) { return a + (b - a) * t }
 
-// ── Tiny deterministic noise helper (no deps) ─────────────────────────────────
-// Returns a smooth pseudo-random value in -1…+1 given time + seed
-function smoothNoise(t, seed) {
-  const s = Math.sin(t * 0.0013 + seed * 127.1) * 43758.5453
-  return (s - Math.floor(s)) * 2 - 1
+// ── Cursor state ──────────────────────────────────────────────────────────────
+let mouseX = -9999   // real px position for repulsion
+let mouseY = -9999
+let cursorNX = 0     // normalised -1…+1 for 3D rotation
+let cursorNY = 0
+
+function onGlobalMouseMove(e) {
+  if (reducedMotion) return
+  mouseX = e.clientX
+  mouseY = e.clientY
+  cursorNX   = (e.clientX / window.innerWidth)  * 2 - 1
+  cursorNY   = (e.clientY / window.innerHeight) * 2 - 1
+  targetRotY =  cursorNX * MAX_ROT
+  targetRotX = -cursorNY * MAX_ROT
+  targetGlowOp = 0.55
 }
 
-// ── Particle palette ──────────────────────────────────────────────────────────
-// white ↔ green (theme: #0ead69), with soft alpha variation
-const PALETTE = [
-  [255, 255, 255],   // pure white
-  [200, 255, 225],   // white-green tint
-  [14,  173, 105],   // theme green
-  [120, 220, 170],   // mid green-white
-  [230, 255, 245],   // near-white cool
+// ── AI / dev glyph vocabulary ─────────────────────────────────────────────────
+const GLYPHS = [
+  '{ }', '</>', '=>', '[ ]', '//', '/**/', 'Tailwind', '&&', '||',
+  'AI', 'LLM', 'API', 'Design', 'ML', 'Figma',
+  'const', 'async', 'await', 'fn()', 'class',
+  'useState', 'useEffect', 'ref()', 'computed',
+  'Vue', 'React', 'TS', '.tsx', 'UI/UX',
+  'git', 'npm', 'UI','Vuex',
+  '0', '1', '01', '10', 'id', 'Animation',
+  '+', '×', '◇', '▸', '»', '›', '_',
+  '⬡', '⬢', '◉', 'className',  // neural-network node shapes
 ]
 
-// ── Particle class ────────────────────────────────────────────────────────────
-class Particle {
-  constructor(cw, ch, emitX, emitY, imgRadius) {
+// ── Colour palette: deep-space teal / indigo / sky / violet ──────────────────
+const COLORS = [
+  [20,  184, 166],   // teal-500
+  [99,  102, 241],   // indigo-500
+  [56,  189, 248],   // sky-400
+  [167, 139, 250],   // violet-400
+  [34,  211, 238],   // cyan-400
+  [129, 140, 248],   // indigo-400
+  [94,  234, 212],   // teal-300
+  [224, 231, 255],   // indigo-100 (near-white)
+]
+
+// ── Particle ──────────────────────────────────────────────────────────────────
+class Glyph {
+  constructor(cw, ch) {
     this.cw = cw
     this.ch = ch
-    this.emitX = emitX       // image centre X in viewport (canvas) coords
-    this.emitY = emitY       // image centre Y in viewport (canvas) coords
-    this.imgRadius = imgRadius
-    this.reset(true)
+    this.respawn()
   }
 
-  reset(initial = false) {
-    // Emit from a ring around the image centre
-    const angle = Math.random() * Math.PI * 2
-    const dist  = this.imgRadius * (0.15 + Math.random() * 0.95)
-    this.x = this.emitX + Math.cos(angle) * dist
-    this.y = this.emitY + Math.sin(angle) * dist
+  respawn() {
+    // Random position across the full viewport
+    this.x  = Math.random() * this.cw
+    this.y  = Math.random() * this.ch
 
-    // Depth layer: 0 = far (small, dim), 1 = close (large, bright)
+    // Depth 0 = far (tiny, slow, dim)  1 = close (larger, faster, bright)
     this.depth = Math.random()
 
-    // Travel direction — radially outward + random drift, slow enough to roam gracefully
-    const outAngle = angle + (Math.random() - 0.5) * 1.4
-    const speed    = 0.25 + Math.random() * 0.55 + this.depth * 0.35
-    this.vx = Math.cos(outAngle) * speed
-    this.vy = Math.sin(outAngle) * speed
+    // Slow independent drift
+    const angle = Math.random() * Math.PI * 2
+    const spd   = 0.08 + this.depth * 0.22
+    this.vx = Math.cos(angle) * spd
+    this.vy = Math.sin(angle) * spd
 
-    // Organic noise seeds — unique per particle for varied wave motion
-    this.seedX = Math.random() * 100
-    this.seedY = Math.random() * 100
+    // Font size: 8 px (far) → 15 px (close)
+    this.fontSize = 8 + this.depth * 7
 
-    // Size based on depth
-    this.baseSize = 0.6 + this.depth * 2.2
-    this.size     = this.baseSize
+    // Pick a glyph
+    this.text = GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
 
-    // Color from palette, weighted toward white for subtlety
-    const ci = Math.random() < 0.55 ? 0 : Math.floor(Math.random() * PALETTE.length)
-    this.rgb = PALETTE[ci]
+    // Pick a colour
+    const ci = Math.floor(Math.random() * COLORS.length)
+    this.rgb = COLORS[ci]
 
-    // Life: 0 = just born, 1 = dead
-    this.life    = initial ? Math.random() : 0
-    this.lifeInc = 0.0012 + Math.random() * 0.003  // slower aging = more travel distance
+    // Base opacity: far = dimmer
+    this.baseAlpha = 0.08 + this.depth * 0.32
 
-    // Trail: 30% chance for a subtle elongated particle
-    this.hasTrail = Math.random() < 0.3
-    this.trail    = []
-    this.trailLen = this.hasTrail ? Math.floor(4 + Math.random() * 6) : 0
+    // Blink cursor block (10 % chance)
+    this.isCursor  = Math.random() < 0.10
+    this.blinkPhase = Math.random() * Math.PI * 2
 
-    // Twinkle — occasional brightness pulse
-    this.twinkle      = Math.random() < 0.2
-    this.twinklePhase = Math.random() * Math.PI * 2
+    // Noise seeds for gentle wave drift
+    this.sx = Math.random() * 999
+    this.sy = Math.random() * 999
+
+    // Used to distribute initial positions over time so canvas fills gradually
+    this.age = Math.random() * 6000   // pre-age so they're scattered at start
   }
 
-  // Alpha envelope: fade in → hold → fade out (smooth life curve)
-  alpha() {
-    const t = this.life
-    if (t < 0.15) return t / 0.15
-    if (t > 0.75) return 1 - (t - 0.75) / 0.25
-    return 1
+  update(t) {
+    this.age++
+
+    // Sine-wave wobble layered on top of base velocity
+    const wx = Math.sin(t * 0.0007 + this.sx) * 0.12
+    const wy = Math.cos(t * 0.0009 + this.sy) * 0.12
+
+    // Mouse repulsion — push away when cursor is within 120 px
+    let rx = 0, ry = 0
+    const dx = this.x - mouseX
+    const dy = this.y - mouseY
+    const dist = Math.sqrt(dx * dx + dy * dy)
+    if (dist < 120 && dist > 0.1) {
+      const force = (120 - dist) / 120 * 0.8
+      rx = (dx / dist) * force
+      ry = (dy / dist) * force
+    }
+
+    this.x += this.vx + wx + rx
+    this.y += this.vy + wy + ry
+
+    // Wrap around edges so the canvas stays populated
+    if (this.x < -30)        this.x = this.cw + 30
+    if (this.x > this.cw + 30) this.x = -30
+    if (this.y < -20)        this.y = this.ch + 20
+    if (this.y > this.ch + 20) this.y = -20
   }
 
-  update(time, curNX, curNY) {
-    this.life += this.lifeInc
-    if (this.life >= 1) {
-      this.reset()
-      return
-    }
-
-    // Organic wave displacement from noise
-    const waveX = smoothNoise(time + this.seedX, this.seedX) * 0.18
-    const waveY = smoothNoise(time + this.seedY, this.seedY) * 0.18
-
-    // Cursor subtly bends the flow (very gentle pull)
-    const cx = curNX * 0.08
-    const cy = curNY * 0.08
-
-    if (this.hasTrail) {
-      this.trail.push({ x: this.x, y: this.y })
-      if (this.trail.length > this.trailLen) this.trail.shift()
-    }
-
-    this.x += this.vx + waveX + cx
-    this.y += this.vy + waveY + cy
-
-    // Twinkle size pulse
-    if (this.twinkle) {
-      this.twinklePhase += 0.08
-      this.size = this.baseSize * (0.8 + Math.sin(this.twinklePhase) * 0.35)
-    }
-  }
-
-  draw(ctx, time) {
-    const a = this.alpha()
-    if (a <= 0.01) return
-
+  draw(ctx, t) {
     const [r, g, b] = this.rgb
 
-    // Draw trail first (behind particle)
-    if (this.hasTrail && this.trail.length > 1) {
-      for (let i = 1; i < this.trail.length; i++) {
-        const ta  = (i / this.trail.length) * a * 0.35
-        const tr  = this.trail[i - 1]
-        const tc  = this.trail[i]
+    // Cursor proximity brightens the glyph
+    const dx   = this.x - mouseX
+    const dy   = this.y - mouseY
+    const dist = Math.sqrt(dx * dx + dy * dy)
+    const brightBoost = dist < 120 ? (120 - dist) / 120 * 0.45 : 0
+    let alpha = Math.min(1, this.baseAlpha + brightBoost)
+
+    // Blink for cursor-block glyphs
+    if (this.isCursor) {
+      const blink = (Math.sin(t * 0.05 + this.blinkPhase) + 1) / 2
+      alpha *= blink
+      this.text = blink > 0.5 ? '▮' : '▯'
+    }
+
+    if (alpha < 0.01) return
+
+    ctx.save()
+    ctx.globalAlpha = alpha
+    ctx.fillStyle   = `rgb(${r},${g},${b})`
+    ctx.font        = `${this.fontSize}px 'JetBrains Mono', 'Fira Code', monospace`
+    ctx.fillText(this.text, this.x, this.y)
+    ctx.restore()
+  }
+}
+
+// ── Connection lines ──────────────────────────────────────────────────────────
+const LINE_DIST      = 110   // max px between two glyphs to draw a line
+const LINE_DIST_SQ   = LINE_DIST * LINE_DIST
+const CURSOR_DIST    = 140   // connect cursor to nearby glyphs
+
+function drawConnections(ctx, glyphs, t) {
+  const n = glyphs.length
+  for (let i = 0; i < n; i++) {
+    const a = glyphs[i]
+
+    // Cursor line
+    const cdx = a.x - mouseX
+    const cdy = a.y - mouseY
+    const cdSq = cdx * cdx + cdy * cdy
+    if (cdSq < CURSOR_DIST * CURSOR_DIST) {
+      const alpha = (1 - Math.sqrt(cdSq) / CURSOR_DIST) * 0.35
+      const [r, g, b] = a.rgb
+      ctx.beginPath()
+      ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`
+      ctx.lineWidth   = 0.5
+      ctx.moveTo(a.x, a.y)
+      ctx.lineTo(mouseX, mouseY)
+      ctx.stroke()
+    }
+
+    // Glyph–glyph lines (only check forward pairs to avoid double-drawing)
+    for (let j = i + 1; j < n; j++) {
+      const b   = glyphs[j]
+      const ddx = a.x - b.x
+      const ddy = a.y - b.y
+      const dSq = ddx * ddx + ddy * ddy
+      if (dSq < LINE_DIST_SQ) {
+        const alpha = (1 - Math.sqrt(dSq) / LINE_DIST) * 0.13
+        // Blend colours of the two endpoints
+        const [ar, ag, ab] = a.rgb
         ctx.beginPath()
-        ctx.strokeStyle = `rgba(${r},${g},${b},${ta})`
-        ctx.lineWidth   = this.size * (i / this.trail.length) * 0.7
-        ctx.moveTo(tr.x, tr.y)
-        ctx.lineTo(tc.x, tc.y)
+        ctx.strokeStyle = `rgba(${ar},${ag},${ab},${alpha})`
+        ctx.lineWidth   = 0.4
+        ctx.moveTo(a.x, a.y)
+        ctx.lineTo(b.x, b.y)
         ctx.stroke()
       }
     }
-
-    // Outer soft glow (only for closer particles)
-    if (this.depth > 0.4) {
-      const glowR = this.size * 3.5
-      const grad  = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowR)
-      grad.addColorStop(0, `rgba(${r},${g},${b},${a * 0.25 * this.depth})`)
-      grad.addColorStop(1, `rgba(${r},${g},${b},0)`)
-      ctx.beginPath()
-      ctx.fillStyle = grad
-      ctx.arc(this.x, this.y, glowR, 0, Math.PI * 2)
-      ctx.fill()
-    }
-
-    // Core particle dot
-    ctx.beginPath()
-    ctx.fillStyle = `rgba(${r},${g},${b},${a * (0.7 + this.depth * 0.3)})`
-    ctx.arc(this.x, this.y, Math.max(0.3, this.size), 0, Math.PI * 2)
-    ctx.fill()
   }
 }
 
-// ── Particle system state ─────────────────────────────────────────────────────
-let particles  = []
-let canvasTime = 0
+// ── System state ──────────────────────────────────────────────────────────────
+let glyphs    = []
+let frameTime = 0
 
-const PARTICLE_COUNT    = 65
-const PARTICLE_COUNT_SM = 32
+const COUNT    = 80
+const COUNT_SM = 40
 
-// emitX/emitY = image centre in viewport (fixed canvas) coordinates
-function initParticles(cw, ch, emitX, emitY, imgRadius) {
-  const count = cw < 700 ? PARTICLE_COUNT_SM : PARTICLE_COUNT
-  particles = Array.from({ length: count }, () =>
-    new Particle(cw, ch, emitX, emitY, imgRadius)
-  )
-}
-
-// Recalculate emit origin from the image's current screen rect
-function getEmitOrigin() {
-  const wrap = imgWrapRef.value
-  if (!wrap) return null
-  const r = wrap.getBoundingClientRect()
-  return {
-    x:      r.left + r.width  / 2,
-    y:      r.top  + r.height / 2,
-    radius: Math.min(r.width, r.height) * 0.48,
-  }
+function initGlyphs(cw, ch) {
+  const n = cw < 700 ? COUNT_SM : COUNT
+  glyphs = Array.from({ length: n }, () => new Glyph(cw, ch))
 }
 
 function resizeCanvas() {
   const canvas = canvasRef.value
   if (!canvas) return
-  canvas.width  = window.innerWidth
-  canvas.height = window.innerHeight
-  const o = getEmitOrigin()
-  if (o) initParticles(canvas.width, canvas.height, o.x, o.y, o.radius)
-}
-
-// ── Lerp ─────────────────────────────────────────────────────────────────────
-function lerp(a, b, t) { return a + (b - a) * t }
-
-// ── Global mouse handler ──────────────────────────────────────────────────────
-function onGlobalMouseMove(e) {
-  if (reducedMotion) return
-  const nx = (e.clientX / window.innerWidth)  * 2 - 1
-  const ny = (e.clientY / window.innerHeight) * 2 - 1
-  targetRotY  =  nx * MAX_ROT
-  targetRotX  = -ny * MAX_ROT
-  targetGlowOp = 0.55
-  cursorNX = nx
-  cursorNY = ny
+  const dpr = window.devicePixelRatio || 1
+  const w   = window.innerWidth
+  const h   = window.innerHeight
+  canvas.width  = w * dpr
+  canvas.height = h * dpr
+  canvas.style.width  = w + 'px'
+  canvas.style.height = h + 'px'
+  const ctx = canvas.getContext('2d')
+  ctx.scale(dpr, dpr)
+  initGlyphs(w, h)
 }
 
 // ── Main RAF loop ─────────────────────────────────────────────────────────────
 function animate() {
   rafId = requestAnimationFrame(animate)
-  canvasTime++
 
-  // ── 3D rotation interpolation ──
+  // Skip when tab is hidden — saves battery and GPU
+  if (document.hidden) return
+
+  frameTime++
+
+  // 3D rotation lerp (existing, unchanged)
   rotX   = lerp(rotX,   targetRotX,   LERP)
   rotY   = lerp(rotY,   targetRotY,   LERP)
   glowOp = lerp(glowOp, targetGlowOp, LERP)
@@ -234,9 +250,7 @@ function animate() {
   if (el) {
     const img  = el.querySelector('.circle-img')
     const glow = el.querySelector('.img-glow')
-    if (img) {
-      img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`
-    }
+    if (img)  img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`
     if (glow) {
       glow.style.opacity = glowOp
       const gx = 50 + (rotY / MAX_ROT) * 28
@@ -246,24 +260,27 @@ function animate() {
     }
   }
 
-  // ── Particle canvas draw ──
+  // Canvas
   const canvas = canvasRef.value
   if (!canvas) return
   const ctx = canvas.getContext('2d')
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  const w   = parseInt(canvas.style.width)
+  const h   = parseInt(canvas.style.height)
 
-  // Refresh emit origin every frame so scroll/resize is always accurate
-  const o = getEmitOrigin()
-  if (o) {
-    for (const p of particles) {
-      p.emitX = o.x
-      p.emitY = o.y
-      p.imgRadius = o.radius
-      p.cw = canvas.width
-      p.ch = canvas.height
-      p.update(canvasTime, cursorNX, cursorNY)
-      p.draw(ctx, canvasTime)
-    }
+  ctx.clearRect(0, 0, w, h)
+
+  // Update + draw glyphs
+  for (const g of glyphs) {
+    g.cw = w
+    g.ch = h
+    g.update(frameTime)
+  }
+
+  // Neural-net connection lines (drawn before glyphs so glyphs sit on top)
+  drawConnections(ctx, glyphs, frameTime)
+
+  for (const g of glyphs) {
+    g.draw(ctx, frameTime)
   }
 }
 
@@ -284,7 +301,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('mousemove', onGlobalMouseMove)
   window.removeEventListener('resize',    resizeCanvas)
   if (rafId) cancelAnimationFrame(rafId)
-  particles = []
+  glyphs = []
 })
 </script>
 <template>
