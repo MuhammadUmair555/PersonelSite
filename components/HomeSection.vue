@@ -41,161 +41,215 @@ const GLYPHS = [
   'git', 'npm', 'UI','Vuex',
   '0', '1', '01', '10', 'id', 'Animation',
   '+', '×', '◇', '▸', '»', '›', '_',
-  '⬡', '⬢', '◉', 'className',  // neural-network node shapes
+  '⬡', '⬢', '◉', 'className',
 ]
 
-// ── Colour palette: deep-space teal / indigo / sky / violet ──────────────────
+// Icon glyphs that are allowed to rotate slowly (pure shapes, no text)
+const ICON_GLYPHS = new Set(['◇', '▸', '⬡', '⬢', '◉', '+', '×'])
+
+// ── Colour palette ────────────────────────────────────────────────────────────
 const COLORS = [
-  [20,  184, 166],   // teal-500
-  [99,  102, 241],   // indigo-500
-  [56,  189, 248],   // sky-400
-  [167, 139, 250],   // violet-400
-  [34,  211, 238],   // cyan-400
-  [129, 140, 248],   // indigo-400
-  [94,  234, 212],   // teal-300
-  [224, 231, 255],   // indigo-100 (near-white)
+  [20,  184, 166],
+  [99,  102, 241],
+  [56,  189, 248],
+  [167, 139, 250],
+  [34,  211, 238],
+  [129, 140, 248],
+  [94,  234, 212],
+  [224, 231, 255],
 ]
 
-// ── Particle ──────────────────────────────────────────────────────────────────
+// ── Font-size buckets — keeps sprite cache tiny ───────────────────────────────
+// Instead of a continuous range we snap to one of 4 sizes.
+const FONT_BUCKETS = [8, 10, 13, 15]   // px (CSS)
+function bucketSize(depth) {
+  // depth 0→1 maps to bucket 0→3
+  return FONT_BUCKETS[Math.min(3, Math.floor(depth * 4))]
+}
+
+// ── Sprite cache ──────────────────────────────────────────────────────────────
+// Key: `${text}|${r},${g},${b}|${cssSize}`, value: { canvas, w, h }
+const spriteCache = new Map()
+
+function getSprite(text, rgb, cssSize) {
+  const [r, g, b] = rgb
+  const key = `${text}|${r},${g},${b}|${cssSize}`
+  if (spriteCache.has(key)) return spriteCache.get(key)
+
+  const dpr    = window.devicePixelRatio || 1
+  const font   = `${cssSize}px 'JetBrains Mono','Fira Code',monospace`
+
+  // Measure on a scratch canvas
+  const scratch = document.createElement('canvas')
+  const sc      = scratch.getContext('2d')
+  sc.font = font
+  const metrics  = sc.measureText(text)
+  const tw       = Math.ceil(metrics.width) + 4       // 2px padding each side
+  const th       = Math.ceil(cssSize * 1.4) + 4
+
+  // Physical pixels
+  const pw = Math.ceil(tw * dpr)
+  const ph = Math.ceil(th * dpr)
+
+  const off = document.createElement('canvas')
+  off.width  = pw
+  off.height = ph
+  const ctx2 = off.getContext('2d')
+  ctx2.scale(dpr, dpr)
+  ctx2.font        = font
+  ctx2.fillStyle   = `rgb(${r},${g},${b})`
+  ctx2.textBaseline = 'top'
+  ctx2.fillText(text, 2, 2)
+
+  const sprite = { canvas: off, w: tw, h: th }
+  spriteCache.set(key, sprite)
+  return sprite
+}
+
+// ── Glyph particle ────────────────────────────────────────────────────────────
+// Speed in CSS px per 60Hz frame equivalent — matches original drift feel
+const BASE_SPEED = 0.10   // px/frame at depth=1
+
 class Glyph {
   constructor(cw, ch) {
-    this.cw = cw
-    this.ch = ch
-    this.respawn()
+    this.cw = cw; this.ch = ch
+    this._init()
   }
 
-  respawn() {
-    // Random position across the full viewport
-    this.x  = Math.random() * this.cw
-    this.y  = Math.random() * this.ch
+  _init() {
+    this.x = Math.random() * this.cw
+    this.y = Math.random() * this.ch
 
-    // Depth 0 = far (tiny, slow, dim)  1 = close (larger, faster, bright)
+    // depth 0=far 1=close
     this.depth = Math.random()
 
-    // Slow independent drift
+    // Random drift direction + depth-scaled speed — freely moving, not constrained
     const angle = Math.random() * Math.PI * 2
-    const spd   = 0.08 + this.depth * 0.22
-    this.vx = Math.cos(angle) * spd
-    this.vy = Math.sin(angle) * spd
+    const speed = BASE_SPEED * (0.35 + this.depth * 0.65)   // 0.035–0.10 px/frame
+    this.vx = Math.cos(angle) * speed
+    this.vy = Math.sin(angle) * speed
 
-    // Font size: 8 px (far) → 15 px (close)
-    this.fontSize = 8 + this.depth * 7
+    // sine-sway seeds — offset Y seed so axes don't sync
+    this.sx = Math.random() * 999
+    this.sy = Math.random() * 999 + 500
 
-    // Pick a glyph
-    this.text = GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
-
-    // Pick a colour
-    const ci = Math.floor(Math.random() * COLORS.length)
-    this.rgb = COLORS[ci]
-
-    // Base opacity: far = dimmer
+    // appearance
+    this.cssSize   = bucketSize(this.depth)
+    this.text      = GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
+    const ci       = Math.floor(Math.random() * COLORS.length)
+    this.rgb       = COLORS[ci]
     this.baseAlpha = 0.08 + this.depth * 0.32
+    this.isIcon    = ICON_GLYPHS.has(this.text)
+    this.angle     = Math.random() * Math.PI * 2
+    this.angSpd    = (Math.random() - 0.5) * 0.0003  // rad/ms
 
-    // Blink cursor block (10 % chance)
-    this.isCursor  = Math.random() < 0.10
+    // blink-cursor (▮/▯) — 10% chance
+    this.isCursor   = Math.random() < 0.10
     this.blinkPhase = Math.random() * Math.PI * 2
 
-    // Noise seeds for gentle wave drift
-    this.sx = Math.random() * 999
-    this.sy = Math.random() * 999
-
-    // Used to distribute initial positions over time so canvas fills gradually
-    this.age = Math.random() * 6000   // pre-age so they're scattered at start
+    // sway time offset so all particles aren't in phase
+    this.tOff = Math.random() * 60000
   }
 
-  update(t) {
-    this.age++
+  update(dt, now) {
+    const t = now + this.tOff
 
-    // Sine-wave wobble layered on top of base velocity
+    // gentle sine-wave sway layered on top — matches original wave wobble feel
     const wx = Math.sin(t * 0.0007 + this.sx) * 0.12
     const wy = Math.cos(t * 0.0009 + this.sy) * 0.12
 
-    // Mouse repulsion — push away when cursor is within 120 px
-    let rx = 0, ry = 0
+    // mouse repulsion — adds to velocity, then velocity decays gently (not snapped back)
     const dx = this.x - mouseX
     const dy = this.y - mouseY
-    const dist = Math.sqrt(dx * dx + dy * dy)
-    if (dist < 120 && dist > 0.1) {
-      const force = (120 - dist) / 120 * 0.8
-      rx = (dx / dist) * force
-      ry = (dy / dist) * force
+    const d2 = dx * dx + dy * dy
+    const R  = 130
+    if (d2 < R * R && d2 > 0.01) {
+      const d     = Math.sqrt(d2)
+      const force = (R - d) / R * 0.20
+      this.vx += (dx / d) * force
+      this.vy += (dy / d) * force
     }
+    // Gentle damping so pushed velocity bleeds off naturally — no hard snap back
+    this.vx *= 0.985
+    this.vy *= 0.985
 
-    this.x += this.vx + wx + rx
-    this.y += this.vy + wy + ry
+    this.x += (this.vx + wx) * dt
+    this.y += (this.vy + wy) * dt
 
-    // Wrap around edges so the canvas stays populated
-    if (this.x < -30)        this.x = this.cw + 30
+    if (this.isIcon) this.angle += this.angSpd * dt
+
+    // wrap
+    if (this.x < -30)          this.x = this.cw + 30
     if (this.x > this.cw + 30) this.x = -30
-    if (this.y < -20)        this.y = this.ch + 20
+    if (this.y < -20)          this.y = this.ch + 20
     if (this.y > this.ch + 20) this.y = -20
   }
 
-  draw(ctx, t) {
-    const [r, g, b] = this.rgb
+  draw(ctx, now) {
+    const t = now + this.tOff
+    let alpha = this.baseAlpha
 
-    // Cursor proximity brightens the glyph
-    const dx   = this.x - mouseX
-    const dy   = this.y - mouseY
-    const dist = Math.sqrt(dx * dx + dy * dy)
-    const brightBoost = dist < 120 ? (120 - dist) / 120 * 0.45 : 0
-    let alpha = Math.min(1, this.baseAlpha + brightBoost)
+    // cursor proximity brighten
+    const dx = this.x - mouseX, dy = this.y - mouseY
+    const d  = Math.sqrt(dx * dx + dy * dy)
+    if (d < 130) alpha = Math.min(1, alpha + (130 - d) / 130 * 0.45)
 
-    // Blink for cursor-block glyphs
+    // blink-cursor
     if (this.isCursor) {
-      const blink = (Math.sin(t * 0.05 + this.blinkPhase) + 1) / 2
+      const blink = (Math.sin(t * 0.004 + this.blinkPhase) + 1) / 2
       alpha *= blink
       this.text = blink > 0.5 ? '▮' : '▯'
     }
 
     if (alpha < 0.01) return
 
+    const sprite = getSprite(this.text, this.rgb, this.cssSize)
+
     ctx.save()
     ctx.globalAlpha = alpha
-    ctx.fillStyle   = `rgb(${r},${g},${b})`
-    ctx.font        = `${this.fontSize}px 'JetBrains Mono', 'Fira Code', monospace`
-    ctx.fillText(this.text, this.x, this.y)
+    if (this.isIcon && this.angle !== 0) {
+      ctx.translate(this.x + sprite.w / 2, this.y + sprite.h / 2)
+      ctx.rotate(this.angle)
+      ctx.drawImage(sprite.canvas, -sprite.w / 2, -sprite.h / 2, sprite.w, sprite.h)
+    } else {
+      ctx.drawImage(sprite.canvas, this.x, this.y, sprite.w, sprite.h)
+    }
     ctx.restore()
   }
 }
 
 // ── Connection lines ──────────────────────────────────────────────────────────
-const LINE_DIST      = 110   // max px between two glyphs to draw a line
-const LINE_DIST_SQ   = LINE_DIST * LINE_DIST
-const CURSOR_DIST    = 140   // connect cursor to nearby glyphs
+const LINK_D   = 110
+const LINK_D2  = LINK_D * LINK_D
+const CURSOR_D = 140
 
-function drawConnections(ctx, glyphs, t) {
+function drawConnections(ctx, glyphs) {
   const n = glyphs.length
   for (let i = 0; i < n; i++) {
     const a = glyphs[i]
 
-    // Cursor line
-    const cdx = a.x - mouseX
-    const cdy = a.y - mouseY
-    const cdSq = cdx * cdx + cdy * cdy
-    if (cdSq < CURSOR_DIST * CURSOR_DIST) {
-      const alpha = (1 - Math.sqrt(cdSq) / CURSOR_DIST) * 0.35
+    // cursor line
+    const cdx = a.x - mouseX, cdy = a.y - mouseY
+    const cd2  = cdx * cdx + cdy * cdy
+    if (cd2 < CURSOR_D * CURSOR_D) {
       const [r, g, b] = a.rgb
       ctx.beginPath()
-      ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`
+      ctx.strokeStyle = `rgba(${r},${g},${b},${(1 - Math.sqrt(cd2) / CURSOR_D) * 0.3})`
       ctx.lineWidth   = 0.5
-      ctx.moveTo(a.x, a.y)
+      ctx.moveTo(a.x + (a.isIcon ? 0 : 0), a.y)
       ctx.lineTo(mouseX, mouseY)
       ctx.stroke()
     }
 
-    // Glyph–glyph lines (only check forward pairs to avoid double-drawing)
+    // glyph–glyph — forward pairs only
     for (let j = i + 1; j < n; j++) {
       const b   = glyphs[j]
-      const ddx = a.x - b.x
-      const ddy = a.y - b.y
-      const dSq = ddx * ddx + ddy * ddy
-      if (dSq < LINE_DIST_SQ) {
-        const alpha = (1 - Math.sqrt(dSq) / LINE_DIST) * 0.13
-        // Blend colours of the two endpoints
-        const [ar, ag, ab] = a.rgb
+      const ddx = a.x - b.x, ddy = a.y - b.y
+      const d2  = ddx * ddx + ddy * ddy
+      if (d2 < LINK_D2) {
+        const [r, g, bv] = a.rgb
         ctx.beginPath()
-        ctx.strokeStyle = `rgba(${ar},${ag},${ab},${alpha})`
+        ctx.strokeStyle = `rgba(${r},${g},${bv},${(1 - Math.sqrt(d2) / LINK_D) * 0.12})`
         ctx.lineWidth   = 0.4
         ctx.moveTo(a.x, a.y)
         ctx.lineTo(b.x, b.y)
@@ -207,8 +261,10 @@ function drawConnections(ctx, glyphs, t) {
 
 // ── System state ──────────────────────────────────────────────────────────────
 let glyphs    = []
-let frameTime = 0
+let lastTime  = 0                // DOMHighResTimeStamp of previous frame
+const FRAME_MS = 1000 / 60      // 60 Hz equivalent
 
+// Fixed particle count — independent of GLYPHS array length
 const COUNT    = 80
 const COUNT_SM = 40
 
@@ -229,19 +285,25 @@ function resizeCanvas() {
   canvas.style.height = h + 'px'
   const ctx = canvas.getContext('2d')
   ctx.scale(dpr, dpr)
+  // Sprite cache is dpr-aware, clear it on resize in case dpr changed
+  spriteCache.clear()
   initGlyphs(w, h)
 }
 
-// ── Main RAF loop ─────────────────────────────────────────────────────────────
-function animate() {
+// ── Main RAF loop (timestamp-driven) ─────────────────────────────────────────
+function animate(now) {
   rafId = requestAnimationFrame(animate)
+  if (document.hidden) { lastTime = 0; return }
 
-  // Skip when tab is hidden — saves battery and GPU
-  if (document.hidden) return
+  // Delta-time in "60-Hz frames" so speeds look the same on any refresh rate.
+  // Cap at 3 frames to avoid huge jumps after tab switch / resize.
+  let dt = 1
+  if (lastTime > 0) {
+    dt = Math.min((now - lastTime) / FRAME_MS, 3)
+  }
+  lastTime = now
 
-  frameTime++
-
-  // 3D rotation lerp (existing, unchanged)
+  // 3D rotation lerp
   rotX   = lerp(rotX,   targetRotX,   LERP)
   rotY   = lerp(rotY,   targetRotY,   LERP)
   glowOp = lerp(glowOp, targetGlowOp, LERP)
@@ -269,19 +331,9 @@ function animate() {
 
   ctx.clearRect(0, 0, w, h)
 
-  // Update + draw glyphs
-  for (const g of glyphs) {
-    g.cw = w
-    g.ch = h
-    g.update(frameTime)
-  }
-
-  // Neural-net connection lines (drawn before glyphs so glyphs sit on top)
-  drawConnections(ctx, glyphs, frameTime)
-
-  for (const g of glyphs) {
-    g.draw(ctx, frameTime)
-  }
+  for (const g of glyphs) { g.cw = w; g.ch = h; g.update(dt, now) }
+  drawConnections(ctx, glyphs)
+  for (const g of glyphs) { g.draw(ctx, now) }
 }
 
 // ── Lifecycle ─────────────────────────────────────────────────────────────────
@@ -295,19 +347,14 @@ onMounted(() => {
     window.addEventListener('mousemove', onGlobalMouseMove, { passive: true })
     window.addEventListener('resize',    resizeCanvas,      { passive: true })
     resizeCanvas()
-    animate()
+    requestAnimationFrame(animate)
 
-    // ── Fade canvas after #projects scrolls past ──────────────────────────────
-    // We watch the #projects div. When it exits the viewport upward (user has
-    // scrolled past Latest Work), dim the canvas to a ghost trace. When it
-    // re-enters (user scrolls back up), restore it.
     const projectsEl = document.getElementById('projects')
     if (projectsEl) {
       sectionObserver = new IntersectionObserver(
         ([entry]) => {
           const canvas = canvasRef.value
           if (!canvas) return
-          // entry.boundingClientRect.top < 0  → section has scrolled above viewport
           const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.top < 0
           canvas.style.opacity = scrolledPast ? '0.06' : '1'
         },
@@ -323,6 +370,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize',    resizeCanvas)
   if (sectionObserver) sectionObserver.disconnect()
   if (rafId) cancelAnimationFrame(rafId)
+  spriteCache.clear()
   glyphs = []
 })
 </script>
